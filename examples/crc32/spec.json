@@ -1,0 +1,85 @@
+{
+  "name": "crc32",
+  "top_module": "crc32",
+  "summary": "CRC-32 字节并行校验：多项式 0x04C11DB7，MSB 先行，输入输出均不反转，初值 0xFFFFFFFF，无最终异或。",
+  "clock": {
+    "name": "clk",
+    "freq_mhz": 50.0,
+    "edge": "posedge"
+  },
+  "reset": {
+    "name": "rst_n",
+    "polarity": "active_low",
+    "style": "async"
+  },
+  "ports": [
+    {
+      "name": "clk",
+      "dir": "input",
+      "width": 1,
+      "desc": "系统时钟 50MHz"
+    },
+    {
+      "name": "rst_n",
+      "dir": "input",
+      "width": 1,
+      "desc": "异步复位，低有效"
+    },
+    {
+      "name": "valid",
+      "dir": "input",
+      "width": 1,
+      "desc": "数据有效，高电平表示本拍送入一个字节"
+    },
+    {
+      "name": "data",
+      "dir": "input",
+      "width": 8,
+      "desc": "输入字节"
+    },
+    {
+      "name": "crc",
+      "dir": "output",
+      "width": 32,
+      "desc": "当前 CRC 寄存器值"
+    }
+  ],
+  "parameters": [],
+  "behavior": [
+    "复位时 crc = 0xFFFFFFFF",
+    "valid=1 时，crc_next = LFSR(crc ^ {data, 24'b0})，共 8 次移位",
+    "每次移位：若最高位为 1 则 (c<<1)^0x04C11DB7，否则 c<<1",
+    "valid=0 时 crc 保持"
+  ],
+  "timing": {
+    "latency_cycles": 1,
+    "notes": "crc 在时钟上升沿后一拍更新"
+  },
+  "verification": {
+    "stimulus": [
+      {
+        "name": "复位",
+        "cycles": 4,
+        "drive": {
+          "rst_n": "1'b0"
+        }
+      },
+      {
+        "name": "释放复位",
+        "cycles": 2,
+        "drive": {
+          "rst_n": "1'b1"
+        }
+      }
+    ],
+    "checkpoints": [
+      {
+        "cycle": 8,
+        "signals": [
+          "q"
+        ],
+        "expect": "按行为逐拍推导"
+      }
+    ]
+  }
+}

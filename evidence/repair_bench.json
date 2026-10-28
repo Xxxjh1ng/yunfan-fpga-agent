@@ -1,0 +1,842 @@
+[
+  {
+    "design": "counter",
+    "fault": "F01",
+    "fault_name": "删除 endmodule",
+    "expected_taxon": "E02",
+    "first_stage": "",
+    "hit_taxa": {},
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 5.14,
+    "run_id": "counter_fault_F01_s0_20261028_135219",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "close_module": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "counter",
+    "fault": "F02",
+    "fault_name": "reg 改 wire",
+    "expected_taxon": "E04",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E04": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 1528,
+    "wall_s": 6.046,
+    "run_id": "counter_fault_F02_s0_20261028_135224",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "counter",
+    "fault": "F03",
+    "fault_name": "插入 #延时",
+    "expected_taxon": "E08",
+    "first_stage": "",
+    "hit_taxa": {
+      "E01": 2
+    },
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 5.356,
+    "run_id": "counter_fault_F03_s0_20261028_135230",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "strip_delay": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "counter",
+    "fault": "F04",
+    "fault_name": "删除一个 end",
+    "expected_taxon": "E01",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E01": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 5.038,
+    "run_id": "counter_fault_F04_s0_20261028_135235",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "counter",
+    "fault": "F05",
+    "fault_name": "端口改名",
+    "expected_taxon": "E09",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E09": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 5.072,
+    "run_id": "counter_fault_F05_s0_20261028_135240",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "counter",
+    "fault": "F06",
+    "fault_name": "端口位宽篡改",
+    "expected_taxon": "E09",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E09": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 5.185,
+    "run_id": "counter_fault_F06_s0_20261028_135245",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "counter",
+    "fault": "F08",
+    "fault_name": "常量变异",
+    "expected_taxon": "E11",
+    "first_stage": "sim",
+    "hit_taxa": {
+      "E11": 39
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 3868,
+    "wall_s": 6.697,
+    "run_id": "counter_fault_F08_s0_20261028_135250",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "counter",
+    "fault": "F09",
+    "fault_name": "非法引脚",
+    "expected_taxon": "E10",
+    "first_stage": "pnr",
+    "hit_taxa": {
+      "E10": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 7.301,
+    "run_id": "counter_fault_F09_s0_20261028_135257",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "crc32",
+    "fault": "F01",
+    "fault_name": "删除 endmodule",
+    "expected_taxon": "E02",
+    "first_stage": "",
+    "hit_taxa": {},
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 5.821,
+    "run_id": "crc32_fault_F01_s0_20261028_135351",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "close_module": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "crc32",
+    "fault": "F02",
+    "fault_name": "reg 改 wire",
+    "expected_taxon": "E04",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E04": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 1775,
+    "wall_s": 7.183,
+    "run_id": "crc32_fault_F02_s0_20261028_135357",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "crc32",
+    "fault": "F03",
+    "fault_name": "插入 #延时",
+    "expected_taxon": "E08",
+    "first_stage": "",
+    "hit_taxa": {
+      "E01": 2
+    },
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 5.874,
+    "run_id": "crc32_fault_F03_s0_20261028_135404",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "strip_delay": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "crc32",
+    "fault": "F04",
+    "fault_name": "删除一个 end",
+    "expected_taxon": "E01",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E01": 4,
+      "E05": 2
+    },
+    "success": true,
+    "repair_rounds": 3,
+    "methods": [
+      "deterministic",
+      "llm-patch",
+      "llm-patch"
+    ],
+    "tokens": 4546,
+    "wall_s": 7.874,
+    "run_id": "crc32_fault_F04_s0_20261028_135410",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "crc32",
+    "fault": "F09",
+    "fault_name": "非法引脚",
+    "expected_taxon": "E10",
+    "first_stage": "pnr",
+    "hit_taxa": {
+      "E10": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 8.431,
+    "run_id": "crc32_fault_F09_s0_20261028_135418",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "pwm",
+    "fault": "F01",
+    "fault_name": "删除 endmodule",
+    "expected_taxon": "E02",
+    "first_stage": "",
+    "hit_taxa": {},
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 5.044,
+    "run_id": "pwm_fault_F01_s0_20261028_135304",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "close_module": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "pwm",
+    "fault": "F03",
+    "fault_name": "插入 #延时",
+    "expected_taxon": "E08",
+    "first_stage": "",
+    "hit_taxa": {
+      "E01": 2
+    },
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 4.995,
+    "run_id": "pwm_fault_F03_s0_20261028_135309",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "strip_delay": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "pwm",
+    "fault": "F04",
+    "fault_name": "删除一个 end",
+    "expected_taxon": "E01",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E01": 1,
+      "E04": 2
+    },
+    "success": true,
+    "repair_rounds": 2,
+    "methods": [
+      "deterministic",
+      "llm-patch"
+    ],
+    "tokens": 1619,
+    "wall_s": 6.152,
+    "run_id": "pwm_fault_F04_s0_20261028_135314",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "pwm",
+    "fault": "F05",
+    "fault_name": "端口改名",
+    "expected_taxon": "E09",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E09": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 5.083,
+    "run_id": "pwm_fault_F05_s0_20261028_135321",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "pwm",
+    "fault": "F06",
+    "fault_name": "端口位宽篡改",
+    "expected_taxon": "E09",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E09": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 5.067,
+    "run_id": "pwm_fault_F06_s0_20261028_135326",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "pwm",
+    "fault": "F07",
+    "fault_name": "比较符变异",
+    "expected_taxon": "E11",
+    "first_stage": "sim",
+    "hit_taxa": {
+      "E11": 5
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 2310,
+    "wall_s": 6.59,
+    "run_id": "pwm_fault_F07_s0_20261028_135331",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "pwm",
+    "fault": "F08",
+    "fault_name": "常量变异",
+    "expected_taxon": "E11",
+    "first_stage": "sim",
+    "hit_taxa": {
+      "E11": 9
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 3004,
+    "wall_s": 6.345,
+    "run_id": "pwm_fault_F08_s0_20261028_135337",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "pwm",
+    "fault": "F09",
+    "fault_name": "非法引脚",
+    "expected_taxon": "E10",
+    "first_stage": "pnr",
+    "hit_taxa": {
+      "E10": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 7.033,
+    "run_id": "pwm_fault_F09_s0_20261028_135344",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "uart_tx",
+    "fault": "F01",
+    "fault_name": "删除 endmodule",
+    "expected_taxon": "E02",
+    "first_stage": "",
+    "hit_taxa": {},
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 5.509,
+    "run_id": "uart_tx_fault_F01_s0_20261028_135426",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "close_module": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "uart_tx",
+    "fault": "F02",
+    "fault_name": "reg 改 wire",
+    "expected_taxon": "E04",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E04": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 2134,
+    "wall_s": 6.188,
+    "run_id": "uart_tx_fault_F02_s0_20261028_135431",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "uart_tx",
+    "fault": "F03",
+    "fault_name": "插入 #延时",
+    "expected_taxon": "E08",
+    "first_stage": "",
+    "hit_taxa": {
+      "E01": 2
+    },
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 5.35,
+    "run_id": "uart_tx_fault_F03_s0_20261028_135438",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "strip_delay": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "uart_tx",
+    "fault": "F04",
+    "fault_name": "删除一个 end",
+    "expected_taxon": "E01",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E01": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 5.551,
+    "run_id": "uart_tx_fault_F04_s0_20261028_135443",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "uart_tx",
+    "fault": "F05",
+    "fault_name": "端口改名",
+    "expected_taxon": "E09",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E09": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 5.526,
+    "run_id": "uart_tx_fault_F05_s0_20261028_135449",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "uart_tx",
+    "fault": "F06",
+    "fault_name": "端口位宽篡改",
+    "expected_taxon": "E09",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E09": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 5.686,
+    "run_id": "uart_tx_fault_F06_s0_20261028_135454",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "uart_tx",
+    "fault": "F08",
+    "fault_name": "常量变异",
+    "expected_taxon": "E11",
+    "first_stage": "sim",
+    "hit_taxa": {
+      "E01": 1,
+      "E11": 11
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 3990,
+    "wall_s": 7.345,
+    "run_id": "uart_tx_fault_F08_s0_20261028_135500",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "uart_tx",
+    "fault": "F09",
+    "fault_name": "非法引脚",
+    "expected_taxon": "E10",
+    "first_stage": "pnr",
+    "hit_taxa": {
+      "E10": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 7.899,
+    "run_id": "uart_tx_fault_F09_s0_20261028_135507",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "vga_timing",
+    "fault": "F01",
+    "fault_name": "删除 endmodule",
+    "expected_taxon": "E02",
+    "first_stage": "",
+    "hit_taxa": {},
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 6.402,
+    "run_id": "vga_timing_fault_F01_s0_20261028_135705",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "close_module": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "vga_timing",
+    "fault": "F02",
+    "fault_name": "reg 改 wire",
+    "expected_taxon": "E04",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E04": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 2464,
+    "wall_s": 7.384,
+    "run_id": "vga_timing_fault_F02_s0_20261028_135711",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "vga_timing",
+    "fault": "F03",
+    "fault_name": "插入 #延时",
+    "expected_taxon": "E08",
+    "first_stage": "",
+    "hit_taxa": {
+      "E01": 2
+    },
+    "success": true,
+    "repair_rounds": 0,
+    "methods": [],
+    "tokens": 0,
+    "wall_s": 6.317,
+    "run_id": "vga_timing_fault_F03_s0_20261028_135719",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "strip_delay": 1,
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "vga_timing",
+    "fault": "F04",
+    "fault_name": "删除一个 end",
+    "expected_taxon": "E01",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E01": 4,
+      "E05": 10
+    },
+    "success": false,
+    "repair_rounds": 2,
+    "methods": [
+      "deterministic",
+      "llm-patch",
+      "none"
+    ],
+    "tokens": 7119,
+    "wall_s": 3.987,
+    "run_id": "vga_timing_fault_F04_s0_20261028_135725",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "vga_timing",
+    "fault": "F06",
+    "fault_name": "端口位宽篡改",
+    "expected_taxon": "E09",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E09": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 6.218,
+    "run_id": "vga_timing_fault_F06_s0_20261028_135729",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "vga_timing",
+    "fault": "F07",
+    "fault_name": "比较符变异",
+    "expected_taxon": "E11",
+    "first_stage": "lint",
+    "hit_taxa": {
+      "E05": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 2641,
+    "wall_s": 7.547,
+    "run_id": "vga_timing_fault_F07_s0_20261028_135735",
+    "eda_calls": 1,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": true
+  },
+  {
+    "design": "vga_timing",
+    "fault": "F08",
+    "fault_name": "常量变异",
+    "expected_taxon": "E11",
+    "first_stage": "sim",
+    "hit_taxa": {
+      "E11": 20
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "llm-patch"
+    ],
+    "tokens": 4630,
+    "wall_s": 8.807,
+    "run_id": "vga_timing_fault_F08_s0_20261028_135743",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  },
+  {
+    "design": "vga_timing",
+    "fault": "F09",
+    "fault_name": "非法引脚",
+    "expected_taxon": "E10",
+    "first_stage": "pnr",
+    "hit_taxa": {
+      "E10": 1
+    },
+    "success": true,
+    "repair_rounds": 1,
+    "methods": [
+      "deterministic"
+    ],
+    "tokens": 0,
+    "wall_s": 9.272,
+    "run_id": "vga_timing_fault_F09_s0_20261028_135752",
+    "eda_calls": 2,
+    "sanitize_fixes": {
+      "add_timescale": 1
+    },
+    "pre_eda": false
+  }
+]

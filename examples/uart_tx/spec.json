@@ -1,0 +1,98 @@
+{
+  "name": "uart_tx",
+  "top_module": "uart_tx",
+  "summary": "UART 8N1 发送器：1 起始位 + 8 数据位（LSB 先行）+ 1 停止位，位宽由 CLKS_PER_BIT 决定（115200bps@50MHz 为 434）。",
+  "clock": {
+    "name": "clk",
+    "freq_mhz": 50.0,
+    "edge": "posedge"
+  },
+  "reset": {
+    "name": "rst_n",
+    "polarity": "active_low",
+    "style": "async"
+  },
+  "ports": [
+    {
+      "name": "clk",
+      "dir": "input",
+      "width": 1,
+      "desc": "系统时钟 50MHz"
+    },
+    {
+      "name": "rst_n",
+      "dir": "input",
+      "width": 1,
+      "desc": "异步复位，低有效"
+    },
+    {
+      "name": "start",
+      "dir": "input",
+      "width": 1,
+      "desc": "发送启动脉冲，idle 时采样"
+    },
+    {
+      "name": "data",
+      "dir": "input",
+      "width": 8,
+      "desc": "待发送字节"
+    },
+    {
+      "name": "tx",
+      "dir": "output",
+      "width": 1,
+      "desc": "串行输出，空闲为高"
+    },
+    {
+      "name": "busy",
+      "dir": "output",
+      "width": 1,
+      "desc": "发送中标志"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "CLKS_PER_BIT",
+      "type": "int",
+      "default": 434,
+      "desc": "每个 bit 的时钟拍数"
+    }
+  ],
+  "behavior": [
+    "空闲态 tx=1、busy=0，等待 start",
+    "start 有效时锁存 data 并拉高 busy，下一拍进入起始位（tx=0）",
+    "每个位持续 CLKS_PER_BIT 拍，数据位 LSB 先行",
+    "停止位 tx=1 持续 CLKS_PER_BIT 拍后回到空闲，busy 拉低"
+  ],
+  "timing": {
+    "latency_cycles": 1,
+    "notes": "start 被采样的那一拍之后开始计时；按位中点采样判据"
+  },
+  "verification": {
+    "stimulus": [
+      {
+        "name": "复位",
+        "cycles": 4,
+        "drive": {
+          "rst_n": "1'b0"
+        }
+      },
+      {
+        "name": "释放复位",
+        "cycles": 2,
+        "drive": {
+          "rst_n": "1'b1"
+        }
+      }
+    ],
+    "checkpoints": [
+      {
+        "cycle": 8,
+        "signals": [
+          "q"
+        ],
+        "expect": "按行为逐拍推导"
+      }
+    ]
+  }
+}

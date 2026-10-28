@@ -1,0 +1,636 @@
+{
+  "corpus": {
+    "total": 32,
+    "accuracy": 1.0,
+    "rows": [
+      {
+        "id": "C01",
+        "tool": "icarus",
+        "taxon": "E01",
+        "log": "counter.v:12: syntax error\nI give up.",
+        "predicted": "E01",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C02",
+        "tool": "icarus",
+        "taxon": "E01",
+        "log": "tb_counter.v:30: syntax error: unexpected token: else",
+        "predicted": "E01",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C03",
+        "tool": "icarus",
+        "taxon": "E01",
+        "log": "dut.v:8: error: unexpected 'endcase'",
+        "predicted": "E01",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C04",
+        "tool": "icarus",
+        "taxon": "E03",
+        "log": "counter.v:2: error: Unable to bind wire/reg/memory `enable' in `counter'",
+        "predicted": "E03",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C05",
+        "tool": "icarus",
+        "taxon": "E03",
+        "log": "uart_tx.v:41: warning: implicit declaration of function `sbox_lookup'",
+        "predicted": "E03",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C06",
+        "tool": "icarus",
+        "taxon": "E09",
+        "log": "tb_uart.v:14: error: port size mismatch: .data expects 8 bits, given 4",
+        "predicted": "E09",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C07",
+        "tool": "icarus",
+        "taxon": "E11",
+        "log": "CHECK FAIL cycle=42 tx=1 expect=0\nCHECKS TOTAL: 20, FAILED: 1\nFINAL RESULT: FAILED",
+        "predicted": "E11",
+        "ok": true,
+        "n_diag": 2
+      },
+      {
+        "id": "C08",
+        "tool": "icarus",
+        "taxon": "E12",
+        "log": "FINAL RESULT: TIMEOUT",
+        "predicted": "E12",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C09",
+        "tool": "icarus",
+        "taxon": "E11",
+        "log": "ERROR: tb_top.v:88: $fatal called: LOGICAL MISMATCH",
+        "predicted": "E11",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C10",
+        "tool": "gowin",
+        "taxon": "E10",
+        "log": "ERROR  (CT1113) : \"counter.cst\":1 | Can't find pad location '4' in current package",
+        "predicted": "E10",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C11",
+        "tool": "gowin",
+        "taxon": "E10",
+        "log": "ERROR  (PR2017) : 'en' cannot be placed according to constraint, for the location is a dedicated pin (JTAG)",
+        "predicted": "E10",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C12",
+        "tool": "gowin",
+        "taxon": "E10",
+        "log": "ERROR  (PR2028) : The constrained location is useless in current package",
+        "predicted": "E10",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C13",
+        "tool": "gowin",
+        "taxon": "E03",
+        "log": "ERROR  (SYN1002) : \"counter.v\":14 | signal 'freq_cnt' is not declared",
+        "predicted": "E03",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C14",
+        "tool": "gowin",
+        "taxon": "E05",
+        "log": "ERROR  (SYN2005) : \"top.v\":22 | net 'q' has multiple drivers",
+        "predicted": "E05",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C15",
+        "tool": "gowin",
+        "taxon": "E06",
+        "log": "WARN  (SYN3010) : \"ctrl.v\":31 | latch is inferred for signal 'done'",
+        "predicted": "E06",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C16",
+        "tool": "gowin",
+        "taxon": "E07",
+        "log": "WARN  (SYN3007) : \"pwm.v\":18 | width mismatch in assignment, 8 bits truncated to 4",
+        "predicted": "E07",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C17",
+        "tool": "gowin",
+        "taxon": "E08",
+        "log": "ERROR  (SYN4001) : \"dut.v\":9 | delay is not supported in synthesizable code",
+        "predicted": "E08",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C18",
+        "tool": "gowin",
+        "taxon": "E13",
+        "log": "ERROR  (PR3021) : design exceeds the available logic resources of the device",
+        "predicted": "E13",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C19",
+        "tool": "gowin",
+        "taxon": "E09",
+        "log": "ERROR  (SYN1010) : \"top.v\":5 | port 'din' not found in module 'top'",
+        "predicted": "E09",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C20",
+        "tool": "gowin",
+        "taxon": "E02",
+        "log": "ERROR  (SYN0501) : \"dut.v\":1 | endmodule expected before end of file",
+        "predicted": "E02",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C21",
+        "tool": "vivado",
+        "taxon": "E06",
+        "log": "ERROR: [Synth 8-327] inferring latch for variable 'q_reg'",
+        "predicted": "E06",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C22",
+        "tool": "vivado",
+        "taxon": "E13",
+        "log": "ERROR: [Place 30-574] insufficient resources: 120% LUT utilization",
+        "predicted": "E13",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C23",
+        "tool": "vivado",
+        "taxon": "E14",
+        "log": "CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements, setup violation",
+        "predicted": "E14",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C24",
+        "tool": "vivado",
+        "taxon": "E01",
+        "log": "ERROR: [Synth 8-2715] syntax error near 'endmodule'",
+        "predicted": "E01",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C25",
+        "tool": "vivado",
+        "taxon": "E03",
+        "log": "ERROR: [Synth 8-1031] 'shift' is not declared",
+        "predicted": "E03",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C26",
+        "tool": "vivado",
+        "taxon": "E05",
+        "log": "ERROR: [Synth 8-6859] multiple drivers for net 'cnt'",
+        "predicted": "E05",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C27",
+        "tool": "icarus",
+        "taxon": "E04",
+        "log": "dut.v:6: error: procedural assignment to wire 'q' is not allowed",
+        "predicted": "E04",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C28",
+        "tool": "gowin",
+        "taxon": "E04",
+        "log": "ERROR  (SYN1020) : \"dut.v\":6 | wire 'q' cannot be assigned in always block",
+        "predicted": "E04",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C29",
+        "tool": "gowin",
+        "taxon": "E14",
+        "log": "WARN  (TA1001) : \"top\" | setup time violation on path clk -> q_reg",
+        "predicted": "E14",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C30",
+        "tool": "icarus",
+        "taxon": "E02",
+        "log": "dut.v:20: error: unexpected end of file, module 'dut' is incomplete",
+        "predicted": "E02",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C31",
+        "tool": "gowin",
+        "taxon": "E10",
+        "log": "ERROR  (CT1113) : \"vga.cst\":7 | Can't find pad location '99' in current package",
+        "predicted": "E10",
+        "ok": true,
+        "n_diag": 1
+      },
+      {
+        "id": "C32",
+        "tool": "icarus",
+        "taxon": "E11",
+        "log": "CHECK FAIL cycle=8 q=x expect=0\nFINAL RESULT: FAILED",
+        "predicted": "E11",
+        "ok": true,
+        "n_diag": 1
+      }
+    ],
+    "confusions": {}
+  },
+  "real_logs": {
+    "total": 37,
+    "accuracy": 0.1351,
+    "rows": [
+      {
+        "design": "counter",
+        "fault": "F01",
+        "expected": "E02",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "counter",
+        "fault": "F02",
+        "expected": "E04",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "counter",
+        "fault": "F03",
+        "expected": "E08",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "counter",
+        "fault": "F04",
+        "expected": "E01",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": true
+      },
+      {
+        "design": "counter",
+        "fault": "F05",
+        "expected": "E09",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "counter",
+        "fault": "F06",
+        "expected": "E09",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "counter",
+        "fault": "F08",
+        "expected": "E11",
+        "stage": "sim",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "counter",
+        "fault": "F09",
+        "expected": "E10",
+        "stage": "pnr",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "crc32",
+        "fault": "F01",
+        "expected": "E02",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "crc32",
+        "fault": "F02",
+        "expected": "E04",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "crc32",
+        "fault": "F03",
+        "expected": "E08",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "crc32",
+        "fault": "F04",
+        "expected": "E01",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 2,
+        "ok": true
+      },
+      {
+        "design": "crc32",
+        "fault": "F09",
+        "expected": "E10",
+        "stage": "pnr",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "pwm",
+        "fault": "F01",
+        "expected": "E02",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "pwm",
+        "fault": "F03",
+        "expected": "E08",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "pwm",
+        "fault": "F04",
+        "expected": "E01",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 2,
+        "ok": true
+      },
+      {
+        "design": "pwm",
+        "fault": "F05",
+        "expected": "E09",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "pwm",
+        "fault": "F06",
+        "expected": "E09",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "pwm",
+        "fault": "F07",
+        "expected": "E11",
+        "stage": "sim",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "pwm",
+        "fault": "F08",
+        "expected": "E11",
+        "stage": "sim",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "pwm",
+        "fault": "F09",
+        "expected": "E10",
+        "stage": "pnr",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "uart_tx",
+        "fault": "F01",
+        "expected": "E02",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "uart_tx",
+        "fault": "F02",
+        "expected": "E04",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "uart_tx",
+        "fault": "F03",
+        "expected": "E08",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "uart_tx",
+        "fault": "F04",
+        "expected": "E01",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": true
+      },
+      {
+        "design": "uart_tx",
+        "fault": "F05",
+        "expected": "E09",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "uart_tx",
+        "fault": "F06",
+        "expected": "E09",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "uart_tx",
+        "fault": "F08",
+        "expected": "E11",
+        "stage": "sim",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "uart_tx",
+        "fault": "F09",
+        "expected": "E10",
+        "stage": "pnr",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "vga_timing",
+        "fault": "F01",
+        "expected": "E02",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "vga_timing",
+        "fault": "F02",
+        "expected": "E04",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "vga_timing",
+        "fault": "F03",
+        "expected": "E08",
+        "stage": "",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "vga_timing",
+        "fault": "F04",
+        "expected": "E01",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 6,
+        "ok": true
+      },
+      {
+        "design": "vga_timing",
+        "fault": "F06",
+        "expected": "E09",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "vga_timing",
+        "fault": "F07",
+        "expected": "E11",
+        "stage": "lint",
+        "predicted": "E01",
+        "n_diag": 1,
+        "ok": false
+      },
+      {
+        "design": "vga_timing",
+        "fault": "F08",
+        "expected": "E11",
+        "stage": "sim",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      },
+      {
+        "design": "vga_timing",
+        "fault": "F09",
+        "expected": "E10",
+        "stage": "pnr",
+        "predicted": "",
+        "n_diag": 0,
+        "ok": false
+      }
+    ]
+  }
+}

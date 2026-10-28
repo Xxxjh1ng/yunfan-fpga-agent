@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "comment": "开发板档案。pins 中的引脚编号均取自云源 EDA 的器件封装库 IDE/data/device/<器件>/<封装>.json，保证 IO_LOC 可被 PnR 接受。",
+  "boards": [
+    {
+      "name": "xm_gw5a25",
+      "vendor": "小梅哥 (Xiaomei Ge)",
+      "device": "GW5A-25A",
+      "clock_mhz": 50.0,
+      "clock_pin": "F1",
+      "reset_pin": "A1",
+      "reset_active_low": true,
+      "io_standard": "LVCMOS33",
+      "pins": {
+        "clk": "F1",
+        "rst_n": "A1",
+        "rst": "A1",
+        "key[0]": "A1",
+        "key[1]": "F2",
+        "led[0]": "G1",
+        "led[1]": "G2",
+        "led[2]": "J1",
+        "led[3]": "J2",
+        "uart_tx": "A10",
+        "uart_rx": "A11",
+        "seg[0]": "J4",
+        "seg[1]": "K1",
+        "seg[2]": "K2",
+        "seg[3]": "K4",
+        "buzzer": "L1"
+      },
+      "notes": "GW5A-25A / MBGA121N 教学板，50MHz 单端时钟，低电平复位按键，4 位 LED，UART 与 4 位动态数码管。若实际板卡引脚不同，只改本文件即可。"
+    },
+    {
+      "name": "xm_gw2a18",
+      "vendor": "小梅哥 (Xiaomei Ge)",
+      "device": "GW2A-18C",
+      "clock_mhz": 50.0,
+      "clock_pin": "H11",
+      "reset_pin": "A2",
+      "reset_active_low": true,
+      "io_standard": "LVCMOS33",
+      "pins": {
+        "clk": "H11",
+        "rst_n": "A2",
+        "rst": "A2",
+        "key[0]": "A2",
+        "key[1]": "A3",
+        "led[0]": "A4",
+        "led[1]": "A5",
+        "led[2]": "B1",
+        "led[3]": "B3",
+        "uart_tx": "A10",
+        "uart_rx": "A11"
+      },
+      "notes": "GW2A-18C / PBGA256 参考板。H11 为 GCLKT_0 全局时钟脚，引脚编号取自 PBGA256 封装库；更换板卡时以原理图为准核对 pins。"
+    }
+  ]
+}

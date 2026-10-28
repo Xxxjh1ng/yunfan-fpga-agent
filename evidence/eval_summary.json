@@ -1,0 +1,5633 @@
+{
+  "generated_at": "2026-10-28 13:57:31",
+  "aggregate": {
+    "runs": 30,
+    "variants": [
+      "baseline",
+      "yunfan"
+    ],
+    "models": [
+      "deepseek-chat"
+    ],
+    "success_rate": 0.8,
+    "sim_pass_rate": 0.8,
+    "first_attempt_sim_pass_rate": 0.7333,
+    "first_attempt_compile_rate": 0.8,
+    "bitstream_rate": 0.8,
+    "avg_repair_rounds": 0.1,
+    "avg_repair_rounds_on_failure": 0.17,
+    "avg_tokens": 4544.0,
+    "avg_wall_s": 10.49,
+    "total_tokens": 136319,
+    "first_sim_pass_count": 22,
+    "taxonomy_hits": {
+      "E01": 426434,
+      "E11": 9
+    },
+    "repair_methods": {
+      "llm-rewrite": 9
+    },
+    "by_design": {
+      "counter": {
+        "n": 6,
+        "success": 6,
+        "success_rate": 1.0,
+        "sim_pass_rate": 1.0,
+        "pass@1": 1.0,
+        "pass@k": 1.0,
+        "avg_repair_rounds": 0.17,
+        "avg_rtl_attempts": 1.0,
+        "avg_tokens": 2915.0,
+        "avg_wall_s": 8.52,
+        "fmax_mhz": 465.3
+      },
+      "crc32": {
+        "n": 6,
+        "success": 5,
+        "success_rate": 0.8333,
+        "sim_pass_rate": 0.8333,
+        "pass@1": 0.8333,
+        "pass@k": 1.0,
+        "avg_repair_rounds": 0.33,
+        "avg_rtl_attempts": 1.0,
+        "avg_tokens": 4641.7,
+        "avg_wall_s": 10.67,
+        "fmax_mhz": 264.7
+      },
+      "pwm": {
+        "n": 6,
+        "success": 4,
+        "success_rate": 0.6667,
+        "sim_pass_rate": 0.6667,
+        "pass@1": 0.6667,
+        "pass@k": 1.0,
+        "avg_repair_rounds": 0.0,
+        "avg_rtl_attempts": 1.0,
+        "avg_tokens": 3553.2,
+        "avg_wall_s": 6.6,
+        "fmax_mhz": 633.2
+      },
+      "uart_tx": {
+        "n": 6,
+        "success": 6,
+        "success_rate": 1.0,
+        "sim_pass_rate": 1.0,
+        "pass@1": 1.0,
+        "pass@k": 1.0,
+        "avg_repair_rounds": 0.0,
+        "avg_rtl_attempts": 1.0,
+        "avg_tokens": 3490.7,
+        "avg_wall_s": 9.75,
+        "fmax_mhz": 118.5
+      },
+      "vga_timing": {
+        "n": 6,
+        "success": 3,
+        "success_rate": 0.5,
+        "sim_pass_rate": 0.5,
+        "pass@1": 0.5,
+        "pass@k": 0.95,
+        "avg_repair_rounds": 0.0,
+        "avg_rtl_attempts": 1.0,
+        "avg_tokens": 8119.3,
+        "avg_wall_s": 16.91,
+        "fmax_mhz": 313.2
+      }
+    },
+    "by_variant_design": {
+      "baseline": {
+        "counter": {
+          "n": 3,
+          "sim_pass_rate": 1.0,
+          "success_rate": 1.0,
+          "avg_repair_rounds": 0.33,
+          "avg_tokens": 4529.3,
+          "avg_wall_s": 10.87,
+          "fmax_mhz": 465.3,
+          "pass@1": 1.0,
+          "pass@3": 1.0
+        },
+        "crc32": {
+          "n": 3,
+          "sim_pass_rate": 0.6667,
+          "success_rate": 0.6667,
+          "avg_repair_rounds": 0.67,
+          "avg_tokens": 7748.3,
+          "avg_wall_s": 14.01,
+          "fmax_mhz": 264.7,
+          "pass@1": 0.6667,
+          "pass@3": 1.0
+        },
+        "pwm": {
+          "n": 3,
+          "sim_pass_rate": 0.3333,
+          "success_rate": 0.3333,
+          "avg_repair_rounds": 0.0,
+          "avg_tokens": 5868.3,
+          "avg_wall_s": 7.36,
+          "fmax_mhz": 633.2,
+          "pass@1": 0.3333,
+          "pass@3": 1.0
+        },
+        "uart_tx": {
+          "n": 3,
+          "sim_pass_rate": 1.0,
+          "success_rate": 1.0,
+          "avg_repair_rounds": 0.0,
+          "avg_tokens": 4897.0,
+          "avg_wall_s": 11.28,
+          "fmax_mhz": 116.2,
+          "pass@1": 1.0,
+          "pass@3": 1.0
+        },
+        "vga_timing": {
+          "n": 3,
+          "sim_pass_rate": 0.0,
+          "success_rate": 0.0,
+          "avg_repair_rounds": 0.0,
+          "avg_tokens": 13917.0,
+          "avg_wall_s": 25.61,
+          "fmax_mhz": 0.0,
+          "pass@1": 0.0,
+          "pass@3": 0.0
+        }
+      },
+      "yunfan": {
+        "counter": {
+          "n": 3,
+          "sim_pass_rate": 1.0,
+          "success_rate": 1.0,
+          "avg_repair_rounds": 0.0,
+          "avg_tokens": 1300.7,
+          "avg_wall_s": 6.17,
+          "fmax_mhz": 465.3,
+          "pass@1": 1.0,
+          "pass@3": 1.0
+        },
+        "crc32": {
+          "n": 3,
+          "sim_pass_rate": 1.0,
+          "success_rate": 1.0,
+          "avg_repair_rounds": 0.0,
+          "avg_tokens": 1535.0,
+          "avg_wall_s": 7.34,
+          "fmax_mhz": 264.7,
+          "pass@1": 1.0,
+          "pass@3": 1.0
+        },
+        "pwm": {
+          "n": 3,
+          "sim_pass_rate": 1.0,
+          "success_rate": 1.0,
+          "avg_repair_rounds": 0.0,
+          "avg_tokens": 1238.0,
+          "avg_wall_s": 5.85,
+          "fmax_mhz": 633.2,
+          "pass@1": 1.0,
+          "pass@3": 1.0
+        },
+        "uart_tx": {
+          "n": 3,
+          "sim_pass_rate": 1.0,
+          "success_rate": 1.0,
+          "avg_repair_rounds": 0.0,
+          "avg_tokens": 2084.3,
+          "avg_wall_s": 8.23,
+          "fmax_mhz": 120.7,
+          "pass@1": 1.0,
+          "pass@3": 1.0
+        },
+        "vga_timing": {
+          "n": 3,
+          "sim_pass_rate": 1.0,
+          "success_rate": 1.0,
+          "avg_repair_rounds": 0.0,
+          "avg_tokens": 2321.7,
+          "avg_wall_s": 8.21,
+          "fmax_mhz": 313.2,
+          "pass@1": 1.0,
+          "pass@3": 1.0
+        }
+      }
+    }
+  },
+  "variants": [
+    {
+      "variant": "baseline",
+      "runs": 15,
+      "sim_pass_rate": 0.6,
+      "first_attempt_sim_pass_rate": 0.4667,
+      "success_rate": 0.6,
+      "avg_repair_rounds": 0.2,
+      "avg_tokens": 7392.0,
+      "avg_wall_s": 13.83,
+      "bitstream_rate": 0.6
+    },
+    {
+      "variant": "yunfan",
+      "runs": 15,
+      "sim_pass_rate": 1.0,
+      "first_attempt_sim_pass_rate": 1.0,
+      "success_rate": 1.0,
+      "avg_repair_rounds": 0.0,
+      "avg_tokens": 1695.9,
+      "avg_wall_s": 7.16,
+      "bitstream_rate": 1.0
+    }
+  ],
+  "records": [
+    {
+      "run_id": "counter_yunfan_s0_20261028_135217",
+      "design": "counter",
+      "seed": 0,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 24,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 44,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217\\impl\\pnr\\counter.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 7.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.03,
+        "register_used": 4.0,
+        "register_total": 23280.0,
+        "register_pct": 0.02,
+        "cls_used": 4.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.03,
+        "io_used": 12.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 7.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 465.29,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1159,
+        "completion_tokens": 139,
+        "total_tokens": 1298,
+        "latency_s": 0.954,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 139,
+            "latency": 0.954
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 0.96,
+        "synth_0_s": 0.438,
+        "sim_0_s": 0.043,
+        "pnr_0_s": 4.687,
+        "total_s": 6.136
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:52:17",
+      "finished_at": "2026-10-28 13:52:23",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217\\impl\\pnr\\counter.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217\\impl\\pnr\\counter.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217\\impl\\pnr\\counter_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217\\impl\\pnr\\counter.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217\\src\\counter.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217\\src\\tb_counter.v"
+      },
+      "events": [
+        {
+          "ts": "13:52:17",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 counter/counter｜50MHz｜端口 in:clk[1], in:rst_n[1], in:en[1], in:load[1], in:din[4], ou:q[4]\n  摘要：4 位可加载使能计数器：load 优先于 en，异步低有效复位后输出 0；计满后自然回绕。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:17",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 12 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:18",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1298 tokens / 1.0s",
+          "level": "info",
+          "duration_s": 0.954,
+          "tokens": 1298
+        },
+        {
+          "ts": "13:52:18",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:18",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "24 行｜24 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1298
+        },
+        {
+          "ts": "13:52:18",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "7 组驱动｜44 个检查点｜覆盖率来源=4 位可加载使能计数器：load 优先于 en，异步低有效复位",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:18",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "44 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:23",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s0_20261028_135217\\impl\\pnr\\counter.fs｜Fmax 465.3MHz｜LUT 7｜FF 4",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "counter_yunfan_s1_20261028_135223",
+      "design": "counter",
+      "seed": 1,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 27,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 44,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223\\impl\\pnr\\counter.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 7.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.03,
+        "register_used": 4.0,
+        "register_total": 23280.0,
+        "register_pct": 0.02,
+        "cls_used": 4.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.03,
+        "io_used": 12.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 7.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 465.29,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1159,
+        "completion_tokens": 145,
+        "total_tokens": 1304,
+        "latency_s": 1.018,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 145,
+            "latency": 1.018
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.021,
+        "synth_0_s": 0.46,
+        "sim_0_s": 0.038,
+        "pnr_0_s": 4.75,
+        "total_s": 6.273
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:52:23",
+      "finished_at": "2026-10-28 13:52:29",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223\\impl\\pnr\\counter.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223\\impl\\pnr\\counter.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223\\impl\\pnr\\counter_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223\\impl\\pnr\\counter.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223\\src\\counter.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223\\src\\tb_counter.v"
+      },
+      "events": [
+        {
+          "ts": "13:52:23",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 counter/counter｜50MHz｜端口 in:clk[1], in:rst_n[1], in:en[1], in:load[1], in:din[4], ou:q[4]\n  摘要：4 位可加载使能计数器：load 优先于 en，异步低有效复位后输出 0；计满后自然回绕。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:23",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 12 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:24",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1304 tokens / 1.0s",
+          "level": "info",
+          "duration_s": 1.018,
+          "tokens": 1304
+        },
+        {
+          "ts": "13:52:24",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:24",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "27 行｜27 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1304
+        },
+        {
+          "ts": "13:52:24",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "7 组驱动｜44 个检查点｜覆盖率来源=4 位可加载使能计数器：load 优先于 en，异步低有效复位",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:24",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "44 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:29",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s1_20261028_135223\\impl\\pnr\\counter.fs｜Fmax 465.3MHz｜LUT 7｜FF 4",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "counter_yunfan_s2_20261028_135229",
+      "design": "counter",
+      "seed": 2,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 24,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 44,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229\\impl\\pnr\\counter.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 7.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.03,
+        "register_used": 4.0,
+        "register_total": 23280.0,
+        "register_pct": 0.02,
+        "cls_used": 4.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.03,
+        "io_used": 12.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 7.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 465.29,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1159,
+        "completion_tokens": 141,
+        "total_tokens": 1300,
+        "latency_s": 0.773,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 141,
+            "latency": 0.773
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 0.803,
+        "synth_0_s": 0.512,
+        "sim_0_s": 0.049,
+        "pnr_0_s": 4.726,
+        "total_s": 6.093
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:52:29",
+      "finished_at": "2026-10-28 13:52:35",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229\\impl\\pnr\\counter.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229\\impl\\pnr\\counter.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229\\impl\\pnr\\counter_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229\\impl\\pnr\\counter.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229\\src\\counter.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229\\src\\tb_counter.v"
+      },
+      "events": [
+        {
+          "ts": "13:52:29",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 counter/counter｜50MHz｜端口 in:clk[1], in:rst_n[1], in:en[1], in:load[1], in:din[4], ou:q[4]\n  摘要：4 位可加载使能计数器：load 优先于 en，异步低有效复位后输出 0；计满后自然回绕。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:29",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 12 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:30",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1300 tokens / 0.8s",
+          "level": "info",
+          "duration_s": 0.773,
+          "tokens": 1300
+        },
+        {
+          "ts": "13:52:30",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:30",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "24 行｜24 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1300
+        },
+        {
+          "ts": "13:52:30",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "7 组驱动｜44 个检查点｜覆盖率来源=4 位可加载使能计数器：load 优先于 en，异步低有效复位",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:30",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "44 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:35",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_yunfan_s2_20261028_135229\\impl\\pnr\\counter.fs｜Fmax 465.3MHz｜LUT 7｜FF 4",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "counter_baseline_s0_20261028_135235",
+      "design": "counter",
+      "seed": 0,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 24,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 1,
+      "repair_methods": [
+        "llm-rewrite"
+      ],
+      "taxonomy_hits": {
+        "E11": 1,
+        "E01": 1
+      },
+      "synth_ok": false,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\impl\\pnr\\counter.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 7.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.03,
+        "register_used": 4.0,
+        "register_total": 23280.0,
+        "register_pct": 0.02,
+        "cls_used": 4.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.03,
+        "io_used": 12.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 7.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 465.29,
+      "tokens": {
+        "calls": 4,
+        "failures": 0,
+        "prompt_tokens": 4318,
+        "completion_tokens": 2847,
+        "total_tokens": 7165,
+        "latency_s": 9.621,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 139,
+            "latency": 0.757
+          },
+          "tb-llm": {
+            "calls": 2,
+            "prompt": 1862,
+            "completion": 2579,
+            "latency": 8.148
+          },
+          "debug-raw-1": {
+            "calls": 1,
+            "prompt": 1297,
+            "completion": 129,
+            "latency": 0.716
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 0.76,
+        "sim_0_s": 0.04,
+        "sim_1_s": 0.036,
+        "pnr_1_s": 4.673,
+        "total_s": 14.378
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:52:35",
+      "finished_at": "2026-10-28 13:52:50",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\impl\\pnr\\counter.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\impl\\pnr\\counter.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\impl\\pnr\\counter_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\impl\\pnr\\counter.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\src\\counter.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\src\\tb_counter.v"
+      },
+      "events": [
+        {
+          "ts": "13:52:35",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 counter/counter｜50MHz｜端口 in:clk[1], in:rst_n[1], in:en[1], in:load[1], in:din[4], ou:q[4]\n  摘要：4 位可加载使能计数器：load 优先于 en，异步低有效复位后输出 0；计满后自然回绕。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:35",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 12 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:36",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1298 tokens / 0.8s",
+          "level": "info",
+          "duration_s": 0.757,
+          "tokens": 1298
+        },
+        {
+          "ts": "13:52:36",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:36",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "24 行｜24 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1298
+        },
+        {
+          "ts": "13:52:41",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "2486 tokens / 4.8s",
+          "level": "info",
+          "duration_s": 4.799,
+          "tokens": 2486
+        },
+        {
+          "ts": "13:52:41",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "164 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2486
+        },
+        {
+          "ts": "13:52:41",
+          "agent": "编排器",
+          "action": "仿真未通过（第 0 轮）",
+          "detail": "[simulate] FAIL (0.04s) | [E11 功能不匹配] 自验证 Testbench 判定功能不匹配; [E01 结构/语法不配对] FATAL: C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\src\\tb_counter.v:152:",
+          "level": "warning",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:41",
+          "agent": "调试修复",
+          "action": "LLM 调用 (debug-raw-1)",
+          "detail": "1426 tokens / 0.7s",
+          "level": "info",
+          "duration_s": 0.717,
+          "tokens": 1426
+        },
+        {
+          "ts": "13:52:41",
+          "agent": "调试修复",
+          "action": "整模块重写（无结构化诊断）",
+          "detail": "22 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1426
+        },
+        {
+          "ts": "13:52:45",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "1955 tokens / 3.3s",
+          "level": "info",
+          "duration_s": 3.349,
+          "tokens": 1955
+        },
+        {
+          "ts": "13:52:45",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "107 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1955
+        },
+        {
+          "ts": "13:52:45",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "0 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:50",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s0_20261028_135235\\impl\\pnr\\counter.fs｜Fmax 465.3MHz｜LUT 7｜FF 4",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "counter_baseline_s1_20261028_135250",
+      "design": "counter",
+      "seed": 1,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 24,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": false,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250\\impl\\pnr\\counter.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 7.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.03,
+        "register_used": 4.0,
+        "register_total": 23280.0,
+        "register_pct": 0.02,
+        "cls_used": 4.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.03,
+        "io_used": 12.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 7.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 465.29,
+      "tokens": {
+        "calls": 2,
+        "failures": 0,
+        "prompt_tokens": 2095,
+        "completion_tokens": 1101,
+        "total_tokens": 3196,
+        "latency_s": 4.297,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 139,
+            "latency": 1.176
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 936,
+            "completion": 962,
+            "latency": 3.12
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.179,
+        "sim_0_s": 0.038,
+        "pnr_0_s": 4.7,
+        "total_s": 9.04
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:52:50",
+      "finished_at": "2026-10-28 13:52:59",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250\\impl\\pnr\\counter.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250\\impl\\pnr\\counter.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250\\impl\\pnr\\counter_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250\\impl\\pnr\\counter.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250\\src\\counter.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250\\src\\tb_counter.v"
+      },
+      "events": [
+        {
+          "ts": "13:52:50",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 counter/counter｜50MHz｜端口 in:clk[1], in:rst_n[1], in:en[1], in:load[1], in:din[4], ou:q[4]\n  摘要：4 位可加载使能计数器：load 优先于 en，异步低有效复位后输出 0；计满后自然回绕。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:50",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 12 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:51",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1298 tokens / 1.2s",
+          "level": "info",
+          "duration_s": 1.176,
+          "tokens": 1298
+        },
+        {
+          "ts": "13:52:51",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:51",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "24 行｜24 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1298
+        },
+        {
+          "ts": "13:52:54",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "1898 tokens / 3.1s",
+          "level": "info",
+          "duration_s": 3.12,
+          "tokens": 1898
+        },
+        {
+          "ts": "13:52:54",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "128 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1898
+        },
+        {
+          "ts": "13:52:54",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "0 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:59",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s1_20261028_135250\\impl\\pnr\\counter.fs｜Fmax 465.3MHz｜LUT 7｜FF 4",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "counter_baseline_s2_20261028_135259",
+      "design": "counter",
+      "seed": 2,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 27,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": false,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259\\impl\\pnr\\counter.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 7.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.03,
+        "register_used": 4.0,
+        "register_total": 23280.0,
+        "register_pct": 0.02,
+        "cls_used": 4.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.03,
+        "io_used": 12.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 7.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 465.29,
+      "tokens": {
+        "calls": 2,
+        "failures": 0,
+        "prompt_tokens": 2101,
+        "completion_tokens": 1126,
+        "total_tokens": 3227,
+        "latency_s": 4.396,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 145,
+            "latency": 0.981
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 942,
+            "completion": 981,
+            "latency": 3.416
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 0.985,
+        "sim_0_s": 0.034,
+        "pnr_0_s": 4.748,
+        "total_s": 9.185
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:52:59",
+      "finished_at": "2026-10-28 13:53:08",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259\\impl\\pnr\\counter.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259\\impl\\pnr\\counter.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259\\impl\\pnr\\counter_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259\\impl\\pnr\\counter.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259\\src\\counter.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259\\src\\tb_counter.v"
+      },
+      "events": [
+        {
+          "ts": "13:52:59",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 counter/counter｜50MHz｜端口 in:clk[1], in:rst_n[1], in:en[1], in:load[1], in:din[4], ou:q[4]\n  摘要：4 位可加载使能计数器：load 优先于 en，异步低有效复位后输出 0；计满后自然回绕。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:52:59",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 12 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:00",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1304 tokens / 1.0s",
+          "level": "info",
+          "duration_s": 0.981,
+          "tokens": 1304
+        },
+        {
+          "ts": "13:53:00",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:00",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "27 行｜27 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1304
+        },
+        {
+          "ts": "13:53:03",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "1923 tokens / 3.4s",
+          "level": "info",
+          "duration_s": 3.416,
+          "tokens": 1923
+        },
+        {
+          "ts": "13:53:03",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "107 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1923
+        },
+        {
+          "ts": "13:53:03",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "0 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:08",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\counter_baseline_s2_20261028_135259\\impl\\pnr\\counter.fs｜Fmax 465.3MHz｜LUT 7｜FF 4",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "pwm_yunfan_s0_20261028_135308",
+      "design": "pwm",
+      "seed": 0,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 22,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 43,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308\\impl\\pnr\\pwm.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 18.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.08,
+        "register_used": 8.0,
+        "register_total": 23280.0,
+        "register_pct": 0.03,
+        "cls_used": 11.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.1,
+        "io_used": 11.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 1.0,
+        "alu_used": 17.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 633.232,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1112,
+        "completion_tokens": 126,
+        "total_tokens": 1238,
+        "latency_s": 0.628,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1112,
+            "completion": 126,
+            "latency": 0.628
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 0.632,
+        "synth_0_s": 0.407,
+        "sim_0_s": 0.052,
+        "pnr_0_s": 4.553,
+        "total_s": 5.649
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:53:08",
+      "finished_at": "2026-10-28 13:53:13",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308\\impl\\pnr\\pwm.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308\\impl\\pnr\\pwm.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308\\impl\\pnr\\pwm_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308\\impl\\pnr\\pwm.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308\\src\\pwm.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308\\src\\tb_pwm.v"
+      },
+      "events": [
+        {
+          "ts": "13:53:08",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 pwm/pwm｜50MHz｜端口 in:clk[1], in:rst_n[1], in:duty[8], ou:pwm_out[1]\n  摘要：8 位 PWM 发生器：自由运行计数器与占空比比较，输出无毛刺的组合比较结果。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:08",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 11 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:08",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1238 tokens / 0.6s",
+          "level": "info",
+          "duration_s": 0.628,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:08",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:08",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "22 行｜22 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:08",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "4 组驱动｜43 个检查点｜覆盖率来源=8 位自由计数器 + 占空比比较，组合输出 pwm_out",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:09",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "43 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:13",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s0_20261028_135308\\impl\\pnr\\pwm.fs｜Fmax 633.2MHz｜LUT 18｜FF 8",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "pwm_yunfan_s1_20261028_135313",
+      "design": "pwm",
+      "seed": 1,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 22,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 43,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313\\impl\\pnr\\pwm.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 18.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.08,
+        "register_used": 8.0,
+        "register_total": 23280.0,
+        "register_pct": 0.03,
+        "cls_used": 11.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.1,
+        "io_used": 11.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 1.0,
+        "alu_used": 17.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 633.232,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1112,
+        "completion_tokens": 126,
+        "total_tokens": 1238,
+        "latency_s": 0.759,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1112,
+            "completion": 126,
+            "latency": 0.759
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 0.762,
+        "synth_0_s": 0.478,
+        "sim_0_s": 0.052,
+        "pnr_0_s": 4.603,
+        "total_s": 5.897
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:53:13",
+      "finished_at": "2026-10-28 13:53:19",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313\\impl\\pnr\\pwm.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313\\impl\\pnr\\pwm.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313\\impl\\pnr\\pwm_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313\\impl\\pnr\\pwm.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313\\src\\pwm.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313\\src\\tb_pwm.v"
+      },
+      "events": [
+        {
+          "ts": "13:53:13",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 pwm/pwm｜50MHz｜端口 in:clk[1], in:rst_n[1], in:duty[8], ou:pwm_out[1]\n  摘要：8 位 PWM 发生器：自由运行计数器与占空比比较，输出无毛刺的组合比较结果。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:13",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 11 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:14",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1238 tokens / 0.8s",
+          "level": "info",
+          "duration_s": 0.759,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:14",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:14",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "22 行｜22 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:14",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "4 组驱动｜43 个检查点｜覆盖率来源=8 位自由计数器 + 占空比比较，组合输出 pwm_out",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:15",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "43 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:19",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s1_20261028_135313\\impl\\pnr\\pwm.fs｜Fmax 633.2MHz｜LUT 18｜FF 8",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "pwm_yunfan_s2_20261028_135319",
+      "design": "pwm",
+      "seed": 2,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 22,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 43,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319\\impl\\pnr\\pwm.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 18.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.08,
+        "register_used": 8.0,
+        "register_total": 23280.0,
+        "register_pct": 0.03,
+        "cls_used": 11.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.1,
+        "io_used": 11.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 1.0,
+        "alu_used": 17.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 633.232,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1112,
+        "completion_tokens": 126,
+        "total_tokens": 1238,
+        "latency_s": 0.853,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1112,
+            "completion": 126,
+            "latency": 0.853
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 0.855,
+        "synth_0_s": 0.385,
+        "sim_0_s": 0.038,
+        "pnr_0_s": 4.707,
+        "total_s": 5.99
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:53:19",
+      "finished_at": "2026-10-28 13:53:25",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319\\impl\\pnr\\pwm.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319\\impl\\pnr\\pwm.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319\\impl\\pnr\\pwm_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319\\impl\\pnr\\pwm.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319\\src\\pwm.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319\\src\\tb_pwm.v"
+      },
+      "events": [
+        {
+          "ts": "13:53:19",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 pwm/pwm｜50MHz｜端口 in:clk[1], in:rst_n[1], in:duty[8], ou:pwm_out[1]\n  摘要：8 位 PWM 发生器：自由运行计数器与占空比比较，输出无毛刺的组合比较结果。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:19",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 11 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:20",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1238 tokens / 0.9s",
+          "level": "info",
+          "duration_s": 0.853,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:20",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:20",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "22 行｜22 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:20",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "4 组驱动｜43 个检查点｜覆盖率来源=8 位自由计数器 + 占空比比较，组合输出 pwm_out",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:21",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "43 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:25",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_yunfan_s2_20261028_135319\\impl\\pnr\\pwm.fs｜Fmax 633.2MHz｜LUT 18｜FF 8",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "pwm_baseline_s0_20261028_135325",
+      "design": "pwm",
+      "seed": 0,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 22,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": false,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325\\impl\\pnr\\pwm.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 18.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.08,
+        "register_used": 8.0,
+        "register_total": 23280.0,
+        "register_pct": 0.03,
+        "cls_used": 11.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.1,
+        "io_used": 11.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 1.0,
+        "alu_used": 17.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 633.232,
+      "tokens": {
+        "calls": 2,
+        "failures": 0,
+        "prompt_tokens": 1988,
+        "completion_tokens": 1074,
+        "total_tokens": 3062,
+        "latency_s": 3.85,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1112,
+            "completion": 126,
+            "latency": 0.729
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 876,
+            "completion": 948,
+            "latency": 3.121
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 0.732,
+        "sim_0_s": 0.051,
+        "pnr_0_s": 4.598,
+        "total_s": 8.506
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:53:25",
+      "finished_at": "2026-10-28 13:53:34",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325\\impl\\pnr\\pwm.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325\\impl\\pnr\\pwm.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325\\impl\\pnr\\pwm_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325\\impl\\pnr\\pwm.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325\\src\\pwm.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325\\src\\tb_pwm.v"
+      },
+      "events": [
+        {
+          "ts": "13:53:25",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 pwm/pwm｜50MHz｜端口 in:clk[1], in:rst_n[1], in:duty[8], ou:pwm_out[1]\n  摘要：8 位 PWM 发生器：自由运行计数器与占空比比较，输出无毛刺的组合比较结果。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:25",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 11 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:26",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1238 tokens / 0.7s",
+          "level": "info",
+          "duration_s": 0.729,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:26",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:26",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "22 行｜22 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:29",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "1824 tokens / 3.1s",
+          "level": "info",
+          "duration_s": 3.121,
+          "tokens": 1824
+        },
+        {
+          "ts": "13:53:29",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "103 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1824
+        },
+        {
+          "ts": "13:53:29",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "0 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:34",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s0_20261028_135325\\impl\\pnr\\pwm.fs｜Fmax 633.2MHz｜LUT 18｜FF 8",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "pwm_baseline_s1_20261028_135334",
+      "design": "pwm",
+      "seed": 1,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 22,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": false,
+      "sim_ok": false,
+      "sim_verdict": "fail",
+      "repair_rounds": 0,
+      "repair_methods": [
+        "llm-rewrite"
+      ],
+      "taxonomy_hits": {
+        "E01": 235,
+        "E11": 1
+      },
+      "synth_ok": false,
+      "pnr_ok": false,
+      "bitstream": "",
+      "programmed": false,
+      "resources": {},
+      "fmax_mhz": 0.0,
+      "tokens": {
+        "calls": 3,
+        "failures": 0,
+        "prompt_tokens": 7799,
+        "completion_tokens": 1140,
+        "total_tokens": 8939,
+        "latency_s": 4.559,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1112,
+            "completion": 126,
+            "latency": 0.808
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 876,
+            "completion": 888,
+            "latency": 3.036
+          },
+          "debug-raw-1": {
+            "calls": 1,
+            "prompt": 5811,
+            "completion": 126,
+            "latency": 0.715
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 0.811,
+        "sim_0_s": 0.05,
+        "total_s": 4.616
+      },
+      "success": false,
+      "error": "闭环未收敛：[simulate] FAIL (0.05s) | [E01 结构/语法不配对] ERROR @7760000000000000: duty=128 cnt=81 pwm_out=0 exp=1; [E01 结构/语法不配对] ERROR @7780000000000000: duty=128 cnt=82 pwm_out=0 exp=1; [E01 结构/语法不配对] ERROR @7800000000000000: duty=128 cnt=83 pwm_out=0 exp=1",
+      "started_at": "2026-10-28 13:53:34",
+      "finished_at": "2026-10-28 13:53:38",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s1_20261028_135334",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s1_20261028_135334\\src\\pwm.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s1_20261028_135334\\src\\tb_pwm.v"
+      },
+      "events": [
+        {
+          "ts": "13:53:34",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 pwm/pwm｜50MHz｜端口 in:clk[1], in:rst_n[1], in:duty[8], ou:pwm_out[1]\n  摘要：8 位 PWM 发生器：自由运行计数器与占空比比较，输出无毛刺的组合比较结果。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:34",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 11 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:35",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1238 tokens / 0.8s",
+          "level": "info",
+          "duration_s": 0.808,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:35",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:35",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "22 行｜22 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:38",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "1764 tokens / 3.0s",
+          "level": "info",
+          "duration_s": 3.036,
+          "tokens": 1764
+        },
+        {
+          "ts": "13:53:38",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "110 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1764
+        },
+        {
+          "ts": "13:53:38",
+          "agent": "编排器",
+          "action": "仿真未通过（第 0 轮）",
+          "detail": "[simulate] FAIL (0.05s) | [E01 结构/语法不配对] ERROR @7760000000000000: duty=128 cnt=81 pwm_out=0 exp=1; [E01 结构/语法不配对] ERROR @7780000000000000: duty=128 cnt=82 pwm_out=0 exp=1; [E01 结构/语法不配对] ERROR @7800000000000000: duty=128 cnt=83 pwm_out=0 exp=1",
+          "level": "warning",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:38",
+          "agent": "调试修复",
+          "action": "LLM 调用 (debug-raw-1)",
+          "detail": "5937 tokens / 0.7s",
+          "level": "info",
+          "duration_s": 0.715,
+          "tokens": 5937
+        },
+        {
+          "ts": "13:53:38",
+          "agent": "调试修复",
+          "action": "整模块重写（无结构化诊断）",
+          "detail": "22 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 5937
+        },
+        {
+          "ts": "13:53:38",
+          "agent": "编排器",
+          "action": "修复无变更",
+          "detail": "终止闭环",
+          "level": "error",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "pwm_baseline_s2_20261028_135338",
+      "design": "pwm",
+      "seed": 2,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 22,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": false,
+      "sim_ok": false,
+      "sim_verdict": "fail",
+      "repair_rounds": 0,
+      "repair_methods": [
+        "llm-rewrite"
+      ],
+      "taxonomy_hits": {
+        "E01": 4,
+        "E11": 1
+      },
+      "synth_ok": false,
+      "pnr_ok": false,
+      "bitstream": "",
+      "programmed": false,
+      "resources": {},
+      "fmax_mhz": 0.0,
+      "tokens": {
+        "calls": 3,
+        "failures": 0,
+        "prompt_tokens": 3104,
+        "completion_tokens": 2500,
+        "total_tokens": 5604,
+        "latency_s": 8.909,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1112,
+            "completion": 126,
+            "latency": 1.172
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 876,
+            "completion": 2248,
+            "latency": 7.063
+          },
+          "debug-raw-1": {
+            "calls": 1,
+            "prompt": 1116,
+            "completion": 126,
+            "latency": 0.674
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.175,
+        "sim_0_s": 0.04,
+        "total_s": 8.955
+      },
+      "success": false,
+      "error": "闭环未收敛：[simulate] FAIL (0.04s) | [E01 结构/语法不配对] ERROR [continuous] at time 15931000000000000: duty=200 ref_cnt=25 pwm_out=0 expected=1; [E01 结构/语法不配对] ERROR [TC5] after async reset: pwm_out=1 expected=0; [E01 结构/语法不配对] ERROR [TC5] during reset: pwm_out=1 expected=0",
+      "started_at": "2026-10-28 13:53:38",
+      "finished_at": "2026-10-28 13:53:47",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s2_20261028_135338",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s2_20261028_135338\\src\\pwm.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\pwm_baseline_s2_20261028_135338\\src\\tb_pwm.v"
+      },
+      "events": [
+        {
+          "ts": "13:53:38",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 pwm/pwm｜50MHz｜端口 in:clk[1], in:rst_n[1], in:duty[8], ou:pwm_out[1]\n  摘要：8 位 PWM 发生器：自由运行计数器与占空比比较，输出无毛刺的组合比较结果。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:38",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 11 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:40",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1238 tokens / 1.2s",
+          "level": "info",
+          "duration_s": 1.172,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:40",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:40",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "22 行｜22 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1238
+        },
+        {
+          "ts": "13:53:47",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "3124 tokens / 7.1s",
+          "level": "info",
+          "duration_s": 7.063,
+          "tokens": 3124
+        },
+        {
+          "ts": "13:53:47",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "227 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 3124
+        },
+        {
+          "ts": "13:53:47",
+          "agent": "编排器",
+          "action": "仿真未通过（第 0 轮）",
+          "detail": "[simulate] FAIL (0.04s) | [E01 结构/语法不配对] ERROR [continuous] at time 15931000000000000: duty=200 ref_cnt=25 pwm_out=0 expected=1; [E01 结构/语法不配对] ERROR [TC5] after async reset: pwm_out=1 expected=0; [E01 结构/语法不配对] ERROR [TC5] during reset: pwm_out=1 expected=0",
+          "level": "warning",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:47",
+          "agent": "调试修复",
+          "action": "LLM 调用 (debug-raw-1)",
+          "detail": "1242 tokens / 0.7s",
+          "level": "info",
+          "duration_s": 0.674,
+          "tokens": 1242
+        },
+        {
+          "ts": "13:53:47",
+          "agent": "调试修复",
+          "action": "整模块重写（无结构化诊断）",
+          "detail": "22 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1242
+        },
+        {
+          "ts": "13:53:47",
+          "agent": "编排器",
+          "action": "修复无变更",
+          "detail": "终止闭环",
+          "level": "error",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "crc32_yunfan_s0_20261028_135347",
+      "design": "crc32",
+      "seed": 0,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 40,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 30,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347\\impl\\pnr\\crc32.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 46.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.2,
+        "register_used": 32.0,
+        "register_total": 23280.0,
+        "register_pct": 0.14,
+        "cls_used": 27.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.23,
+        "io_used": 43.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 46.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 264.718,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1159,
+        "completion_tokens": 295,
+        "total_tokens": 1454,
+        "latency_s": 1.134,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 295,
+            "latency": 1.134
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.139,
+        "synth_0_s": 0.682,
+        "sim_0_s": 0.054,
+        "pnr_0_s": 5.185,
+        "total_s": 7.066
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:53:47",
+      "finished_at": "2026-10-28 13:53:54",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347\\impl\\pnr\\crc32.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347\\impl\\pnr\\crc32.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347\\impl\\pnr\\crc32_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347\\impl\\pnr\\crc32.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347\\src\\crc32.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347\\src\\tb_crc32.v"
+      },
+      "events": [
+        {
+          "ts": "13:53:47",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 crc32/crc32｜50MHz｜端口 in:clk[1], in:rst_n[1], in:valid[1], in:data[8], ou:crc[32]\n  摘要：CRC-32 字节并行校验：多项式 0x04C11DB7，MSB 先行，输入输出均不反转，初值 0xFFFFFFFF，无最终异或。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:47",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 43 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:48",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1454 tokens / 1.1s",
+          "level": "info",
+          "duration_s": 1.134,
+          "tokens": 1454
+        },
+        {
+          "ts": "13:53:48",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:48",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "40 行｜40 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1454
+        },
+        {
+          "ts": "13:53:48",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "14 组驱动｜30 个检查点｜覆盖率来源=CRC-32（poly 0x04C11DB7，MSB 先行，不反转，初值 0xFFFFFFFF，无最终异或），单拍延迟",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:49",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "30 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:54",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s0_20261028_135347\\impl\\pnr\\crc32.fs｜Fmax 264.7MHz｜LUT 46｜FF 32",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "crc32_yunfan_s1_20261028_135354",
+      "design": "crc32",
+      "seed": 1,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 48,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 30,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354\\impl\\pnr\\crc32.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 46.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.2,
+        "register_used": 32.0,
+        "register_total": 23280.0,
+        "register_pct": 0.14,
+        "cls_used": 27.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.23,
+        "io_used": 43.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 46.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 264.718,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1159,
+        "completion_tokens": 568,
+        "total_tokens": 1727,
+        "latency_s": 1.932,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 568,
+            "latency": 1.932
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.938,
+        "synth_0_s": 0.686,
+        "sim_0_s": 0.054,
+        "pnr_0_s": 5.27,
+        "total_s": 7.954
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:53:54",
+      "finished_at": "2026-10-28 13:54:02",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354\\impl\\pnr\\crc32.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354\\impl\\pnr\\crc32.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354\\impl\\pnr\\crc32_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354\\impl\\pnr\\crc32.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354\\src\\crc32.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354\\src\\tb_crc32.v"
+      },
+      "events": [
+        {
+          "ts": "13:53:54",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 crc32/crc32｜50MHz｜端口 in:clk[1], in:rst_n[1], in:valid[1], in:data[8], ou:crc[32]\n  摘要：CRC-32 字节并行校验：多项式 0x04C11DB7，MSB 先行，输入输出均不反转，初值 0xFFFFFFFF，无最终异或。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:54",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 43 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:56",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1727 tokens / 1.9s",
+          "level": "info",
+          "duration_s": 1.932,
+          "tokens": 1727
+        },
+        {
+          "ts": "13:53:56",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:56",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "48 行｜48 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1727
+        },
+        {
+          "ts": "13:53:56",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "14 组驱动｜30 个检查点｜覆盖率来源=CRC-32（poly 0x04C11DB7，MSB 先行，不反转，初值 0xFFFFFFFF，无最终异或），单拍延迟",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:53:57",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "30 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:02",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s1_20261028_135354\\impl\\pnr\\crc32.fs｜Fmax 264.7MHz｜LUT 46｜FF 32",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "crc32_yunfan_s2_20261028_135402",
+      "design": "crc32",
+      "seed": 2,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 37,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 30,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402\\impl\\pnr\\crc32.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 46.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.2,
+        "register_used": 32.0,
+        "register_total": 23280.0,
+        "register_pct": 0.14,
+        "cls_used": 27.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.23,
+        "io_used": 43.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 46.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 264.718,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1159,
+        "completion_tokens": 265,
+        "total_tokens": 1424,
+        "latency_s": 1.096,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 265,
+            "latency": 1.096
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.101,
+        "synth_0_s": 0.709,
+        "sim_0_s": 0.039,
+        "pnr_0_s": 5.136,
+        "total_s": 6.99
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:54:02",
+      "finished_at": "2026-10-28 13:54:09",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402\\impl\\pnr\\crc32.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402\\impl\\pnr\\crc32.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402\\impl\\pnr\\crc32_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402\\impl\\pnr\\crc32.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402\\src\\crc32.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402\\src\\tb_crc32.v"
+      },
+      "events": [
+        {
+          "ts": "13:54:02",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 crc32/crc32｜50MHz｜端口 in:clk[1], in:rst_n[1], in:valid[1], in:data[8], ou:crc[32]\n  摘要：CRC-32 字节并行校验：多项式 0x04C11DB7，MSB 先行，输入输出均不反转，初值 0xFFFFFFFF，无最终异或。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:02",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 43 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:03",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1424 tokens / 1.1s",
+          "level": "info",
+          "duration_s": 1.096,
+          "tokens": 1424
+        },
+        {
+          "ts": "13:54:03",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:03",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "37 行｜37 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1424
+        },
+        {
+          "ts": "13:54:03",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "14 组驱动｜30 个检查点｜覆盖率来源=CRC-32（poly 0x04C11DB7，MSB 先行，不反转，初值 0xFFFFFFFF，无最终异或），单拍延迟",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:04",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "30 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:09",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_yunfan_s2_20261028_135402\\impl\\pnr\\crc32.fs｜Fmax 264.7MHz｜LUT 46｜FF 32",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "crc32_baseline_s0_20261028_135409",
+      "design": "crc32",
+      "seed": 0,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 45,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": false,
+      "sim_ok": false,
+      "sim_verdict": "fail",
+      "repair_rounds": 1,
+      "repair_methods": [
+        "llm-rewrite",
+        "llm-rewrite"
+      ],
+      "taxonomy_hits": {
+        "E01": 5,
+        "E11": 2
+      },
+      "synth_ok": false,
+      "pnr_ok": false,
+      "bitstream": "",
+      "programmed": false,
+      "resources": {},
+      "fmax_mhz": 0.0,
+      "tokens": {
+        "calls": 5,
+        "failures": 0,
+        "prompt_tokens": 6374,
+        "completion_tokens": 4043,
+        "total_tokens": 10417,
+        "latency_s": 13.508,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 325,
+            "latency": 1.433
+          },
+          "tb-llm": {
+            "calls": 2,
+            "prompt": 2171,
+            "completion": 3214,
+            "latency": 9.571
+          },
+          "debug-raw-1": {
+            "calls": 1,
+            "prompt": 1584,
+            "completion": 252,
+            "latency": 1.107
+          },
+          "debug-raw-2": {
+            "calls": 1,
+            "prompt": 1460,
+            "completion": 252,
+            "latency": 1.398
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.438,
+        "sim_0_s": 0.039,
+        "sim_1_s": 0.04,
+        "total_s": 13.6
+      },
+      "success": false,
+      "error": "闭环未收敛：[simulate] FAIL (0.04s) | [E01 结构/语法不配对] ERROR [case2 final 123456789]: crc = 18482747, expected cbf43926; [E11 功能不匹配] 自验证 Testbench 判定功能不匹配; [E01 结构/语法不配对] FATAL: C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s0_20261028_135409\\src\\tb_crc32.v:213:",
+      "started_at": "2026-10-28 13:54:09",
+      "finished_at": "2026-10-28 13:54:23",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s0_20261028_135409",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s0_20261028_135409\\src\\crc32.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s0_20261028_135409\\src\\tb_crc32.v"
+      },
+      "events": [
+        {
+          "ts": "13:54:09",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 crc32/crc32｜50MHz｜端口 in:clk[1], in:rst_n[1], in:valid[1], in:data[8], ou:crc[32]\n  摘要：CRC-32 字节并行校验：多项式 0x04C11DB7，MSB 先行，输入输出均不反转，初值 0xFFFFFFFF，无最终异或。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:09",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 43 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:11",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1484 tokens / 1.4s",
+          "level": "info",
+          "duration_s": 1.433,
+          "tokens": 1484
+        },
+        {
+          "ts": "13:54:11",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:11",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "45 行｜45 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1484
+        },
+        {
+          "ts": "13:54:15",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "2458 tokens / 4.3s",
+          "level": "info",
+          "duration_s": 4.261,
+          "tokens": 2458
+        },
+        {
+          "ts": "13:54:15",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "165 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2458
+        },
+        {
+          "ts": "13:54:15",
+          "agent": "编排器",
+          "action": "仿真未通过（第 0 轮）",
+          "detail": "[simulate] FAIL (0.04s) | [E01 结构/语法不配对] ERROR [case5_hold2]: crc = 7f84d16b, expected = 396841ba; [E01 结构/语法不配对] ERROR [case6_pre_reset]: crc = a2d986b8, expected = 60496a7d; [E11 功能不匹配] 自验证 Testbench 判定功能不匹配",
+          "level": "warning",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:16",
+          "agent": "调试修复",
+          "action": "LLM 调用 (debug-raw-1)",
+          "detail": "1836 tokens / 1.1s",
+          "level": "info",
+          "duration_s": 1.107,
+          "tokens": 1836
+        },
+        {
+          "ts": "13:54:16",
+          "agent": "调试修复",
+          "action": "整模块重写（无结构化诊断）",
+          "detail": "37 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1836
+        },
+        {
+          "ts": "13:54:22",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "2927 tokens / 5.3s",
+          "level": "info",
+          "duration_s": 5.31,
+          "tokens": 2927
+        },
+        {
+          "ts": "13:54:22",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "219 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2927
+        },
+        {
+          "ts": "13:54:22",
+          "agent": "编排器",
+          "action": "仿真未通过（第 1 轮）",
+          "detail": "[simulate] FAIL (0.04s) | [E01 结构/语法不配对] ERROR [case2 final 123456789]: crc = 18482747, expected cbf43926; [E11 功能不匹配] 自验证 Testbench 判定功能不匹配; [E01 结构/语法不配对] FATAL: C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s0_20261028_135409\\src\\tb_crc32.v:213:",
+          "level": "warning",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:23",
+          "agent": "调试修复",
+          "action": "LLM 调用 (debug-raw-2)",
+          "detail": "1712 tokens / 1.4s",
+          "level": "info",
+          "duration_s": 1.398,
+          "tokens": 1712
+        },
+        {
+          "ts": "13:54:23",
+          "agent": "调试修复",
+          "action": "整模块重写（无结构化诊断）",
+          "detail": "37 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1712
+        },
+        {
+          "ts": "13:54:23",
+          "agent": "编排器",
+          "action": "修复无变更",
+          "detail": "终止闭环",
+          "level": "error",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "crc32_baseline_s1_20261028_135423",
+      "design": "crc32",
+      "seed": 1,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 47,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": false,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423\\impl\\pnr\\crc32.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 46.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.2,
+        "register_used": 32.0,
+        "register_total": 23280.0,
+        "register_pct": 0.14,
+        "cls_used": 27.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.23,
+        "io_used": 43.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 46.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 264.718,
+      "tokens": {
+        "calls": 2,
+        "failures": 0,
+        "prompt_tokens": 2314,
+        "completion_tokens": 2145,
+        "total_tokens": 4459,
+        "latency_s": 6.74,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 358,
+            "latency": 1.469
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 1155,
+            "completion": 1787,
+            "latency": 5.272
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.475,
+        "sim_0_s": 0.045,
+        "pnr_0_s": 5.14,
+        "total_s": 11.934
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:54:23",
+      "finished_at": "2026-10-28 13:54:35",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423\\impl\\pnr\\crc32.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423\\impl\\pnr\\crc32.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423\\impl\\pnr\\crc32_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423\\impl\\pnr\\crc32.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423\\src\\crc32.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423\\src\\tb_crc32.v"
+      },
+      "events": [
+        {
+          "ts": "13:54:23",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 crc32/crc32｜50MHz｜端口 in:clk[1], in:rst_n[1], in:valid[1], in:data[8], ou:crc[32]\n  摘要：CRC-32 字节并行校验：多项式 0x04C11DB7，MSB 先行，输入输出均不反转，初值 0xFFFFFFFF，无最终异或。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:23",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 43 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:24",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1517 tokens / 1.5s",
+          "level": "info",
+          "duration_s": 1.469,
+          "tokens": 1517
+        },
+        {
+          "ts": "13:54:24",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:24",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "47 行｜47 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1517
+        },
+        {
+          "ts": "13:54:30",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "2942 tokens / 5.3s",
+          "level": "info",
+          "duration_s": 5.272,
+          "tokens": 2942
+        },
+        {
+          "ts": "13:54:30",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "189 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2942
+        },
+        {
+          "ts": "13:54:30",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "0 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:35",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s1_20261028_135423\\impl\\pnr\\crc32.fs｜Fmax 264.7MHz｜LUT 46｜FF 32",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "crc32_baseline_s2_20261028_135435",
+      "design": "crc32",
+      "seed": 2,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 54,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 1,
+      "repair_methods": [
+        "llm-rewrite"
+      ],
+      "taxonomy_hits": {
+        "E01": 14,
+        "E11": 1
+      },
+      "synth_ok": false,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435\\impl\\pnr\\crc32.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 46.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.2,
+        "register_used": 32.0,
+        "register_total": 23280.0,
+        "register_pct": 0.14,
+        "cls_used": 27.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.23,
+        "io_used": 43.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 46.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 264.718,
+      "tokens": {
+        "calls": 4,
+        "failures": 0,
+        "prompt_tokens": 4990,
+        "completion_tokens": 3379,
+        "total_tokens": 8369,
+        "latency_s": 11.238,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1159,
+            "completion": 456,
+            "latency": 1.839
+          },
+          "tb-llm": {
+            "calls": 2,
+            "prompt": 2290,
+            "completion": 2683,
+            "latency": 8.174
+          },
+          "debug-raw-1": {
+            "calls": 1,
+            "prompt": 1541,
+            "completion": 240,
+            "latency": 1.225
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.849,
+        "sim_0_s": 0.042,
+        "sim_1_s": 0.037,
+        "pnr_1_s": 5.151,
+        "total_s": 16.482
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:54:35",
+      "finished_at": "2026-10-28 13:54:51",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435\\impl\\pnr\\crc32.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435\\impl\\pnr\\crc32.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435\\impl\\pnr\\crc32_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435\\impl\\pnr\\crc32.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435\\src\\crc32.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435\\src\\tb_crc32.v"
+      },
+      "events": [
+        {
+          "ts": "13:54:35",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 crc32/crc32｜50MHz｜端口 in:clk[1], in:rst_n[1], in:valid[1], in:data[8], ou:crc[32]\n  摘要：CRC-32 字节并行校验：多项式 0x04C11DB7，MSB 先行，输入输出均不反转，初值 0xFFFFFFFF，无最终异或。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:35",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 43 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:37",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "1615 tokens / 1.8s",
+          "level": "info",
+          "duration_s": 1.839,
+          "tokens": 1615
+        },
+        {
+          "ts": "13:54:37",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:37",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "54 行｜54 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1615
+        },
+        {
+          "ts": "13:54:41",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "2671 tokens / 4.4s",
+          "level": "info",
+          "duration_s": 4.37,
+          "tokens": 2671
+        },
+        {
+          "ts": "13:54:41",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "149 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2671
+        },
+        {
+          "ts": "13:54:41",
+          "agent": "编排器",
+          "action": "仿真未通过（第 0 轮）",
+          "detail": "[simulate] FAIL (0.04s) | [E01 结构/语法不配对] ERROR: after byte 00 expected crc=4e08bfb4 got ffffffff; [E01 结构/语法不配对] ERROR: after byte ff expected crc=b14024c9 got ffffffff; [E01 结构/语法不配对] ERROR: after byte 31 expected crc=9efbcf93 got ffffffff",
+          "level": "warning",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:42",
+          "agent": "调试修复",
+          "action": "LLM 调用 (debug-raw-1)",
+          "detail": "1781 tokens / 1.2s",
+          "level": "info",
+          "duration_s": 1.225,
+          "tokens": 1781
+        },
+        {
+          "ts": "13:54:42",
+          "agent": "调试修复",
+          "action": "整模块重写（无结构化诊断）",
+          "detail": "34 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 1781
+        },
+        {
+          "ts": "13:54:46",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "2302 tokens / 3.8s",
+          "level": "info",
+          "duration_s": 3.804,
+          "tokens": 2302
+        },
+        {
+          "ts": "13:54:46",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "154 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2302
+        },
+        {
+          "ts": "13:54:46",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "0 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:51",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\crc32_baseline_s2_20261028_135435\\impl\\pnr\\crc32.fs｜Fmax 264.7MHz｜LUT 46｜FF 32",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "uart_tx_yunfan_s0_20261028_135451",
+      "design": "uart_tx",
+      "seed": 0,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 111,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 20,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451\\impl\\pnr\\uart_tx.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 48.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.21,
+        "register_used": 31.0,
+        "register_total": 23280.0,
+        "register_pct": 0.13,
+        "cls_used": 26.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.23,
+        "io_used": 13.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 48.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 2.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 125.139,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1257,
+        "completion_tokens": 835,
+        "total_tokens": 2092,
+        "latency_s": 2.689,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1257,
+            "completion": 835,
+            "latency": 2.689
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.709,
+        "synth_0_s": 0.571,
+        "sim_0_s": 0.049,
+        "pnr_0_s": 4.976,
+        "total_s": 8.322
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:54:51",
+      "finished_at": "2026-10-28 13:55:00",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451\\impl\\pnr\\uart_tx.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451\\impl\\pnr\\uart_tx.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451\\impl\\pnr\\uart_tx_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451\\impl\\pnr\\uart_tx.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451\\src\\uart_tx.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451\\src\\tb_uart_tx.v"
+      },
+      "events": [
+        {
+          "ts": "13:54:51",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 uart_tx/uart_tx｜50MHz｜端口 in:clk[1], in:rst_n[1], in:start[1], in:data[8], ou:tx[1], ou:busy[1]\n  摘要：UART 8N1 发送器：1 起始位 + 8 数据位（LSB 先行）+ 1 停止位，位宽由 CLKS_PER_BIT 决定（115200bps@50MHz 为 434）。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:51",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 13 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:54",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2092 tokens / 2.7s",
+          "level": "info",
+          "duration_s": 2.689,
+          "tokens": 2092
+        },
+        {
+          "ts": "13:54:54",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:54",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "111 行｜111 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2092
+        },
+        {
+          "ts": "13:54:54",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "5 组驱动｜20 个检查点｜覆盖率来源=8N1 UART 发送器：LSB 先行，1 起始位 + 8 数据位 + 1 停止位，busy 在发送期间为高",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:54:55",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "20 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:00",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s0_20261028_135451\\impl\\pnr\\uart_tx.fs｜Fmax 125.1MHz｜LUT 48｜FF 31",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "uart_tx_yunfan_s1_20261028_135500",
+      "design": "uart_tx",
+      "seed": 1,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 112,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 20,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500\\impl\\pnr\\uart_tx.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 50.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.22,
+        "register_used": 31.0,
+        "register_total": 23280.0,
+        "register_pct": 0.13,
+        "cls_used": 29.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.25,
+        "io_used": 13.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 50.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 2.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 112.784,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1257,
+        "completion_tokens": 857,
+        "total_tokens": 2114,
+        "latency_s": 2.661,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1257,
+            "completion": 857,
+            "latency": 2.661
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.684,
+        "synth_0_s": 0.588,
+        "sim_0_s": 0.045,
+        "pnr_0_s": 4.974,
+        "total_s": 8.311
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:55:00",
+      "finished_at": "2026-10-28 13:55:08",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500\\impl\\pnr\\uart_tx.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500\\impl\\pnr\\uart_tx.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500\\impl\\pnr\\uart_tx_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500\\impl\\pnr\\uart_tx.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500\\src\\uart_tx.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500\\src\\tb_uart_tx.v"
+      },
+      "events": [
+        {
+          "ts": "13:55:00",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 uart_tx/uart_tx｜50MHz｜端口 in:clk[1], in:rst_n[1], in:start[1], in:data[8], ou:tx[1], ou:busy[1]\n  摘要：UART 8N1 发送器：1 起始位 + 8 数据位（LSB 先行）+ 1 停止位，位宽由 CLKS_PER_BIT 决定（115200bps@50MHz 为 434）。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:00",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 13 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:02",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2114 tokens / 2.7s",
+          "level": "info",
+          "duration_s": 2.661,
+          "tokens": 2114
+        },
+        {
+          "ts": "13:55:02",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:02",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "112 行｜112 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2114
+        },
+        {
+          "ts": "13:55:02",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "5 组驱动｜20 个检查点｜覆盖率来源=8N1 UART 发送器：LSB 先行，1 起始位 + 8 数据位 + 1 停止位，busy 在发送期间为高",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:03",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "20 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:08",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s1_20261028_135500\\impl\\pnr\\uart_tx.fs｜Fmax 112.8MHz｜LUT 50｜FF 31",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "uart_tx_yunfan_s2_20261028_135508",
+      "design": "uart_tx",
+      "seed": 2,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 104,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 20,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508\\impl\\pnr\\uart_tx.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 47.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.2,
+        "register_used": 31.0,
+        "register_total": 23280.0,
+        "register_pct": 0.13,
+        "cls_used": 26.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.23,
+        "io_used": 13.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 47.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 2.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 124.151,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1257,
+        "completion_tokens": 790,
+        "total_tokens": 2047,
+        "latency_s": 2.422,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1257,
+            "completion": 790,
+            "latency": 2.422
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.442,
+        "synth_0_s": 0.562,
+        "sim_0_s": 0.044,
+        "pnr_0_s": 4.977,
+        "total_s": 8.043
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:55:08",
+      "finished_at": "2026-10-28 13:55:16",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508\\impl\\pnr\\uart_tx.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508\\impl\\pnr\\uart_tx.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508\\impl\\pnr\\uart_tx_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508\\impl\\pnr\\uart_tx.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508\\src\\uart_tx.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508\\src\\tb_uart_tx.v"
+      },
+      "events": [
+        {
+          "ts": "13:55:08",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 uart_tx/uart_tx｜50MHz｜端口 in:clk[1], in:rst_n[1], in:start[1], in:data[8], ou:tx[1], ou:busy[1]\n  摘要：UART 8N1 发送器：1 起始位 + 8 数据位（LSB 先行）+ 1 停止位，位宽由 CLKS_PER_BIT 决定（115200bps@50MHz 为 434）。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:08",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 13 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:10",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2047 tokens / 2.4s",
+          "level": "info",
+          "duration_s": 2.422,
+          "tokens": 2047
+        },
+        {
+          "ts": "13:55:10",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:10",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "104 行｜104 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2047
+        },
+        {
+          "ts": "13:55:10",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "5 组驱动｜20 个检查点｜覆盖率来源=8N1 UART 发送器：LSB 先行，1 起始位 + 8 数据位 + 1 停止位，busy 在发送期间为高",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:11",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "20 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:16",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_yunfan_s2_20261028_135508\\impl\\pnr\\uart_tx.fs｜Fmax 124.2MHz｜LUT 47｜FF 31",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "uart_tx_baseline_s0_20261028_135516",
+      "design": "uart_tx",
+      "seed": 0,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 104,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": false,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516\\impl\\pnr\\uart_tx.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 47.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.2,
+        "register_used": 31.0,
+        "register_total": 23280.0,
+        "register_pct": 0.13,
+        "cls_used": 26.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.23,
+        "io_used": 13.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 47.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 2.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 124.151,
+      "tokens": {
+        "calls": 2,
+        "failures": 0,
+        "prompt_tokens": 2934,
+        "completion_tokens": 1913,
+        "total_tokens": 4847,
+        "latency_s": 6.336,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1257,
+            "completion": 782,
+            "latency": 2.461
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 1677,
+            "completion": 1131,
+            "latency": 3.875
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.481,
+        "sim_0_s": 0.037,
+        "pnr_0_s": 4.945,
+        "total_s": 11.344
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:55:16",
+      "finished_at": "2026-10-28 13:55:27",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516\\impl\\pnr\\uart_tx.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516\\impl\\pnr\\uart_tx.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516\\impl\\pnr\\uart_tx_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516\\impl\\pnr\\uart_tx.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516\\src\\uart_tx.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516\\src\\tb_uart_tx.v"
+      },
+      "events": [
+        {
+          "ts": "13:55:16",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 uart_tx/uart_tx｜50MHz｜端口 in:clk[1], in:rst_n[1], in:start[1], in:data[8], ou:tx[1], ou:busy[1]\n  摘要：UART 8N1 发送器：1 起始位 + 8 数据位（LSB 先行）+ 1 停止位，位宽由 CLKS_PER_BIT 决定（115200bps@50MHz 为 434）。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:16",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 13 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:19",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2039 tokens / 2.5s",
+          "level": "info",
+          "duration_s": 2.461,
+          "tokens": 2039
+        },
+        {
+          "ts": "13:55:19",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:19",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "104 行｜104 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2039
+        },
+        {
+          "ts": "13:55:22",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "2808 tokens / 3.9s",
+          "level": "info",
+          "duration_s": 3.875,
+          "tokens": 2808
+        },
+        {
+          "ts": "13:55:22",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "138 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2808
+        },
+        {
+          "ts": "13:55:22",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "0 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:27",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s0_20261028_135516\\impl\\pnr\\uart_tx.fs｜Fmax 124.2MHz｜LUT 47｜FF 31",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "uart_tx_baseline_s1_20261028_135527",
+      "design": "uart_tx",
+      "seed": 1,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 105,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": false,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527\\impl\\pnr\\uart_tx.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 59.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.26,
+        "register_used": 31.0,
+        "register_total": 23280.0,
+        "register_pct": 0.13,
+        "cls_used": 33.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.29,
+        "io_used": 13.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 59.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 2.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 111.767,
+      "tokens": {
+        "calls": 2,
+        "failures": 0,
+        "prompt_tokens": 2951,
+        "completion_tokens": 2003,
+        "total_tokens": 4954,
+        "latency_s": 6.591,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1257,
+            "completion": 799,
+            "latency": 2.471
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 1694,
+            "completion": 1204,
+            "latency": 4.12
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.49,
+        "sim_0_s": 0.052,
+        "pnr_0_s": 4.786,
+        "total_s": 11.453
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:55:27",
+      "finished_at": "2026-10-28 13:55:39",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527\\impl\\pnr\\uart_tx.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527\\impl\\pnr\\uart_tx.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527\\impl\\pnr\\uart_tx_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527\\impl\\pnr\\uart_tx.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527\\src\\uart_tx.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527\\src\\tb_uart_tx.v"
+      },
+      "events": [
+        {
+          "ts": "13:55:27",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 uart_tx/uart_tx｜50MHz｜端口 in:clk[1], in:rst_n[1], in:start[1], in:data[8], ou:tx[1], ou:busy[1]\n  摘要：UART 8N1 发送器：1 起始位 + 8 数据位（LSB 先行）+ 1 停止位，位宽由 CLKS_PER_BIT 决定（115200bps@50MHz 为 434）。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:27",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 13 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:30",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2056 tokens / 2.5s",
+          "level": "info",
+          "duration_s": 2.471,
+          "tokens": 2056
+        },
+        {
+          "ts": "13:55:30",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:30",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "105 行｜105 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2056
+        },
+        {
+          "ts": "13:55:34",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "2898 tokens / 4.1s",
+          "level": "info",
+          "duration_s": 4.12,
+          "tokens": 2898
+        },
+        {
+          "ts": "13:55:34",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "150 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2898
+        },
+        {
+          "ts": "13:55:34",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "0 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:39",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s1_20261028_135527\\impl\\pnr\\uart_tx.fs｜Fmax 111.8MHz｜LUT 59｜FF 31",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "uart_tx_baseline_s2_20261028_135539",
+      "design": "uart_tx",
+      "seed": 2,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 109,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": false,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539\\impl\\pnr\\uart_tx.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 50.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.22,
+        "register_used": 31.0,
+        "register_total": 23280.0,
+        "register_pct": 0.13,
+        "cls_used": 29.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.25,
+        "io_used": 13.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 50.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 2.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 112.784,
+      "tokens": {
+        "calls": 2,
+        "failures": 0,
+        "prompt_tokens": 2982,
+        "completion_tokens": 1908,
+        "total_tokens": 4890,
+        "latency_s": 6.138,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1257,
+            "completion": 830,
+            "latency": 2.598
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 1725,
+            "completion": 1078,
+            "latency": 3.54
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.62,
+        "sim_0_s": 0.057,
+        "pnr_0_s": 4.835,
+        "total_s": 11.055
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:55:39",
+      "finished_at": "2026-10-28 13:55:50",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539\\impl\\pnr\\uart_tx.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539\\impl\\pnr\\uart_tx.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539\\impl\\pnr\\uart_tx_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539\\impl\\pnr\\uart_tx.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539\\src\\uart_tx.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539\\src\\tb_uart_tx.v"
+      },
+      "events": [
+        {
+          "ts": "13:55:39",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 uart_tx/uart_tx｜50MHz｜端口 in:clk[1], in:rst_n[1], in:start[1], in:data[8], ou:tx[1], ou:busy[1]\n  摘要：UART 8N1 发送器：1 起始位 + 8 数据位（LSB 先行）+ 1 停止位，位宽由 CLKS_PER_BIT 决定（115200bps@50MHz 为 434）。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:39",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 13 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:41",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2087 tokens / 2.6s",
+          "level": "info",
+          "duration_s": 2.598,
+          "tokens": 2087
+        },
+        {
+          "ts": "13:55:41",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:41",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "109 行｜109 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2087
+        },
+        {
+          "ts": "13:55:45",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "2803 tokens / 3.5s",
+          "level": "info",
+          "duration_s": 3.54,
+          "tokens": 2803
+        },
+        {
+          "ts": "13:55:45",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "149 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2803
+        },
+        {
+          "ts": "13:55:45",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "0 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:50",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\uart_tx_baseline_s2_20261028_135539\\impl\\pnr\\uart_tx.fs｜Fmax 112.8MHz｜LUT 50｜FF 31",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "vga_timing_yunfan_s0_20261028_135550",
+      "design": "vga_timing",
+      "seed": 0,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 68,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 25,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550\\impl\\pnr\\vga_timing.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 38.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.16,
+        "register_used": 20.0,
+        "register_total": 23280.0,
+        "register_pct": 0.09,
+        "cls_used": 21.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.18,
+        "io_used": 25.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 38.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 2.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 318.431,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1660,
+        "completion_tokens": 676,
+        "total_tokens": 2336,
+        "latency_s": 2.016,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1660,
+            "completion": 676,
+            "latency": 2.016
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.025,
+        "synth_0_s": 0.509,
+        "sim_0_s": 0.771,
+        "pnr_0_s": 4.784,
+        "total_s": 8.232
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:55:50",
+      "finished_at": "2026-10-28 13:55:58",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550\\impl\\pnr\\vga_timing.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550\\impl\\pnr\\vga_timing.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550\\impl\\pnr\\vga_timing_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550\\impl\\pnr\\vga_timing.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550\\src\\vga_timing.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550\\src\\tb_vga_timing.v"
+      },
+      "events": [
+        {
+          "ts": "13:55:50",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 vga_timing/vga_timing｜50MHz｜端口 in:clk[1], in:rst_n[1], ou:hsync[1], ou:vsync[1], ou:de[1], ou:x[10], ou:y[10]\n  摘要：640x480@60 VGA 行场时序发生器：行 800 像素、场 525 行，同步信号低有效，de 在有效显示区为高。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:50",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 25 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:52",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2336 tokens / 2.0s",
+          "level": "info",
+          "duration_s": 2.016,
+          "tokens": 2336
+        },
+        {
+          "ts": "13:55:52",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:52",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "68 行｜68 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2336
+        },
+        {
+          "ts": "13:55:52",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "1 组驱动｜25 个检查点｜覆盖率来源=640x480@60 VGA 时序：行 800 像素、场 525 行，同步信号低有效",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:53",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "25 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:58",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s0_20261028_135550\\impl\\pnr\\vga_timing.fs｜Fmax 318.4MHz｜LUT 38｜FF 20",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "vga_timing_yunfan_s1_20261028_135558",
+      "design": "vga_timing",
+      "seed": 1,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 68,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 25,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558\\impl\\pnr\\vga_timing.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 38.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.16,
+        "register_used": 20.0,
+        "register_total": 23280.0,
+        "register_pct": 0.09,
+        "cls_used": 21.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.18,
+        "io_used": 25.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 38.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 2.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 318.431,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1660,
+        "completion_tokens": 613,
+        "total_tokens": 2273,
+        "latency_s": 1.861,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1660,
+            "completion": 613,
+            "latency": 1.861
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 1.87,
+        "synth_0_s": 0.523,
+        "sim_0_s": 0.687,
+        "pnr_0_s": 4.741,
+        "total_s": 7.961
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:55:58",
+      "finished_at": "2026-10-28 13:56:06",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558\\impl\\pnr\\vga_timing.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558\\impl\\pnr\\vga_timing.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558\\impl\\pnr\\vga_timing_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558\\impl\\pnr\\vga_timing.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558\\src\\vga_timing.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558\\src\\tb_vga_timing.v"
+      },
+      "events": [
+        {
+          "ts": "13:55:58",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 vga_timing/vga_timing｜50MHz｜端口 in:clk[1], in:rst_n[1], ou:hsync[1], ou:vsync[1], ou:de[1], ou:x[10], ou:y[10]\n  摘要：640x480@60 VGA 行场时序发生器：行 800 像素、场 525 行，同步信号低有效，de 在有效显示区为高。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:55:58",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 25 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:00",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2273 tokens / 1.9s",
+          "level": "info",
+          "duration_s": 1.862,
+          "tokens": 2273
+        },
+        {
+          "ts": "13:56:00",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:00",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "68 行｜68 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2273
+        },
+        {
+          "ts": "13:56:00",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "1 组驱动｜25 个检查点｜覆盖率来源=640x480@60 VGA 时序：行 800 像素、场 525 行，同步信号低有效",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:01",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "25 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:06",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s1_20261028_135558\\impl\\pnr\\vga_timing.fs｜Fmax 318.4MHz｜LUT 38｜FF 20",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "vga_timing_yunfan_s2_20261028_135606",
+      "design": "vga_timing",
+      "seed": 2,
+      "mode": "full",
+      "variant": "yunfan",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 64,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "template",
+      "tb_checkpoints": 25,
+      "compile_ok": true,
+      "sim_ok": true,
+      "sim_verdict": "pass",
+      "repair_rounds": 0,
+      "repair_methods": [],
+      "taxonomy_hits": {},
+      "synth_ok": true,
+      "pnr_ok": true,
+      "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606\\impl\\pnr\\vga_timing.fs",
+      "programmed": false,
+      "resources": {
+        "bitstream_bytes": 5958579.0,
+        "logic_used": 42.0,
+        "logic_total": 23040.0,
+        "logic_pct": 0.18,
+        "register_used": 20.0,
+        "register_total": 23280.0,
+        "register_pct": 0.09,
+        "cls_used": 23.0,
+        "cls_total": 11520.0,
+        "cls_pct": 0.2,
+        "io_used": 25.0,
+        "bsram_pct": 0.0,
+        "dsp_pct": 0.0,
+        "pll_used": 0.0,
+        "pll_total": 6.0,
+        "lut_used": 42.0,
+        "alu_used": 0.0,
+        "clock_constraint_mhz": 50.0,
+        "logic_level": 3.0,
+        "setup_tns_ns": 0.0,
+        "setup_negative_endpoints": 0.0
+      },
+      "fmax_mhz": 302.81,
+      "tokens": {
+        "calls": 1,
+        "failures": 0,
+        "prompt_tokens": 1660,
+        "completion_tokens": 696,
+        "total_tokens": 2356,
+        "latency_s": 2.266,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1660,
+            "completion": 696,
+            "latency": 2.266
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.275,
+        "synth_0_s": 0.505,
+        "sim_0_s": 0.802,
+        "pnr_0_s": 4.701,
+        "total_s": 8.426
+      },
+      "success": true,
+      "error": "",
+      "started_at": "2026-10-28 13:56:06",
+      "finished_at": "2026-10-28 13:56:15",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606",
+        "tcl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606\\yunfan_implement.tcl",
+        "bitstream": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606\\impl\\pnr\\vga_timing.fs",
+        "pnr_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606\\impl\\pnr\\vga_timing.rpt.txt",
+        "timing_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606\\impl\\pnr\\vga_timing_tr_content.html",
+        "pin_report": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606\\impl\\pnr\\vga_timing.pin.html",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606\\src\\vga_timing.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606\\src\\tb_vga_timing.v"
+      },
+      "events": [
+        {
+          "ts": "13:56:06",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 vga_timing/vga_timing｜50MHz｜端口 in:clk[1], in:rst_n[1], ou:hsync[1], ou:vsync[1], ou:de[1], ou:x[10], ou:y[10]\n  摘要：640x480@60 VGA 行场时序发生器：行 800 像素、场 525 行，同步信号低有效，de 在有效显示区为高。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:06",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 25 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:08",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2356 tokens / 2.3s",
+          "level": "info",
+          "duration_s": 2.267,
+          "tokens": 2356
+        },
+        {
+          "ts": "13:56:08",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:08",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "64 行｜64 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2356
+        },
+        {
+          "ts": "13:56:09",
+          "agent": "仿真验证",
+          "action": "自验证激励生成",
+          "detail": "1 组驱动｜25 个检查点｜覆盖率来源=640x480@60 VGA 时序：行 800 像素、场 525 行，同步信号低有效",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:10",
+          "agent": "编排器",
+          "action": "仿真通过",
+          "detail": "25 个检查点",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:15",
+          "agent": "编排器",
+          "action": "实现完成",
+          "detail": "比特流 C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_yunfan_s2_20261028_135606\\impl\\pnr\\vga_timing.fs｜Fmax 302.8MHz｜LUT 42｜FF 20",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "vga_timing_baseline_s0_20261028_135615",
+      "design": "vga_timing",
+      "seed": 0,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 60,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": false,
+      "sim_ok": false,
+      "sim_verdict": "fail",
+      "repair_rounds": 0,
+      "repair_methods": [
+        "llm-rewrite"
+      ],
+      "taxonomy_hits": {
+        "E01": 420006,
+        "E11": 1
+      },
+      "synth_ok": false,
+      "pnr_ok": false,
+      "bitstream": "",
+      "programmed": false,
+      "resources": {},
+      "fmax_mhz": 0.0,
+      "tokens": {
+        "calls": 3,
+        "failures": 0,
+        "prompt_tokens": 12227,
+        "completion_tokens": 2932,
+        "total_tokens": 15159,
+        "latency_s": 9.03,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1660,
+            "completion": 720,
+            "latency": 2.275
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 2018,
+            "completion": 1492,
+            "latency": 4.492
+          },
+          "debug-raw-1": {
+            "calls": 1,
+            "prompt": 8549,
+            "completion": 720,
+            "latency": 2.264
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.282,
+        "sim_0_s": 34.099,
+        "total_s": 43.21
+      },
+      "success": false,
+      "error": "闭环未收敛：[simulate] FAIL (34.10s) | [E01 结构/语法不配对] ERROR [RELEASE] hcnt=0 vcnt=0 : hsync=1(exp 1) vsync=1(exp 1) de=1(exp 1) x=2(exp 0) y=0(exp 0); [E01 结构/语法不配对] ERROR [CASE1] hcnt=1 vcnt=0 : hsync=1(exp 1) vsync=1(exp 1) de=1(exp 1) x=3(exp 1) y=0(exp 0); [E01 结构/语法不配对] ERROR [CASE1] hcnt=2 vcnt=0 : hsync=1(exp 1) vsync=1(exp 1) de=1(exp 1) x=4(exp 2) y=0(exp 0)",
+      "started_at": "2026-10-28 13:56:15",
+      "finished_at": "2026-10-28 13:56:58",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_baseline_s0_20261028_135615",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_baseline_s0_20261028_135615\\src\\vga_timing.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_baseline_s0_20261028_135615\\src\\tb_vga_timing.v"
+      },
+      "events": [
+        {
+          "ts": "13:56:15",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 vga_timing/vga_timing｜50MHz｜端口 in:clk[1], in:rst_n[1], ou:hsync[1], ou:vsync[1], ou:de[1], ou:x[10], ou:y[10]\n  摘要：640x480@60 VGA 行场时序发生器：行 800 像素、场 525 行，同步信号低有效，de 在有效显示区为高。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:15",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 25 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:17",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2380 tokens / 2.3s",
+          "level": "info",
+          "duration_s": 2.275,
+          "tokens": 2380
+        },
+        {
+          "ts": "13:56:17",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:17",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "60 行｜60 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2380
+        },
+        {
+          "ts": "13:56:21",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "3510 tokens / 4.5s",
+          "level": "info",
+          "duration_s": 4.492,
+          "tokens": 3510
+        },
+        {
+          "ts": "13:56:21",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "160 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 3510
+        },
+        {
+          "ts": "13:56:55",
+          "agent": "编排器",
+          "action": "仿真未通过（第 0 轮）",
+          "detail": "[simulate] FAIL (34.10s) | [E01 结构/语法不配对] ERROR [RELEASE] hcnt=0 vcnt=0 : hsync=1(exp 1) vsync=1(exp 1) de=1(exp 1) x=2(exp 0) y=0(exp 0); [E01 结构/语法不配对] ERROR [CASE1] hcnt=1 vcnt=0 : hsync=1(exp 1) vsync=1(exp 1) de=1(exp 1) x=3(exp 1) y=0(exp 0); [E01 结构/语法不配对] ERROR [CASE1] hcnt=2 vcnt=0 : hsync=1(exp 1) vsync=1(exp 1) de=1(exp 1) x=4(exp 2) y=0(exp 0)",
+          "level": "warning",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:58",
+          "agent": "调试修复",
+          "action": "LLM 调用 (debug-raw-1)",
+          "detail": "9269 tokens / 2.3s",
+          "level": "info",
+          "duration_s": 2.264,
+          "tokens": 9269
+        },
+        {
+          "ts": "13:56:58",
+          "agent": "调试修复",
+          "action": "整模块重写（无结构化诊断）",
+          "detail": "60 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 9269
+        },
+        {
+          "ts": "13:56:58",
+          "agent": "编排器",
+          "action": "修复无变更",
+          "detail": "终止闭环",
+          "level": "error",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "vga_timing_baseline_s1_20261028_135658",
+      "design": "vga_timing",
+      "seed": 1,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 68,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": false,
+      "sim_ok": false,
+      "sim_verdict": "fail",
+      "repair_rounds": 0,
+      "repair_methods": [
+        "llm-rewrite"
+      ],
+      "taxonomy_hits": {
+        "E01": 5350,
+        "E11": 1
+      },
+      "synth_ok": false,
+      "pnr_ok": false,
+      "bitstream": "",
+      "programmed": false,
+      "resources": {},
+      "fmax_mhz": 0.0,
+      "tokens": {
+        "calls": 3,
+        "failures": 0,
+        "prompt_tokens": 9871,
+        "completion_tokens": 2861,
+        "total_tokens": 12732,
+        "latency_s": 8.708,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1660,
+            "completion": 676,
+            "latency": 2.093
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 1974,
+            "completion": 1499,
+            "latency": 4.475
+          },
+          "debug-raw-1": {
+            "calls": 1,
+            "prompt": 6237,
+            "completion": 686,
+            "latency": 2.141
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.101,
+        "sim_0_s": 13.93,
+        "total_s": 22.669
+      },
+      "success": false,
+      "error": "闭环未收敛：[simulate] FAIL (13.93s) | [E01 结构/语法不配对] ERROR: x mismatch: got 2 exp 0; [E01 结构/语法不配对] ERROR: x mismatch: got 3 exp 1; [E01 结构/语法不配对] ERROR: x mismatch: got 4 exp 2",
+      "started_at": "2026-10-28 13:56:58",
+      "finished_at": "2026-10-28 13:57:20",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_baseline_s1_20261028_135658",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_baseline_s1_20261028_135658\\src\\vga_timing.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_baseline_s1_20261028_135658\\src\\tb_vga_timing.v"
+      },
+      "events": [
+        {
+          "ts": "13:56:58",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 vga_timing/vga_timing｜50MHz｜端口 in:clk[1], in:rst_n[1], ou:hsync[1], ou:vsync[1], ou:de[1], ou:x[10], ou:y[10]\n  摘要：640x480@60 VGA 行场时序发生器：行 800 像素、场 525 行，同步信号低有效，de 在有效显示区为高。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:56:58",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 25 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:57:00",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2336 tokens / 2.1s",
+          "level": "info",
+          "duration_s": 2.093,
+          "tokens": 2336
+        },
+        {
+          "ts": "13:57:00",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:57:00",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "68 行｜68 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2336
+        },
+        {
+          "ts": "13:57:04",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "3473 tokens / 4.5s",
+          "level": "info",
+          "duration_s": 4.475,
+          "tokens": 3473
+        },
+        {
+          "ts": "13:57:04",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "155 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 3473
+        },
+        {
+          "ts": "13:57:18",
+          "agent": "编排器",
+          "action": "仿真未通过（第 0 轮）",
+          "detail": "[simulate] FAIL (13.93s) | [E01 结构/语法不配对] ERROR: x mismatch: got 2 exp 0; [E01 结构/语法不配对] ERROR: x mismatch: got 3 exp 1; [E01 结构/语法不配对] ERROR: x mismatch: got 4 exp 2",
+          "level": "warning",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:57:20",
+          "agent": "调试修复",
+          "action": "LLM 调用 (debug-raw-1)",
+          "detail": "6923 tokens / 2.1s",
+          "level": "info",
+          "duration_s": 2.141,
+          "tokens": 6923
+        },
+        {
+          "ts": "13:57:20",
+          "agent": "调试修复",
+          "action": "整模块重写（无结构化诊断）",
+          "detail": "68 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 6923
+        },
+        {
+          "ts": "13:57:20",
+          "agent": "编排器",
+          "action": "修复无变更",
+          "detail": "终止闭环",
+          "level": "error",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    },
+    {
+      "run_id": "vga_timing_baseline_s2_20261028_135720",
+      "design": "vga_timing",
+      "seed": 2,
+      "mode": "full",
+      "variant": "baseline",
+      "provider": "openai_compat",
+      "model": "deepseek-chat",
+      "prompt_version": "1.2.0",
+      "spec_source": "file",
+      "spec_ok": true,
+      "spec_issues": [],
+      "rtl_attempts": 1,
+      "rtl_lines": 63,
+      "lint_errors": 0,
+      "lint_warnings": 0,
+      "sanitize_fixes": {
+        "add_timescale": 1
+      },
+      "tb_method": "llm",
+      "tb_checkpoints": 0,
+      "compile_ok": false,
+      "sim_ok": false,
+      "sim_verdict": "fail",
+      "repair_rounds": 0,
+      "repair_methods": [
+        "llm-rewrite"
+      ],
+      "taxonomy_hits": {
+        "E01": 819,
+        "E11": 1
+      },
+      "synth_ok": false,
+      "pnr_ok": false,
+      "bitstream": "",
+      "programmed": false,
+      "resources": {},
+      "fmax_mhz": 0.0,
+      "tokens": {
+        "calls": 3,
+        "failures": 0,
+        "prompt_tokens": 10548,
+        "completion_tokens": 3312,
+        "total_tokens": 13860,
+        "latency_s": 10.384,
+        "by_tag": {
+          "rtl-1": {
+            "calls": 1,
+            "prompt": 1660,
+            "completion": 740,
+            "latency": 2.338
+          },
+          "tb-llm": {
+            "calls": 1,
+            "prompt": 2038,
+            "completion": 1832,
+            "latency": 5.694
+          },
+          "debug-raw-1": {
+            "calls": 1,
+            "prompt": 6850,
+            "completion": 740,
+            "latency": 2.352
+          }
+        }
+      },
+      "durations": {
+        "rtl_gen_s": 2.347,
+        "sim_0_s": 0.551,
+        "total_s": 10.952
+      },
+      "success": false,
+      "error": "闭环未收敛：[simulate] FAIL (0.55s) | [E01 结构/语法不配对] ERROR: x mismatch at h=0 v=0: got 1 exp 0; [E01 结构/语法不配对] ERROR: x mismatch at h=0 v=0: got 2 exp 0; [E01 结构/语法不配对] ERROR: x mismatch at h=1 v=0: got 3 exp 1",
+      "started_at": "2026-10-28 13:57:20",
+      "finished_at": "2026-10-28 13:57:31",
+      "artifacts": {
+        "run_dir": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_baseline_s2_20261028_135720",
+        "rtl": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_baseline_s2_20261028_135720\\src\\vga_timing.v",
+        "tb": "C:\\Users\\Administrator\\Documents\\deepseek-harness\\default-workspace\\yunfan\\runs\\eval\\vga_timing_baseline_s2_20261028_135720\\src\\tb_vga_timing.v"
+      },
+      "events": [
+        {
+          "ts": "13:57:20",
+          "agent": "编排器",
+          "action": "规格锁定",
+          "detail": "设计 vga_timing/vga_timing｜50MHz｜端口 in:clk[1], in:rst_n[1], ou:hsync[1], ou:vsync[1], ou:de[1], ou:x[10], ou:y[10]\n  摘要：640x480@60 VGA 行场时序发生器：行 800 像素、场 525 行，同步信号低有效，de 在有效显示区为高。",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:57:20",
+          "agent": "硬件部署",
+          "action": "约束生成",
+          "detail": "引脚 25 个（覆盖率 100%）｜SDC 50MHz",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:57:23",
+          "agent": "代码生成",
+          "action": "LLM 调用 (rtl-1)",
+          "detail": "2400 tokens / 2.3s",
+          "level": "info",
+          "duration_s": 2.338,
+          "tokens": 2400
+        },
+        {
+          "ts": "13:57:23",
+          "agent": "代码生成",
+          "action": "确定性净化",
+          "detail": "add_timescale×1",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:57:23",
+          "agent": "代码生成",
+          "action": "RTL 通过静态门控",
+          "detail": "63 行｜63 换行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 2400
+        },
+        {
+          "ts": "13:57:28",
+          "agent": "仿真验证",
+          "action": "LLM 调用 (tb-llm)",
+          "detail": "3870 tokens / 5.7s",
+          "level": "info",
+          "duration_s": 5.694,
+          "tokens": 3870
+        },
+        {
+          "ts": "13:57:28",
+          "agent": "仿真验证",
+          "action": "LLM 直写 Testbench",
+          "detail": "172 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 3870
+        },
+        {
+          "ts": "13:57:29",
+          "agent": "编排器",
+          "action": "仿真未通过（第 0 轮）",
+          "detail": "[simulate] FAIL (0.55s) | [E01 结构/语法不配对] ERROR: x mismatch at h=0 v=0: got 1 exp 0; [E01 结构/语法不配对] ERROR: x mismatch at h=0 v=0: got 2 exp 0; [E01 结构/语法不配对] ERROR: x mismatch at h=1 v=0: got 3 exp 1",
+          "level": "warning",
+          "duration_s": 0.0,
+          "tokens": 0
+        },
+        {
+          "ts": "13:57:31",
+          "agent": "调试修复",
+          "action": "LLM 调用 (debug-raw-1)",
+          "detail": "7590 tokens / 2.4s",
+          "level": "info",
+          "duration_s": 2.352,
+          "tokens": 7590
+        },
+        {
+          "ts": "13:57:31",
+          "agent": "调试修复",
+          "action": "整模块重写（无结构化诊断）",
+          "detail": "63 行",
+          "level": "info",
+          "duration_s": 0.0,
+          "tokens": 7590
+        },
+        {
+          "ts": "13:57:31",
+          "agent": "编排器",
+          "action": "修复无变更",
+          "detail": "终止闭环",
+          "level": "error",
+          "duration_s": 0.0,
+          "tokens": 0
+        }
+      ]
+    }
+  ]
+}

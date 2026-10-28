@@ -1,0 +1,22 @@
+﻿[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yunfan"
+version = "1.0.0"
+description = "云帆 YunFan：面向高云 FPGA 的多智能体全流程自动化设计框架"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+authors = [{ name = "YunFan" }]
+keywords = ["FPGA", "Gowin", "LLM", "multi-agent", "EDA", "Verilog"]
+
+[project.scripts]
+yunfan = "yunfan.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["yunfan*"]
+
+[tool.setuptools.package-data]
+yunfan = ["data/*.json"]

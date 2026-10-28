@@ -1,0 +1,91 @@
+{
+  "name": "counter",
+  "top_module": "counter",
+  "summary": "4 位可加载使能计数器：load 优先于 en，异步低有效复位后输出 0；计满后自然回绕。",
+  "clock": {
+    "name": "clk",
+    "freq_mhz": 50.0,
+    "edge": "posedge"
+  },
+  "reset": {
+    "name": "rst_n",
+    "polarity": "active_low",
+    "style": "async"
+  },
+  "ports": [
+    {
+      "name": "clk",
+      "dir": "input",
+      "width": 1,
+      "desc": "系统时钟 50MHz"
+    },
+    {
+      "name": "rst_n",
+      "dir": "input",
+      "width": 1,
+      "desc": "异步复位，低有效"
+    },
+    {
+      "name": "en",
+      "dir": "input",
+      "width": 1,
+      "desc": "计数使能，高有效"
+    },
+    {
+      "name": "load",
+      "dir": "input",
+      "width": 1,
+      "desc": "同步加载使能，优先级高于 en"
+    },
+    {
+      "name": "din",
+      "dir": "input",
+      "width": 4,
+      "desc": "加载值"
+    },
+    {
+      "name": "q",
+      "dir": "output",
+      "width": 4,
+      "desc": "当前计数值"
+    }
+  ],
+  "parameters": [],
+  "behavior": [
+    "复位期间 q 恒为 0",
+    "load=1 时在时钟上升沿把 din 打入 q",
+    "load=0 且 en=1 时 q 每拍加 1，4 位回绕",
+    "load=0 且 en=0 时 q 保持不变"
+  ],
+  "timing": {
+    "latency_cycles": 1,
+    "notes": "输出在时钟上升沿后一拍更新，无额外延迟"
+  },
+  "verification": {
+    "stimulus": [
+      {
+        "name": "复位",
+        "cycles": 4,
+        "drive": {
+          "rst_n": "1'b0"
+        }
+      },
+      {
+        "name": "释放复位",
+        "cycles": 2,
+        "drive": {
+          "rst_n": "1'b1"
+        }
+      }
+    ],
+    "checkpoints": [
+      {
+        "cycle": 8,
+        "signals": [
+          "q"
+        ],
+        "expect": "按行为逐拍推导"
+      }
+    ]
+  }
+}

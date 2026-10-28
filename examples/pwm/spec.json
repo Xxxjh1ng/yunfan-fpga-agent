@@ -1,0 +1,78 @@
+{
+  "name": "pwm",
+  "top_module": "pwm",
+  "summary": "8 位 PWM 发生器：自由运行计数器与占空比比较，输出无毛刺的组合比较结果。",
+  "clock": {
+    "name": "clk",
+    "freq_mhz": 50.0,
+    "edge": "posedge"
+  },
+  "reset": {
+    "name": "rst_n",
+    "polarity": "active_low",
+    "style": "async"
+  },
+  "ports": [
+    {
+      "name": "clk",
+      "dir": "input",
+      "width": 1,
+      "desc": "系统时钟 50MHz"
+    },
+    {
+      "name": "rst_n",
+      "dir": "input",
+      "width": 1,
+      "desc": "异步复位，低有效"
+    },
+    {
+      "name": "duty",
+      "dir": "input",
+      "width": 8,
+      "desc": "占空比阈值 0~255"
+    },
+    {
+      "name": "pwm_out",
+      "dir": "output",
+      "width": 1,
+      "desc": "PWM 输出，cnt < duty 时为 1"
+    }
+  ],
+  "parameters": [],
+  "behavior": [
+    "8 位计数器 cnt 每拍加 1，从 0 计到 255 后回绕",
+    "pwm_out 为 cnt 与 duty 的组合比较结果（组合输出，无寄存）",
+    "duty=0 时 pwm_out 恒为 0；duty=255 时除 cnt=255 外恒为 1"
+  ],
+  "timing": {
+    "latency_cycles": 0,
+    "notes": "pwm_out 为纯组合输出，与 cnt 同拍"
+  },
+  "verification": {
+    "stimulus": [
+      {
+        "name": "复位",
+        "cycles": 4,
+        "drive": {
+          "rst_n": "1'b0"
+        }
+      },
+      {
+        "name": "释放复位",
+        "cycles": 2,
+        "drive": {
+          "rst_n": "1'b1"
+        }
+      }
+    ],
+    "checkpoints": [
+      {
+        "cycle": 8,
+        "signals": [
+          "q"
+        ],
+        "expect": "按行为逐拍推导"
+      }
+    ]
+  }
+}

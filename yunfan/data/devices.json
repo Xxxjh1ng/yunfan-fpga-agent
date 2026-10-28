@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "comment": "器件档案。logic/registers/bsram/dsp/pll/io 取自云源 EDA V1.9.9 的 IDE/share/device/device_info.csv；GW5A-25A 的 cls 取自真实 PnR 报告的 Resource Usage Summary。其余器件的 cls 按各自 CLS 微架构折算（Arora V 为 2-LUT/CLS，Arora 为 4-LUT/CLS），已在 notes 中标注。",
+  "devices": [
+    {
+      "name": "GW5A-25A",
+      "family": "GW5A",
+      "part_number": "GW5A-LV25MG121NC1/I0",
+      "package": "MBGA121N",
+      "logic": 23040,
+      "registers": 23280,
+      "cls": 11520,
+      "bsram_kb": 1008,
+      "dsp": 28,
+      "pll": 6,
+      "io_max": 86,
+      "device_version": "C1",
+      "programmer_device": "GW5A-25A",
+      "notes": "Arora V (GW5A) 家族 25K 档，与 GW5AT 系列共享 CLS/BSRAM/DSP 微架构；云源教育版可直接综合、布局布线与生成比特流。cls 为 PnR 报告实测值。"
+    },
+    {
+      "name": "GW2A-18C",
+      "family": "GW2A",
+      "part_number": "GW2A-LV18PG256C8/I7",
+      "package": "PBGA256",
+      "logic": 20736,
+      "registers": 15552,
+      "cls": 5184,
+      "bsram_kb": 828,
+      "dsp": 12,
+      "pll": 4,
+      "io_max": 207,
+      "device_version": "C",
+      "programmer_device": "GW2A-18C",
+      "notes": "晨熙 (Arora) 家族成熟器件，多款国产开发板常用；cls 按 4-LUT/CLS 折算。"
+    },
+    {
+      "name": "GW1NSR-4C",
+      "family": "GW1NSR",
+      "part_number": "GW1NSR-LV4CQN48PC6/I5",
+      "package": "QFN48P",
+      "logic": 4608,
+      "registers": 3456,
+      "cls": 1152,
+      "bsram_kb": 180,
+      "dsp": 4,
+      "pll": 2,
+      "io_max": 38,
+      "device_version": "C",
+      "programmer_device": "GW1NSR-4C",
+      "notes": "小蜜蜂家族带硬核 Cortex-M3 的 SoC 器件，适合教学与低成本原型；cls 按 4-LUT/CLS 折算。"
+    }
+  ]
+}

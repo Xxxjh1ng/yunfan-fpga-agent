@@ -1,0 +1,32 @@
+{"id": "C01", "tool": "icarus", "taxon": "E01", "log": "counter.v:12: syntax error\nI give up."}
+{"id": "C02", "tool": "icarus", "taxon": "E01", "log": "tb_counter.v:30: syntax error: unexpected token: else"}
+{"id": "C03", "tool": "icarus", "taxon": "E01", "log": "dut.v:8: error: unexpected 'endcase'"}
+{"id": "C04", "tool": "icarus", "taxon": "E03", "log": "counter.v:2: error: Unable to bind wire/reg/memory `enable' in `counter'"}
+{"id": "C05", "tool": "icarus", "taxon": "E03", "log": "uart_tx.v:41: warning: implicit declaration of function `sbox_lookup'"}
+{"id": "C06", "tool": "icarus", "taxon": "E09", "log": "tb_uart.v:14: error: port size mismatch: .data expects 8 bits, given 4"}
+{"id": "C07", "tool": "icarus", "taxon": "E11", "log": "CHECK FAIL cycle=42 tx=1 expect=0\nCHECKS TOTAL: 20, FAILED: 1\nFINAL RESULT: FAILED"}
+{"id": "C08", "tool": "icarus", "taxon": "E12", "log": "FINAL RESULT: TIMEOUT"}
+{"id": "C09", "tool": "icarus", "taxon": "E11", "log": "ERROR: tb_top.v:88: $fatal called: LOGICAL MISMATCH"}
+{"id": "C10", "tool": "gowin", "taxon": "E10", "log": "ERROR  (CT1113) : \"counter.cst\":1 | Can't find pad location '4' in current package"}
+{"id": "C11", "tool": "gowin", "taxon": "E10", "log": "ERROR  (PR2017) : 'en' cannot be placed according to constraint, for the location is a dedicated pin (JTAG)"}
+{"id": "C12", "tool": "gowin", "taxon": "E10", "log": "ERROR  (PR2028) : The constrained location is useless in current package"}
+{"id": "C13", "tool": "gowin", "taxon": "E03", "log": "ERROR  (SYN1002) : \"counter.v\":14 | signal 'freq_cnt' is not declared"}
+{"id": "C14", "tool": "gowin", "taxon": "E05", "log": "ERROR  (SYN2005) : \"top.v\":22 | net 'q' has multiple drivers"}
+{"id": "C15", "tool": "gowin", "taxon": "E06", "log": "WARN  (SYN3010) : \"ctrl.v\":31 | latch is inferred for signal 'done'"}
+{"id": "C16", "tool": "gowin", "taxon": "E07", "log": "WARN  (SYN3007) : \"pwm.v\":18 | width mismatch in assignment, 8 bits truncated to 4"}
+{"id": "C17", "tool": "gowin", "taxon": "E08", "log": "ERROR  (SYN4001) : \"dut.v\":9 | delay is not supported in synthesizable code"}
+{"id": "C18", "tool": "gowin", "taxon": "E13", "log": "ERROR  (PR3021) : design exceeds the available logic resources of the device"}
+{"id": "C19", "tool": "gowin", "taxon": "E09", "log": "ERROR  (SYN1010) : \"top.v\":5 | port 'din' not found in module 'top'"}
+{"id": "C20", "tool": "gowin", "taxon": "E02", "log": "ERROR  (SYN0501) : \"dut.v\":1 | endmodule expected before end of file"}
+{"id": "C21", "tool": "vivado", "taxon": "E06", "log": "ERROR: [Synth 8-327] inferring latch for variable 'q_reg'"}
+{"id": "C22", "tool": "vivado", "taxon": "E13", "log": "ERROR: [Place 30-574] insufficient resources: 120% LUT utilization"}
+{"id": "C23", "tool": "vivado", "taxon": "E14", "log": "CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements, setup violation"}
+{"id": "C24", "tool": "vivado", "taxon": "E01", "log": "ERROR: [Synth 8-2715] syntax error near 'endmodule'"}
+{"id": "C25", "tool": "vivado", "taxon": "E03", "log": "ERROR: [Synth 8-1031] 'shift' is not declared"}
+{"id": "C26", "tool": "vivado", "taxon": "E05", "log": "ERROR: [Synth 8-6859] multiple drivers for net 'cnt'"}
+{"id": "C27", "tool": "icarus", "taxon": "E04", "log": "dut.v:6: error: procedural assignment to wire 'q' is not allowed"}
+{"id": "C28", "tool": "gowin", "taxon": "E04", "log": "ERROR  (SYN1020) : \"dut.v\":6 | wire 'q' cannot be assigned in always block"}
+{"id": "C29", "tool": "gowin", "taxon": "E14", "log": "WARN  (TA1001) : \"top\" | setup time violation on path clk -> q_reg"}
+{"id": "C30", "tool": "icarus", "taxon": "E02", "log": "dut.v:20: error: unexpected end of file, module 'dut' is incomplete"}
+{"id": "C31", "tool": "gowin", "taxon": "E10", "log": "ERROR  (CT1113) : \"vga.cst\":7 | Can't find pad location '99' in current package"}
+{"id": "C32", "tool": "icarus", "taxon": "E11", "log": "CHECK FAIL cycle=8 q=x expect=0\nFINAL RESULT: FAILED"}

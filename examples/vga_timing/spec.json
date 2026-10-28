@@ -1,0 +1,148 @@
+{
+  "name": "vga_timing",
+  "top_module": "vga_timing",
+  "summary": "640x480@60 VGA 行场时序发生器：行 800 像素、场 525 行，同步信号低有效，de 在有效显示区为高。",
+  "clock": {
+    "name": "clk",
+    "freq_mhz": 50.0,
+    "edge": "posedge"
+  },
+  "reset": {
+    "name": "rst_n",
+    "polarity": "active_low",
+    "style": "async"
+  },
+  "ports": [
+    {
+      "name": "clk",
+      "dir": "input",
+      "width": 1,
+      "desc": "像素时钟 25MHz（本设计按 50MHz 板载时钟直接驱动）"
+    },
+    {
+      "name": "rst_n",
+      "dir": "input",
+      "width": 1,
+      "desc": "异步复位，低有效"
+    },
+    {
+      "name": "hsync",
+      "dir": "output",
+      "width": 1,
+      "desc": "行同步，低有效"
+    },
+    {
+      "name": "vsync",
+      "dir": "output",
+      "width": 1,
+      "desc": "场同步，低有效"
+    },
+    {
+      "name": "de",
+      "dir": "output",
+      "width": 1,
+      "desc": "数据有效（显示区）"
+    },
+    {
+      "name": "x",
+      "dir": "output",
+      "width": 10,
+      "desc": "当前像素列坐标"
+    },
+    {
+      "name": "y",
+      "dir": "output",
+      "width": 10,
+      "desc": "当前像素行坐标"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "H_ACTIVE",
+      "type": "int",
+      "default": 640,
+      "desc": "行有效像素"
+    },
+    {
+      "name": "H_FRONT_PORCH",
+      "type": "int",
+      "default": 16,
+      "desc": "行前肩"
+    },
+    {
+      "name": "H_SYNC_PULSE",
+      "type": "int",
+      "default": 96,
+      "desc": "行同步脉宽"
+    },
+    {
+      "name": "H_BACK_PORCH",
+      "type": "int",
+      "default": 48,
+      "desc": "行后肩"
+    },
+    {
+      "name": "V_ACTIVE",
+      "type": "int",
+      "default": 480,
+      "desc": "场有效行"
+    },
+    {
+      "name": "V_FRONT_PORCH",
+      "type": "int",
+      "default": 10,
+      "desc": "场前肩"
+    },
+    {
+      "name": "V_SYNC_PULSE",
+      "type": "int",
+      "default": 2,
+      "desc": "场同步脉宽"
+    },
+    {
+      "name": "V_BACK_PORCH",
+      "type": "int",
+      "default": 33,
+      "desc": "场后肩"
+    }
+  ],
+  "behavior": [
+    "行计数 hcnt 从 0 计到 H_TOTAL-1 后回绕，同时场计数 vcnt 加 1",
+    "场计数 vcnt 从 0 计到 V_TOTAL-1 后回绕",
+    "hsync 在 [H_ACTIVE+H_FRONT_PORCH, H_ACTIVE+H_FRONT_PORCH+H_SYNC_PULSE) 区间内为 0，其余为 1",
+    "vsync 在 [V_ACTIVE+V_FRONT_PORCH, V_ACTIVE+V_FRONT_PORCH+V_SYNC_PULSE) 区间内为 0，其余为 1",
+    "de = (hcnt < H_ACTIVE) && (vcnt < V_ACTIVE)",
+    "x = hcnt，y = vcnt"
+  ],
+  "timing": {
+    "latency_cycles": 0,
+    "notes": "所有输出为组合输出，与计数器同拍"
+  },
+  "verification": {
+    "stimulus": [
+      {
+        "name": "复位",
+        "cycles": 4,
+        "drive": {
+          "rst_n": "1'b0"
+        }
+      },
+      {
+        "name": "释放复位",
+        "cycles": 2,
+        "drive": {
+          "rst_n": "1'b1"
+        }
+      }
+    ],
+    "checkpoints": [
+      {
+        "cycle": 8,
+        "signals": [
+          "q"
+        ],
+        "expect": "按行为逐拍推导"
+      }
+    ]
+  }
+}
