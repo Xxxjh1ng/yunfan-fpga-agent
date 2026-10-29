@@ -69,7 +69,11 @@ class GowinBackend:
             "# 本脚本由 YunFan 部署智能体自动生成，请勿手工修改",
             f"# 工程: {project.name}   顶层: {project.top}   器件: {part}",
             "# ==========================================================",
-            f"set_device {part}",
+            # 同一 part number 可能同时存在于多个器件版本（如 GW5AT-138B / 138C），
+            # 此时必须显式指定 -device_version，否则 PnR 报 "more than one device".
+            ("set_device " + part + (f" -device_version {device.device_version}"
+             if device and device.device_version and len(device.device_version) == 1
+             and device.device_version in "NABCD" else "")),
             f"add_file {self._p(project.rtl)}",
         ]
         if project.cst and project.cst.exists():

@@ -1,0 +1,24 @@
+{
+  "name": "blink",
+  "top_module": "blink",
+  "summary": "上板自检灯：50 MHz 时钟 32 位分频，输出 1 Hz 方波驱动 LED，无复位依赖。",
+  "clock": {"name": "clk", "freq_mhz": 50.0, "edge": "posedge"},
+  "reset": {"name": "rst_n", "polarity": "active_low", "style": "async"},
+  "ports": [
+    {"name": "clk", "dir": "input", "width": 1, "desc": "板载时钟 50MHz"},
+    {"name": "led", "dir": "output", "width": 1, "desc": "板载 LED，1Hz 闪烁"}
+  ],
+  "parameters": [
+    {"name": "HALF", "type": "int", "default": 25000000, "desc": "半个闪烁周期的时钟拍数"}
+  ],
+  "behavior": [
+    "计数器 cnt 每个时钟上升沿加 1",
+    "cnt 达到 HALF-1 时归零，并翻转 led",
+    "不依赖复位：上电后计数器自由运行，LED 稳定闪烁"
+  ],
+  "timing": {"latency_cycles": 1, "notes": "led 每 HALF 拍翻转一次"},
+  "verification": {
+    "stimulus": [{"name": "自由运行", "cycles": 8, "drive": {}}],
+    "checkpoints": [{"cycle": 2, "signals": ["led"], "expect": "按 HALF 周期翻转"}]
+  }
+}

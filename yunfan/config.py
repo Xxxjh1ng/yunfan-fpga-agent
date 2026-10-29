@@ -13,6 +13,7 @@ from __future__ import annotations
 import glob
 import json
 import os
+import re
 import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -70,23 +71,40 @@ def _first_existing(patterns: List[str]) -> Optional[str]:
     return None
 
 
+def _version_score(path: str) -> tuple:
+    """把安装路径转成可比较的版本权重：主版本号优先，"Education" 降权。"""
+    m = re.search(r"V(\d+)\.(\d+)(?:\.(\d+))?", path, re.IGNORECASE)
+    parts = tuple(int(x) if x else 0 for x in (m.groups() if m else (0, 0, 0)))
+    edu = -1000 if "education" in path.lower() else 0
+    return parts + (edu,)
+
+
 def find_gowin_root() -> Optional[str]:
-    """定位 Gowin 云源安装目录（含 gw_sh.exe 的 IDE/bin 的父目录）。"""
+    """定位 Gowin 云源安装目录（含 gw_sh.exe 的 IDE/bin 的父目录）。
+
+    同时存在教育版与完整版时，优先选**版本更高且非 Education** 的那个。
+    """
     env = os.getenv("YUNFAN_GOWIN_ROOT")
     if env and Path(env).is_dir():
         return os.path.abspath(env)
     patterns = [
-        r"C:\Gowin\Gowin_V*\IDE\bin",
-        r"D:\Gowin\Gowin_V*\IDE\bin",
-        r"E:\Gowin\Gowin_V*\IDE\bin",
-        r"C:\Program Files\Gowin\Gowin_V*\IDE\bin",
-        r"C:\Program Files (x86)\Gowin\Gowin_V*\IDE\bin",
+        r"C:\\Gowin\\Gowin_V*\\IDE\\bin",
+        r"D:\\Gowin\\Gowin_V*\\IDE\\bin",
+        r"E:\\Gowin\\Gowin_V*\\IDE\\bin",
+        r"C:\\Program Files\\Gowin\\Gowin_V*\\IDE\\bin",
+        r"C:\\Program Files (x86)\\Gowin\\Gowin_V*\\IDE\\bin",
         "/opt/gowin/*/IDE/bin",
     ]
-    hit = _first_existing([os.path.join(p, "gw_sh.exe") for p in patterns] + [os.path.join(p, "gw_sh") for p in patterns])
-    if hit:
-        return str(Path(hit).parent.parent.parent)
-    return None
+    hits = []
+    for p in patterns:
+        for exe in ("gw_sh.exe", "gw_sh"):
+            for hit in glob.glob(os.path.join(p, exe)):
+                if os.path.isfile(hit):
+                    hits.append(str(Path(hit).parent.parent.parent))
+    if not hits:
+        return None
+    hits = sorted(set(hits), key=_version_score, reverse=True)
+    return os.path.abspath(hits[0])
 
 
 def find_tool(name: str, extra: Optional[List[str]] = None) -> Optional[str]:

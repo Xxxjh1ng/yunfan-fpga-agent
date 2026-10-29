@@ -1,4 +1,4 @@
-﻿# 云帆 YunFan
+# 云帆 YunFan
 
 **面向国产高云（Gowin）FPGA 的多智能体全流程自动化设计框架**
 
@@ -140,8 +140,29 @@ Icarus Verilog v14，模型 `deepseek-chat`，温度 0.7，5 个设计 × 3 次�
 | uart_tx | 48 | 31 | 125.1 |
 | vga_timing | 38 | 20 | 318.4 |
 
-完整数据见 `evidence/eval_summary.json`、`evidence/repair_bench.json`，
-论文（含 5 张图 / 8 张表）见 `docs/`；证据文件说明见 `evidence/README.md`。
+完整数据见 `runs/eval/summary.json`、`reports/repair_bench.json`，
+论文（含 5 张图 / 8 张表）见 `docs/`。
+
+### 4.4 真机验证（2026-10-29，芯路恒 ACG720 / GW5AT-138）
+
+上面的实验跑在 GW5A-25A 上；**同一条流水线在真实开发板上也已经跑通**：
+
+| 项目 | 实测 |
+| --- | --- |
+| 板卡 | 芯路恒 ACG720-V3-BJ（GW5AT-LV138PG484AC1/I0，138K，板载 FT2CH 下载器） |
+| 工具链 | 云源 **V1.9.12 完整版**（教育版不支持 GW5AT-138）+ 厂商应急 license |
+| 生成 | `blink` / `led_water` / `pwm_sw` 三个设计，比特流各 **33.08 MB** |
+| 时序 | Fmax 117.7 / 187.6 / 589.5 MHz（50 MHz 约束） |
+| 烧录 | JTAG 下载 SRAM，**7–8 秒**完成，板载 LED 按预期动作 |
+| 确认引脚 | clk=Y18、rst_n=B21、led[0..8]=M22/N22/L21/K21/K22/J22/H22/M21/N19、sw[0..7]=G22…B22 |
+
+完整操作步骤、引脚表与 8 个"踩坑记录"见 **[docs/上板指南.md](docs/上板指南.md)**。
+一键复跑：
+
+```powershell
+python scripts/hw_demo.py detect --device GW5AT-138
+python scripts/hw_run.py run led_water       # 或 pwm_sw / key_count
+```
 
 ## 5. 目录结构
 

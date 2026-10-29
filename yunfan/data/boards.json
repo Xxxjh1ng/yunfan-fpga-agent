@@ -54,6 +54,44 @@
         "uart_rx": "A11"
       },
       "notes": "GW2A-18C / PBGA256 参考板。H11 为 GCLKT_0 全局时钟脚，引脚编号取自 PBGA256 封装库；更换板卡时以原理图为准核对 pins。"
+    },
+    {
+      "name": "acg720",
+      "vendor": "芯路恒 / 小梅哥 (Xiaomei Ge)",
+      "device": "GW5AT-138",
+      "clock_mhz": 50.0,
+      "clock_pin": "Y18",
+      "reset_pin": "B21",
+      "reset_active_low": true,
+      "io_standard": "LVCMOS33",
+      "pins": {
+        "clk": "Y18",
+        "led[0]": "M22",
+        "led[1]": "N22",
+        "led[2]": "L21",
+        "led[3]": "K21",
+        "led[4]": "K22",
+        "led[5]": "J22",
+        "led[6]": "H22",
+        "led[7]": "M21",
+        "led[8]": "N19",
+        "uart_rx": "J21",
+        "uart_tx": "M15",
+        "rst_n": "B21",
+        "sw[0]": "G22",
+        "sw[1]": "D22",
+        "sw[2]": "E22",
+        "sw[3]": "G21",
+        "sw[4]": "E21",
+        "sw[5]": "D21",
+        "sw[6]": "C22",
+        "sw[7]": "B22",
+        "key[0]": "F15",
+        "key[1]": "A20",
+        "key[2]": "B20",
+        "key[3]": "A21"
+      },
+      "notes": "ACG720-V3-BJ 教学开发板（GW5AT-138，板载下载器）。clk=Y18、rst_n=B21、led[0]=M22 取自厂商例程 ch2_led_flash/src/led_flash.cst（Part Number: GW5AT-LV138PG484AC1/I0, Device Version: B）；其余引脚由 import_pinout.py 从《高云 ACG720-138&60K通用管脚分配表》导入。"
     }
   ]
 }

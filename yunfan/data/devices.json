@@ -49,6 +49,22 @@
       "device_version": "C",
       "programmer_device": "GW1NSR-4C",
       "notes": "小蜜蜂家族带硬核 Cortex-M3 的 SoC 器件，适合教学与低成本原型；cls 按 4-LUT/CLS 折算。"
+    },
+    {
+      "name": "GW5AT-138",
+      "family": "GW5AT",
+      "part_number": "GW5AT-LV138PG484AC1/I0",
+      "package": "PG484",
+      "logic": 0,
+      "registers": 0,
+      "cls": 0,
+      "bsram_kb": 0,
+      "dsp": 0,
+      "pll": 0,
+      "io_max": 0,
+      "device_version": "B",
+      "programmer_device": "GW5AT-138B",
+      "notes": "138K 档 Arora V（GW5AT）。part_number/package/device_version 取自厂商例程 ch2_led_flash（GW5AT-LV138PG484AC1/I0，Version B）。容量字段留 0 表示待完整版云源报告确认；教育版云源不支持本器件。"
     }
   ]
 }
