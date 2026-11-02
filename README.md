@@ -62,6 +62,27 @@ YUNFAN_MODEL=deepseek-chat
 工具路径无需配置：`yunfan doctor` 会在 `C:\Gowin\Gowin_V*\IDE\bin`、`C:\iverilog\bin`
 等常见位置自动发现，也可用 `YUNFAN_GW_SH` / `YUNFAN_IVERILOG` 等环境变量覆盖。
 
+### 2.1 可视化控制台
+
+不想记命令就开图形界面：从一句需求到一块比特流，每一步的状态、日志和波形都在一个页面里。
+
+![云帆控制台](docs/figures/app-console.png)
+
+```powershell
+.\控制台.cmd                       # Windows 双击即可（需先建好 .venv，见部署说明）
+python app.py                      # 桌面窗口；未装 pywebview 时自动退化为浏览器
+python gui/server.py --port 8765   # 只起服务，手动开 http://127.0.0.1:8765
+```
+
+* **九节点流程可视化** —— 需求解析到烧录，每步状态、耗时、产物一屏可见；
+* **实时日志** —— SSE 推送工具原始输出，边跑边刷，不必等结束；
+* **波形回看** —— 内置极简 VCD 解析（`gui/vcd.py`），仿真结束直接在 canvas 里看时序；
+* **历史回看** —— `runs/` 下每次运行的记录可回放对比；
+* **默认 dry-run** —— 烧录只扫描下载器、不写板卡，确认无误再显式执行。
+
+`gui/` 只用 Python 标准库，桌面窗口额外需要 `pywebview`。完整部署步骤与排错见
+**[docs/本地部署与使用说明.md](docs/本地部署与使用说明.md)**。
+
 ## 3. 一次运行留下什么
 
 每次设计都会在 `runs/<设计>_<变体>_s<种子>_<时间戳>/` 下留下完整证据链：
