@@ -388,12 +388,162 @@ class VgaTimingOracle(CycleOracle):
         return sorted(set(p for p in pts if 0 <= p < self.total_cycles))
 
 
+# --------------------------------------------------------------------------
+# 6. 流水灯（板卡自检常用：直接驱动 8 颗 LED）
+# --------------------------------------------------------------------------
+class LedWaterOracle(CycleOracle):
+    name = "led_water"
+    description = "8 位流水灯：复位后仅 led[0] 亮，每 DIV 拍左移一位并回绕"
+
+    def reset_state(self) -> None:
+        self.width = 8
+        for p in spec_ports(self.spec):
+            if str(p.get("name")) in ("led", "leds", "q", "led_o"):
+                self.width = int(p.get("width", 8) or 8)
+        self.mask = (1 << self.width) - 1
+        # 仿真时用小的 DIV（否则要跑上千万拍）；上板时用参数默认值
+        overrides = (self.spec.get("verification") or {}).get("param_overrides") or {}
+        try:
+            self.div = max(1, int(overrides.get("DIV", 4) or 4))
+        except (TypeError, ValueError):
+            self.div = 4
+        self.cnt = 0
+        self.led = 1
+        self.reset_cycles = 3
+        self.total_cycles = self.reset_cycles + self.div * 10 + 2
+
+    def step(self, inp: Dict[str, int]) -> Dict[str, int]:
+        if not inp.get("rst_n", 1):
+            self.cnt = 0
+            self.led = 1
+        elif self.cnt >= self.div - 1:
+            self.cnt = 0
+            self.led = ((self.led << 1) | (self.led >> (self.width - 1))) & self.mask
+        else:
+            self.cnt += 1
+        return {"led": self.led}
+
+    def check_cycles(self) -> List[int]:
+        return list(range(0, self.total_cycles))
+
+
+# --------------------------------------------------------------------------
+# 7. 拨码计数（板卡自检：拨码输入 + LED 输出）
+# --------------------------------------------------------------------------
+class KeyCountOracle(CycleOracle):
+    name = "key_count"
+    description = "拨码计数：sw=1 时每 DIV 拍加 1 并回绕，sw=0 保持不变"
+
+    def reset_state(self) -> None:
+        self.width = 4
+        for p in spec_ports(self.spec):
+            if str(p.get("name")) in ("led", "leds", "q", "count"):
+                self.width = int(p.get("width", 4) or 4)
+        self.mask = (1 << self.width) - 1
+        overrides = (self.spec.get("verification") or {}).get("param_overrides") or {}
+        try:
+            self.div = max(1, int(overrides.get("DIV", 3) or 3))
+        except (TypeError, ValueError):
+            self.div = 3
+        self.cnt = 0
+        self.val = 0
+        self.reset_cycles = 3
+        self.total_cycles = self.reset_cycles + self.div * 14
+
+    def step(self, inp: Dict[str, int]) -> Dict[str, int]:
+        if not inp.get("rst_n", 1):
+            self.cnt = 0
+            self.val = 0
+        elif inp.get("sw", 0):
+            if self.cnt >= self.div - 1:
+                self.cnt = 0
+                self.val = (self.val + 1) & self.mask
+            else:
+                self.cnt += 1
+        return {"led": self.val}
+
+    def schedule(self) -> Dict[int, Dict[str, int]]:
+        d = self.div
+        return {
+            0: {"rst_n": 0, "sw": 0},
+            3: {"rst_n": 1, "sw": 1},
+            3 + d * 6: {"sw": 0},   # 拨下：计数值应保持
+            3 + d * 9: {"sw": 1},   # 再拨上：继续计数
+        }
+
+    def check_cycles(self) -> List[int]:
+        return list(range(0, self.total_cycles))
+
+
+# --------------------------------------------------------------------------
+# 8. VGA 彩条（复用 640x480 时序；像素时钟由 50MHz 二分频）
+# --------------------------------------------------------------------------
+class VgaBarsOracle(VgaTimingOracle):
+    name = "vga_bars"
+    description = "640x480 VGA 彩条：8 条竖条（白黄青绿品红蓝黑），像素时钟 25MHz"
+
+    COLORS = [
+        (255, 255, 255),  # 白
+        (255, 255, 0),    # 黄
+        (0, 255, 255),    # 青
+        (0, 255, 0),      # 绿
+        (255, 0, 255),    # 品红
+        (255, 0, 0),      # 红
+        (0, 0, 255),      # 蓝
+        (0, 0, 0),        # 黑
+    ]
+
+    def reset_state(self) -> None:
+        super().reset_state()
+        self.half = 0
+        # 像素逻辑跑在 25MHz（clk 的二分频）上，所以 1 像素 = 2 个 clk 周期
+        self.total_cycles = self.h_total * self.v_total * 2 + 16
+
+    def step(self, inp: Dict[str, int]) -> Dict[str, int]:
+        if not inp.get("rst_n", 1):
+            self.hcnt = 0
+            self.vcnt = 0
+            self.half = 0
+        else:
+            self.half ^= 1
+            if self.half:  # clk25 的上升沿
+                if self.hcnt == self.h_total - 1:
+                    self.hcnt = 0
+                    self.vcnt = 0 if self.vcnt == self.v_total - 1 else self.vcnt + 1
+                else:
+                    self.hcnt += 1
+
+        de = 1 if (self.hcnt < self.h_active and self.vcnt < self.v_active) else 0
+        if de:
+            bar_w = max(1, self.h_active // 8)
+            idx = min(7, self.hcnt // bar_w)
+            r, g, b = self.COLORS[idx]
+        else:
+            r = g = b = 0
+        return {"vga_r": r, "vga_g": g, "vga_b": b}
+
+    def schedule(self) -> Dict[int, Dict[str, int]]:
+        return {0: {"rst_n": 0}, 5: {"rst_n": 1}}
+
+    def check_cycles(self) -> List[int]:
+        bar_w = max(1, self.h_active // 8)
+        pts: List[int] = []
+        for y in (5, 240, self.v_active - 5):
+            for i in range(8):
+                x = i * bar_w + bar_w // 2
+                pts.append((y * self.h_total + x) * 2 + 2)
+        return sorted(set(p for p in pts if 0 <= p < self.total_cycles))
+
+
 ORACLES = {
     "counter": CounterOracle,
     "pwm": PwmOracle,
     "crc32": Crc32Oracle,
     "uart_tx": UartTxOracle,
     "vga_timing": VgaTimingOracle,
+    "led_water": LedWaterOracle,
+    "key_count": KeyCountOracle,
+    "vga_bars": VgaBarsOracle,
 }
 
 

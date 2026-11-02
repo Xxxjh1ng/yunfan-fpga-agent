@@ -25,6 +25,7 @@ class DesignSpec:
     ports: List[Dict[str, Any]] = field(default_factory=list)
     parameters: List[Dict[str, Any]] = field(default_factory=list)
     behavior: List[str] = field(default_factory=list)
+    implementation_rules: List[str] = field(default_factory=list)
     timing: Dict[str, Any] = field(default_factory=dict)
     verification: Dict[str, Any] = field(default_factory=dict)
     raw: Dict[str, Any] = field(default_factory=dict)
@@ -45,7 +46,8 @@ class DesignSpec:
             spec.reset = data["reset"]
         spec.ports = [p for p in (data.get("ports") or []) if isinstance(p, dict)]
         spec.parameters = [p for p in (data.get("parameters") or []) if isinstance(p, dict)]
-        spec.behavior = [str(b) for b in (data.get("behavior") or [])]
+        spec.behavior = [str(b) for b in (data.get('behavior') or [])]
+        spec.implementation_rules = [str(r) for r in (data.get('implementation_rules') or [])]
         spec.timing = data.get("timing") or {}
         spec.verification = data.get("verification") or {}
 
@@ -98,7 +100,8 @@ class DesignSpec:
             "reset": self.reset,
             "ports": self.ports,
             "parameters": self.parameters,
-            "behavior": self.behavior,
+            'behavior': self.behavior,
+            'implementation_rules': self.implementation_rules,
             "timing": self.timing,
             "verification": self.verification,
         }

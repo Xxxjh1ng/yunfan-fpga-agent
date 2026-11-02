@@ -11,6 +11,9 @@
 *.pdf binary
 *.fs binary
 *.zip binary
+*.ico binary
+*.exe binary
+*.dll binary
 
 # Verilog / 约束文件按文本处理
 *.v text eol=lf

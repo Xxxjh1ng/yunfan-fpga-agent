@@ -89,9 +89,37 @@
         "key[0]": "F15",
         "key[1]": "A20",
         "key[2]": "B20",
-        "key[3]": "A21"
+        "key[3]": "A21",
+        "vga_clk": "C19",
+        "hsync": "A13",
+        "vsync": "A14",
+        "vga_blank": "D17",
+        "vga_r[7]": "E13",
+        "vga_r[6]": "E14",
+        "vga_r[5]": "F13",
+        "vga_r[4]": "F14",
+        "vga_r[3]": "A18",
+        "vga_r[2]": "A19",
+        "vga_r[1]": "A15",
+        "vga_r[0]": "A16",
+        "vga_g[7]": "B16",
+        "vga_g[6]": "B15",
+        "vga_g[5]": "C15",
+        "vga_g[4]": "C14",
+        "vga_g[3]": "D15",
+        "vga_g[2]": "D14",
+        "vga_g[1]": "B13",
+        "vga_g[0]": "C13",
+        "vga_b[7]": "F20",
+        "vga_b[6]": "F18",
+        "vga_b[5]": "C18",
+        "vga_b[4]": "B18",
+        "vga_b[3]": "B17",
+        "vga_b[2]": "D16",
+        "vga_b[1]": "E16",
+        "vga_b[0]": "C17"
       },
-      "notes": "ACG720-V3-BJ 教学开发板（GW5AT-138，板载下载器）。clk=Y18、rst_n=B21、led[0]=M22 取自厂商例程 ch2_led_flash/src/led_flash.cst（Part Number: GW5AT-LV138PG484AC1/I0, Device Version: B）；其余引脚由 import_pinout.py 从《高云 ACG720-138&60K通用管脚分配表》导入。"
+      "notes": "ACG720-V3-BJ 教学开发板（GW5AT-138，板载下载器）。clk=Y18、rst_n=B21、led[0]=M22 取自厂商例程 ch2_led_flash/src/led_flash.cst（Part Number: GW5AT-LV138PG484AC1/I0, Device Version: B）；其余引脚由 import_pinout.py 从《高云 ACG720-138&60K通用管脚分配表》导入。 【2026-11-02 本机实测】JTAG(FT2CH) 识别 GW5AT-138B；led_water 综合成功（33.08MB 比特流、Fmax 187.6MHz）并烧入 SRAM，8 颗 LED 依次点亮，确认 LED 为高电平点亮、clk/rst_n/led[0..7] 引脚映射与上表一致。 VGA（GM7123 模块，取自通用管脚分配表第 346-364 行）已加入 pins：vga_r/g/b[0..7]、hsync=A13、vsync=A14、vga_clk=C19、vga_blank=D17。"
     }
   ]
 }

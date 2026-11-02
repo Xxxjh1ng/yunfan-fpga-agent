@@ -1,0 +1,89 @@
+{
+  "name": "led_water",
+  "top_module": "led_water",
+  "summary": "8 位流水灯：异步低有效复位后仅 led[0] 亮，此后每 DIV 个时钟上升沿左移一位，最高位回绕到最低位。",
+  "clock": {
+    "name": "clk",
+    "freq_mhz": 50.0,
+    "edge": "posedge"
+  },
+  "reset": {
+    "name": "rst_n",
+    "polarity": "active_low",
+    "style": "async"
+  },
+  "ports": [
+    {
+      "name": "clk",
+      "dir": "input",
+      "width": 1,
+      "desc": "系统时钟 50MHz"
+    },
+    {
+      "name": "rst_n",
+      "dir": "input",
+      "width": 1,
+      "desc": "异步复位，低有效"
+    },
+    {
+      "name": "led",
+      "dir": "output",
+      "width": 8,
+      "desc": "8 颗 LED，高电平点亮，同一时刻只有一位为 1"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "DIV",
+      "default": 12500000,
+      "desc": "移位间隔（时钟周期数）；50MHz 下 12500000 ≈ 0.25 s"
+    }
+  ],
+  "behavior": [
+    "复位期间 led 恒为 8'b0000_0001（仅 led[0] 亮）",
+    "复位释放后内部计数器每拍加 1，累计到 DIV-1 时清零并产生一次移位",
+    "每次移位把 led 左移一位，led[7] 回绕到 led[0]",
+    "除移位那一拍外，led 保持不变"
+  ],
+  "timing": {
+    "latency_cycles": 1,
+    "notes": "移位在时钟上升沿后一拍生效；仿真时用较小的 DIV 便于观察"
+  },
+  "verification": {
+    "param_overrides": {
+      "DIV": 4
+    },
+    "stimulus": [
+      {
+        "name": "复位",
+        "cycles": 4,
+        "drive": {
+          "rst_n": "1'b0"
+        }
+      },
+      {
+        "name": "释放复位后连续观察 10 次移位",
+        "cycles": 44,
+        "drive": {
+          "rst_n": "1'b1"
+        }
+      }
+    ],
+    "checkpoints": [
+      {
+        "cycle": 3,
+        "signals": [
+          "led"
+        ],
+        "expect": "复位态：8'b0000_0001"
+      },
+      {
+        "cycle": 8,
+        "signals": [
+          "led"
+        ],
+        "expect": "第一次移位后：8'b0000_0010"
+      }
+    ]
+  }
+}

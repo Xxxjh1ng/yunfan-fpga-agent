@@ -127,8 +127,13 @@ def render_tb(
     lines.append("  integer i;")
     lines.append("")
 
-    # 例化
-    lines.append(f"  {inst} u_dut (")
+    # 例化（规格可指定仿真参数覆盖，例如把流水分频 DIV 调小以便快速仿真）
+    overrides = dict((spec.get("verification") or {}).get("param_overrides") or {})
+    if overrides:
+        pairs = ", ".join(f".{k}({v})" for k, v in overrides.items())
+        lines.append(f"  {inst} #({pairs}) u_dut (")
+    else:
+        lines.append(f"  {inst} u_dut (")
     conns = []
     for p in iface.ports:
         conns.append(f"    .{p.name}({p.name})")

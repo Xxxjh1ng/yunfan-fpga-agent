@@ -25,6 +25,14 @@ _SEMANTIC: List[Tuple[str, str]] = [
     (r"^(rst|rst_n|reset|reset_n|nrst|sys_rst)$", "rst_n"),
     (r"^(led|led_o|leds?)(\[(\d+)\])?$", "led"),
     (r"^(key|btn|button|key_n|keys?)(\[(\d+)\])?$", "key"),
+    (r"^(sw|switch|switches|dip|dip_sw)(\[(\d+)\])?$", "sw"),
+    (r"^(vga_r|vga_red|red)(\[(\d+)\])?$", "vga_r"),
+    (r"^(vga_g|vga_green|green)(\[(\d+)\])?$", "vga_g"),
+    (r"^(vga_b|vga_blue|blue)(\[(\d+)\])?$", "vga_b"),
+    (r"^(hsync|vga_hs|h_sync)$", "hsync"),
+    (r"^(vsync|vga_vs|v_sync)$", "vsync"),
+    (r"^(vga_clk|vga_clock|pclk|pixel_clk)$", "vga_clk"),
+    (r"^(vga_blank|blank|blk)$", "vga_blank"),
     (r"^(uart_tx|tx|txd|uart_txd)$", "uart_tx"),
     (r"^(uart_rx|rx|rxd|uart_rxd)$", "uart_rx"),
     (r"^(seg|seg_o|seven_seg)(\[(\d+)\])?$", "seg"),
@@ -155,9 +163,9 @@ def _match_semantic(bit_name: str, board: BoardProfile) -> Optional[str]:
             candidate = board.pins.get(f"{key}[{idx}]")
             if candidate:
                 return candidate
-        # 单 bit 的 led / key（无下标）
+        # 单 bit 的 led / key / 标量信号（无下标）
         if idx is None:
-            candidate = board.pins.get(f"{key}[0]")
+            candidate = board.pins.get(f"{key}[0]") or board.pins.get(key)
             if candidate:
                 return candidate
     return None

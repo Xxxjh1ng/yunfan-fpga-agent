@@ -7,3 +7,7 @@ tools/
 *.egg-info/
 build/
 dist/
+.venv/
+build-app/
+dist-app/
+.pytest_cache/

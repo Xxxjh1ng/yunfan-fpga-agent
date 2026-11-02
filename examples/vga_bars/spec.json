@@ -1,0 +1,140 @@
+{
+  "name": "vga_bars",
+  "top_module": "vga_bars",
+  "summary": "640x480@60 VGA 彩条：屏幕分成 8 条竖条（白、黄、青、绿、品红、红、蓝、黑），每条约 80 像素宽；像素时钟由 50MHz 二分频得到。",
+  "clock": {
+    "name": "clk",
+    "freq_mhz": 50.0,
+    "edge": "posedge"
+  },
+  "reset": {
+    "name": "rst_n",
+    "polarity": "active_low",
+    "style": "async"
+  },
+  "ports": [
+    {
+      "name": "clk",
+      "dir": "input",
+      "width": 1,
+      "desc": "板载 50MHz 时钟"
+    },
+    {
+      "name": "rst_n",
+      "dir": "input",
+      "width": 1,
+      "desc": "异步复位，低有效"
+    },
+    {
+      "name": "vga_clk",
+      "dir": "output",
+      "width": 1,
+      "desc": "像素时钟 25MHz（送给 GM7123）"
+    },
+    {
+      "name": "hsync",
+      "dir": "output",
+      "width": 1,
+      "desc": "行同步，低有效"
+    },
+    {
+      "name": "vsync",
+      "dir": "output",
+      "width": 1,
+      "desc": "场同步，低有效"
+    },
+    {
+      "name": "vga_r",
+      "dir": "output",
+      "width": 8,
+      "desc": "红色分量（8 位）"
+    },
+    {
+      "name": "vga_g",
+      "dir": "output",
+      "width": 8,
+      "desc": "绿色分量（8 位）"
+    },
+    {
+      "name": "vga_b",
+      "dir": "output",
+      "width": 8,
+      "desc": "蓝色分量（8 位）"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "H_ACTIVE",
+      "type": "int",
+      "default": 640
+    },
+    {
+      "name": "H_FRONT_PORCH",
+      "type": "int",
+      "default": 16
+    },
+    {
+      "name": "H_SYNC_PULSE",
+      "type": "int",
+      "default": 96
+    },
+    {
+      "name": "H_BACK_PORCH",
+      "type": "int",
+      "default": 48
+    },
+    {
+      "name": "V_ACTIVE",
+      "type": "int",
+      "default": 480
+    },
+    {
+      "name": "V_FRONT_PORCH",
+      "type": "int",
+      "default": 10
+    },
+    {
+      "name": "V_SYNC_PULSE",
+      "type": "int",
+      "default": 2
+    },
+    {
+      "name": "V_BACK_PORCH",
+      "type": "int",
+      "default": 33
+    }
+  ],
+  "behavior": [
+    "vga_clk 为 50MHz 的二分频（25MHz），所有像素逻辑在 vga_clk 上升沿推进",
+    "行计数 hcnt 0..799，场计数 vcnt 0..524",
+    "hsync 在 hcnt ∈ [656, 752) 期间为低，其余为高",
+    "vsync 在 vcnt ∈ [490, 492) 期间为低，其余为高",
+    "有效显示区 de = hcnt<640 且 vcnt<480；de=0 时 RGB 全 0",
+    "de=1 时按 hcnt/80 取 8 条竖条：0 白、1 黄、2 青、3 绿、4 品红、5 红、6 蓝、7 黑（8 位满幅）"
+  ],
+  "timing": {
+    "latency_cycles": 0,
+    "notes": "像素时钟 25MHz；分辨率 640x480，行 800 像素、场 525 行"
+  },
+  "verification": {
+    "checkpoints": [
+      {
+        "cycle": 3,
+        "signals": [
+          "vga_r"
+        ],
+        "expect": "复位后为 0"
+      }
+    ]
+  },
+  "implementation_rules": [
+    "只使用 clk 一个时钟域（50MHz），禁止再生成派生时钟去驱动逻辑。",
+    "用一个 1 位寄存器 phase：每个 clk 上升沿翻转（phase <= ~phase），并直接把 phase 赋给输出 vga_clk（即 25MHz 像素时钟）。",
+    "所有像素逻辑在 clk 上升沿、且 phase==1 时推进一拍（相当于每 2 个 clk 前进一个像素）。",
+    "hcnt 范围 0..799，vcnt 范围 0..524；每推进一个像素 hcnt 加 1，hcnt 到 799 归零并让 vcnt 加 1，vcnt 到 524 归零。",
+    "hsync / vsync 在 phase==1 时用当前 hcnt / vcnt 打一拍输出，低有效区间：hcnt 在 [656,752)、vcnt 在 [490,492)。",
+    "de = (hcnt < 640) && (vcnt < 480)。",
+    "颜色按 de 组合输出（用 assign，不要写会保持旧值的时序逻辑）：de=0 时 RGB 全 0；de=1 时 idx = hcnt/80 取 0..7，依次为 白/黄/青/绿/品红/红/蓝/黑，每通道 8 位满幅 0xFF 或 0x00。",
+    "不要在 always @(*) 里用 case 且不给 default，避免综合出锁存器。"
+  ]
+}

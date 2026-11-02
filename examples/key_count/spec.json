@@ -1,0 +1,104 @@
+{
+  "name": "key_count",
+  "top_module": "key_count",
+  "summary": "拨码计数：SW 拨上时每 DIV 个时钟 led[3:0] 加 1（0→15 回绕），拨下时保持不变；异步低有效复位后归零。",
+  "clock": {
+    "name": "clk",
+    "freq_mhz": 50.0,
+    "edge": "posedge"
+  },
+  "reset": {
+    "name": "rst_n",
+    "polarity": "active_low",
+    "style": "async"
+  },
+  "ports": [
+    {
+      "name": "clk",
+      "dir": "input",
+      "width": 1,
+      "desc": "系统时钟 50MHz"
+    },
+    {
+      "name": "rst_n",
+      "dir": "input",
+      "width": 1,
+      "desc": "异步复位，低有效"
+    },
+    {
+      "name": "sw",
+      "dir": "input",
+      "width": 1,
+      "desc": "拨码使能，高有效；为 0 时计数保持"
+    },
+    {
+      "name": "led",
+      "dir": "output",
+      "width": 4,
+      "desc": "4 位计数值，二进制显示在 LED0..3（高电平点亮）"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "DIV",
+      "default": 5000000,
+      "desc": "计数间隔（时钟周期数）；50MHz 下 5000000 = 0.1 s"
+    }
+  ],
+  "behavior": [
+    "复位期间 led 恒为 4'b0000，内部计数器清零",
+    "sw=1 时，每累计 DIV 个时钟上升沿 led 加 1，4 位自然回绕",
+    "sw=0 时，led 与内部计数器都保持不变（不是清零）",
+    "复位优先于一切"
+  ],
+  "timing": {
+    "latency_cycles": 1,
+    "notes": "led 在计数到 DIV 的那个上升沿后一拍更新"
+  },
+  "verification": {
+    "param_overrides": {
+      "DIV": 3
+    },
+    "stimulus": [
+      {
+        "name": "复位",
+        "cycles": 4,
+        "drive": {
+          "rst_n": "1'b0",
+          "sw": "1'b0"
+        }
+      },
+      {
+        "name": "拨上 SW 开始计数",
+        "cycles": 20,
+        "drive": {
+          "rst_n": "1'b1",
+          "sw": "1'b1"
+        }
+      },
+      {
+        "name": "拨下 SW，计数保持",
+        "cycles": 8,
+        "drive": {
+          "sw": "1'b0"
+        }
+      },
+      {
+        "name": "再次拨上，继续计数直到回绕",
+        "cycles": 16,
+        "drive": {
+          "sw": "1'b1"
+        }
+      }
+    ],
+    "checkpoints": [
+      {
+        "cycle": 3,
+        "signals": [
+          "led"
+        ],
+        "expect": "复位态：0"
+      }
+    ]
+  }
+}

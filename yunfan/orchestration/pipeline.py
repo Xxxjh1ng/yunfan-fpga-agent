@@ -1,4 +1,4 @@
-﻿"""编排管道：把五个智能体串成「生成—验证—反馈—修复」的自主闭环。
+"""编排管道：把五个智能体串成「生成—验证—反馈—修复」的自主闭环。
 
 闭环的关键不在"有循环"，而在**反馈的质量与代价**：
     Lint（毫秒） → 综合（秒） → 仿真（秒） → 布局布线（十秒）
@@ -215,6 +215,7 @@ class Pipeline:
                 spec,
                 max_attempts=self.cfg.max_rtl_attempts if self.cfg.use_lint_gate else 1,
                 temperature=self.cfg.temperature,
+                extra_rules=(spec.implementation_rules or None),
             )
         rec.durations["rtl_gen_s"] = round(time.time() - t0, 3)
         rec.rtl_attempts = gen.attempts
