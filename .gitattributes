@@ -14,6 +14,7 @@
 *.ico binary
 *.exe binary
 *.dll binary
+*.rar binary
 
 # Verilog / 约束文件按文本处理
 *.v text eol=lf

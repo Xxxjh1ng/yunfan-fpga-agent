@@ -249,7 +249,7 @@ class GowinBackend:
         if not self.programmer_cli or not Path(self.programmer_cli).exists():
             return StepResult(stage="program", ok=False, tool="programmer_cli", log="未找到 programmer_cli.exe", verdict="skipped")
 
-        device = project.device.programmer_device if project.device else "GW5A-25A"
+        device = project.device.programmer_device if project.device else _default_programmer_device()
         started = time.time()
         project.ensure_dirs()
         log_path = project.log_dir / "program.log"
@@ -362,6 +362,23 @@ class GowinBackend:
         finished = ("Finished" in log) and ("100%" in log)
         # 有的版本哪怕烧成功也返回非 0，用日志里的完成标记兜底
         ok = rc == 0 or finished
+
+        # 目标器件与板上芯片不一致时给出可执行的提示（而不是只回一行英文错误）
+        if not ok and "ID code mismatch" in log:
+            log = (
+                f"[YunFan] 目标器件与板上芯片不匹配：本次按 {device} 生成比特流，"
+                "但下载器回读的芯片 ID 不同，已中止烧录。\n"
+                "[YunFan] 请在控制台的「目标器件 / 目标板卡」中选择板子实际型号"
+                "（例如 ACG720 → GW5AT-138 / acg720），再重新生成比特流。\n"
+            ) + log
+            res = make_result(
+                "program", ok=False, tool="programmer_cli", cmd=cmd, returncode=rc,
+                started=started, log=log, project=project, verdict="device-mismatch",
+                parse_tool="programmer",
+            )
+            res.metrics["cable_detected"] = 1.0
+            res.artifacts["bitstream"] = str(bit)
+            return res
         cable = bool(re.search(r"(USB Cable|FT2CH|GWU2X|Jtag)", log, re.IGNORECASE))
         res = make_result(
             "program", ok=ok, tool="programmer_cli", cmd=cmd, returncode=rc,

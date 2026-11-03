@@ -111,14 +111,15 @@ class TestConstraints(unittest.TestCase):
 
     @unittest.skipUnless(SETTINGS.tools.gowin_root, "需要云源 EDA 安装")
     def test_remap_invalid_pin(self):
+        # 这条测的是「厂商封装库」能力，需用器件库中存在的型号，与界面默认器件无关
         cst = 'IO_LOC "clk" 4;\nIO_PORT "clk" IO_TYPE=LVCMOS33;'
-        fixed, changes = remap_invalid_pins(cst, SETTINGS.device, SETTINGS.tools.gowin_root)
+        fixed, changes = remap_invalid_pins(cst, DeviceProfile.load("GW5A-25A"), SETTINGS.tools.gowin_root)
         self.assertTrue(changes)
         self.assertNotIn('"clk" 4', fixed)
 
     @unittest.skipUnless(SETTINGS.tools.gowin_root, "需要云源 EDA 安装")
     def test_pin_library_excludes_dedicated(self):
-        pins = load_package_pins(SETTINGS.device, SETTINGS.tools.gowin_root)
+        pins = load_package_pins(DeviceProfile.load("GW5A-25A"), SETTINGS.tools.gowin_root)
         self.assertTrue(pins)
         self.assertFalse([p for p in pins if p["cfg"] and "SSPI" in p["cfg"]])
 

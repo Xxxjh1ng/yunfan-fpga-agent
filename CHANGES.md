@@ -1,4 +1,57 @@
-# 本次更新：可视化控制台 + 板卡自检示例（2026-11-02）
+# 本次更新：控制台并入项目 + 图形化配置（2026-11-03）
+
+## 变更
+
+- **控制台从根目录 `gui/` 迁入 `yunfan/console/` 子包**，成为项目的一等模块：
+  - 新增 `yunfan/console/__init__.py`（`make_server` / `serve`）与 `__main__.py`；
+  - 新增命令行入口：`python -m yunfan.console` 与 `yunfan console [--port] [--open]`；
+  - `pyproject.toml` 的 package-data 增加 `console/*.html`、`*.ico`、`*.png`，`pip install -e .` 后直接可用；
+  - `app.py`（桌面版）与 `控制台.cmd` 同步改为新路径，exe 已重新打包验证。
+- **新增设置面板**（评委/用户可自助填写）：
+  - 右上角「⚙ 设置」：API Key、Provider、BASE_URL、MODEL、`YUNFAN_GW_SH` / `YUNFAN_IVERILOG` / `YUNFAN_PROGRAMMER_CLI`；
+  - 保存写入项目根目录 `.env`（保留其它自定义键），已配置的 Key 以 `sk-007**********5cb9` 形式回显、留空不覆盖；
+  - 「测试环境」按钮后台运行 `yunfan doctor`，把四项检查结果回显在面板内；
+  - 新增接口：`GET /api/config`、`POST /api/config`、`POST /api/config/test`；
+  - 未配置 Key 时页面顶部常驻黄色提醒条；深链接 `#settings` 可直接打开面板。
+- 节点状态全量落盘到 `auto.json`，历史回放时可完整复原九节点状态；
+- 新增深链接 `#run=<运行目录>[&tab=wave]`，打开即回放某次运行。
+
+## 默认目标改为 ACG720
+
+- `devices.json` / `boards.json` 顺序调整：**GW5AT-138 与 acg720 排在第一位**，
+  界面下拉、CLI、编程器在未显式指定时都落到这块板子；
+- `config.py` 的内置默认值同步改为 `GW5AT-138` / `acg720`；
+- 控制台 `/api/meta` 增加 `defaults` 字段，前端在无本地记录时按它预选；
+- 修复：未显式传 `--device` 时设计用 138、烧录却回落到 `GW5A-25A` 导致 `ID code mismatch`
+  （现在设计、烧录、编程器三处共用同一个默认器件解析）。
+
+## 引脚映射补齐
+
+- 语义表新增通用控制/数据/输出端口：`en|load|we` → 按键，`din|data` → 拨码，`q|dout|count` → LED；
+- 语义命中但引脚已被占用时，自动顺延到同族的下一个空闲引脚（例如第二个按键）。
+  效果：`examples/counter` 在 ACG720 上从 58% 覆盖率提升到 **100%**，无需厂商封装库也能映射。
+
+## 修复
+
+- **Testbench 节点误显示为失败**：无参考模型时流程走「LLM 直写 Testbench」分支，
+  该分支此前没有发出完成事件，收尾时被误判为失败；已在控制台补齐该分支的节点状态。
+- **烧录失败提示按原因区分**：`device-mismatch` 时节点显示「器件与板卡不匹配」，
+  底部提示直接给出改法（把「目标器件」改成 GW5AT-138、板卡选 acg720），不再笼统地说“下载器没连”。
+- **记住上次的器件与板卡**：两者都写入 localStorage，下次打开自动回填，避免重复选错。
+- **器件选错时的烧录报错难以理解**：`programmer_cli` 只回一行 `Error: ID code mismatch.`。
+  现在会先打印中文说明并给出 `verdict=device-mismatch`：
+  「本次按 GW5A-25A 生成比特流，但下载器回读的芯片 ID 不同，已中止烧录；
+  请在「目标器件 / 目标板卡」中选择板子实际型号（ACG20 → GW5AT-138 / acg720）」。
+
+## 文档
+
+- `README.md`：新增 §2.1「可视化控制台」（入口、九节点、设置面板）；
+- `docs/本地部署与使用说明.md`：路径更新为 `yunfan/console/`，补充设置面板说明；
+- `云帆YunFan_技术报告.docx/.pdf`：控制台相关表述同步为子包与设置面板（PDF 重新渲染，10 页）。
+
+---
+
+# 上一次更新：可视化控制台 + 板卡自检示例（2026-11-02）
 
 ## 新增
 
@@ -27,6 +80,21 @@
     失败时用 WMI 创建进程重试（打包 exe 场景）
 - `yunfan/data/boards.json`：acg720 补 28 个 VGA 引脚（GM7123 模块，取自通用管脚分配表）
 - `pyproject.toml`：去掉 UTF-8 BOM（`tomllib` 不接受 BOM，否则 `pip install -e .` 失败）
+
+## 默认目标改为 ACG720
+
+- `devices.json` / `boards.json` 顺序调整：**GW5AT-138 与 acg720 排在第一位**，
+  界面下拉、CLI、编程器在未显式指定时都落到这块板子；
+- `config.py` 的内置默认值同步改为 `GW5AT-138` / `acg720`；
+- 控制台 `/api/meta` 增加 `defaults` 字段，前端在无本地记录时按它预选；
+- 修复：未显式传 `--device` 时设计用 138、烧录却回落到 `GW5A-25A` 导致 `ID code mismatch`
+  （现在设计、烧录、编程器三处共用同一个默认器件解析）。
+
+## 引脚映射补齐
+
+- 语义表新增通用控制/数据/输出端口：`en|load|we` → 按键，`din|data` → 拨码，`q|dout|count` → LED；
+- 语义命中但引脚已被占用时，自动顺延到同族的下一个空闲引脚（例如第二个按键）。
+  效果：`examples/counter` 在 ACG720 上从 58% 覆盖率提升到 **100%**，无需厂商封装库也能映射。
 
 ## 修复
 

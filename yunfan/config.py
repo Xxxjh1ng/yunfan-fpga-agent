@@ -283,8 +283,8 @@ def discover_toolchain() -> Toolchain:
 class Settings:
     workspace: Path = field(default_factory=lambda: DEFAULT_WORKSPACE)
     out_dir: Path = field(default_factory=lambda: DEFAULT_WORKSPACE / "runs")
-    device: DeviceProfile = field(default_factory=lambda: DeviceProfile.load("GW5A-25A"))
-    board: BoardProfile = field(default_factory=lambda: BoardProfile.load("xm_gw5a25"))
+    device: DeviceProfile = field(default_factory=lambda: DeviceProfile.load("GW5AT-138"))
+    board: BoardProfile = field(default_factory=lambda: BoardProfile.load("acg720"))
     tools: Toolchain = field(default_factory=discover_toolchain)
     llm: LLMConfig = field(default_factory=lambda: LLMConfig().resolved())
     max_lint_rounds: int = 3

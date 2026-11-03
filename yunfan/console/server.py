@@ -26,7 +26,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 GUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(GUI))
 
@@ -37,6 +37,75 @@ RUNS = ROOT / "runs"
 SPECS = ["counter", "pwm", "crc32", "uart_tx", "vga_timing", "led_water", "key_count", "vga_bars"]
 MARK = "@@RESULT@@"
 IDENT = re.compile(r"^[A-Za-z_][A-Za-z0-9_$]*$")
+
+ENV_PATH = ROOT / ".env"
+CONFIG_KEYS = (
+    "YUNFAN_API_KEY",
+    "YUNFAN_BASE_URL",
+    "YUNFAN_MODEL",
+    "YUNFAN_PROVIDER",
+    "YUNFAN_GW_SH",
+    "YUNFAN_IVERILOG",
+    "YUNFAN_VVP",
+    "YUNFAN_PROGRAMMER_CLI",
+)
+
+
+def _read_env_file() -> dict:
+    data: dict = {}
+    if ENV_PATH.is_file():
+        try:
+            for line in ENV_PATH.read_text(encoding="utf-8-sig").splitlines():
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                key, _, value = line.partition("=")
+                data[key.strip()] = value.strip().strip('"').strip("'")
+        except OSError:
+            pass
+    return data
+
+
+def _default_device_name() -> str:
+    """数据文件里的第一个器件即默认器件（当前为 ACG720 的 GW5AT-138）。"""
+    try:
+        items = _json_file(ROOT / "yunfan" / "data" / "devices.json").get("devices", [])
+        if items:
+            return str(items[0].get("name") or "")
+    except Exception:
+        pass
+    return ""
+
+
+def _mask(secret: str) -> str:
+    if not secret:
+        return ""
+    if len(secret) <= 10:
+        return "*" * len(secret)
+    return secret[:6] + "*" * 10 + secret[-4:]
+
+
+def _write_env_file(values: dict) -> None:
+    """把配置写回项目根目录的 .env（保留其它自定义键）。"""
+    merged = _read_env_file()
+    for key, value in values.items():
+        if key in CONFIG_KEYS:
+            merged[key] = str(value or "")
+    lines = [
+        "# ============================================================",
+        "# 云帆 YunFan —— 由控制台「设置」写入",
+        "# 也可以手工编辑；同名的系统环境变量优先级更高",
+        "# ============================================================",
+        "",
+    ]
+    for key in CONFIG_KEYS:
+        if key in merged:
+            lines.append(f"{key}={merged[key]}")
+    for key, value in merged.items():
+        if key not in CONFIG_KEYS:
+            lines.append(f"{key}={value}")
+    ENV_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
 
 JOBS: dict[str, dict] = {}
 JOBS_LOCK = threading.Lock()
@@ -61,6 +130,7 @@ def _push_node(job: dict, line: str) -> None:
 
     def emit(node_id: str, state: str, detail: str = "") -> None:
         job["current_node"] = node_id
+        job.setdefault("node_state", {})[node_id] = {"state": state, "detail": detail}
         q.put({"t": "node", "id": node_id, "state": state, "detail": detail})
 
     if "[需求解析]" in line:
@@ -78,6 +148,10 @@ def _push_node(job: dict, line: str) -> None:
         emit("tb", "running")
     if "自验证激励生成" in line:
         emit("tb", "done", _clean_detail(line))
+    elif "无参考模型" in line:
+        emit("tb", "running", _clean_detail(line))
+    elif "LLM 直写 Testbench" in line:
+        emit("tb", "done", "LLM 直写（无参考模型）· " + _clean_detail(line))
     if "仿真通过" in line:
         emit("sim", "done", _clean_detail(line))
     elif "仿真失败" in line or "仿真未通过" in line:
@@ -234,7 +308,7 @@ def _enrich(payload: dict) -> dict:
     if auto_meta.is_file():
         try:
             info = json.loads(auto_meta.read_text(encoding="utf-8"))
-            for key in ("stages", "sim_verdict", "program_verdict", "programmed"):
+            for key in ("stages", "sim_verdict", "program_verdict", "programmed", "nodes"):
                 if info.get(key) is not None and key not in out:
                     out[key] = info[key]
         except (OSError, json.JSONDecodeError):
@@ -365,7 +439,7 @@ def start_program(payload: dict) -> dict:
     bits = sorted((base / "impl" / "pnr").glob("*.fs")) + sorted((base / "impl" / "pnr").glob("*.bin"))
     if not bits:
         raise ValueError("该运行没有比特流（.fs），先跑一次完整设计")
-    device = (payload.get("device") or "").strip()
+    device = (payload.get("device") or _default_device_name() or "").strip()
     real = bool(payload.get("real"))
     top = payload.get("top") or bits[0].stem
     cmd = [str(PY), "-u", str(GUI / "eda_bridge.py"), "program",
@@ -467,7 +541,7 @@ def start_auto(payload: dict) -> dict:
     """一次授权后无人值守地跑完 设计 → 仿真 → 烧录。"""
     if not payload.get("authorized"):
         raise ValueError("全自动执行需要先授权")
-    device = (payload.get("device") or "").strip()
+    device = (payload.get("device") or _default_device_name() or "").strip()
     # 设计阶段必须用同一颗器件 + 对应板卡引脚，否则比特流与板子不匹配
     design_payload = dict(payload)
     if device and not design_payload.get("board"):
@@ -481,7 +555,11 @@ def start_auto(payload: dict) -> dict:
         stages: list[dict] = []
         before = _snapshot()
 
+        node_state: dict = {}
+
         def node(nid: str, state: str, detail: str = "") -> None:
+            node_state[nid] = {"state": state, "detail": detail}
+            job.setdefault("node_state", {})[nid] = {"state": state, "detail": detail}
             job["queue"].put({"t": "node", "id": nid, "state": state, "detail": detail})
 
         def finish(res: dict) -> dict:
@@ -496,6 +574,7 @@ def start_auto(payload: dict) -> dict:
                             "sim_verdict": res.get("sim_verdict"),
                             "program_verdict": res.get("program_verdict"),
                             "programmed": res.get("programmed"),
+                            "nodes": job.get("node_state", {}),
                             "finished_at": time.strftime("%Y-%m-%d %H:%M:%S"),
                         }, ensure_ascii=False, indent=2),
                         encoding="utf-8",
@@ -588,14 +667,21 @@ def start_auto(payload: dict) -> dict:
                 if prog_ok:
                     break
             cable = "已检测下载器" if prog.get("cable_detected") else "未检测到下载器"
+            verdict = prog.get("verdict") or ""
+            mismatch = verdict == "device-mismatch"
             node("prog", "done" if prog_ok else "failed",
-                 f"{prog.get('verdict', '')} · {cable}")
+                 ("器件与板卡不匹配 · " + cable) if mismatch else f"{verdict} · {cable}")
             stages.append({"name": "烧录", "ok": prog_ok, "s": round(time.time() - t2, 1),
-                           "verdict": prog.get("verdict")})
+                           "verdict": verdict})
             if not prog_ok:
-                log("[全自动] 停在③：烧录失败（多半是下载器没连或驱动未装）")
+                if mismatch:
+                    log("[全自动] 停在③：目标器件与板卡不匹配 —— 请把「目标器件」改为板子实际型号"
+                        "（ACG720 → GW5AT-138），板卡随之选 acg720，再重跑一次。")
+                else:
+                    log("[全自动] 停在③：烧录失败（多半是下载器没连或驱动没装）")
                 return finish({"ok": False, "stage": "烧录", "run_dir": run_dir, "stages": stages,
-                        "sim_verdict": sim.get("verdict"), "error": "烧录失败"})
+                        "sim_verdict": sim.get("verdict"),
+                        "error": "器件与板卡不匹配" if mismatch else "烧录失败"})
         else:
             stages.append({"name": "烧录", "ok": True, "skipped": True})
             node("prog", "skipped", "未启用烧录")
@@ -667,10 +753,14 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/meta":
             dev = _json_file(ROOT / "yunfan" / "data" / "devices.json").get("devices", [])
             boards = _json_file(ROOT / "yunfan" / "data" / "boards.json").get("boards", [])
+            # 默认取数据文件的第一条（当前指向实际在用的 ACG720）
+            d0 = dev[0] if dev else {}
+            b0 = boards[0] if boards else {}
             self._json(200, {
                 "devices": [{"name": d.get("name"), "part": d.get("part_number"),
                              "version": d.get("device_version")} for d in dev],
                 "boards": [{"name": b.get("name"), "device": b.get("device")} for b in boards],
+                "defaults": {"device": d0.get("name"), "board": b0.get("name")},
                 "specs": SPECS,
             })
             return
@@ -717,6 +807,23 @@ class Handler(BaseHTTPRequestHandler):
                 self._json(200, data)
             except Exception as exc:  # noqa: BLE001
                 self._json(500, {"error": f"波形解析失败：{exc}"})
+            return
+
+        if path == "/api/config":
+            cfg = _read_env_file()
+            key = cfg.get("YUNFAN_API_KEY", "") or os.environ.get("YUNFAN_API_KEY", "")
+            self._json(200, {
+                "api_key_set": bool(key),
+                "api_key_hint": _mask(key),
+                "base_url": cfg.get("YUNFAN_BASE_URL", "https://api.deepseek.com"),
+                "model": cfg.get("YUNFAN_MODEL", "deepseek-chat"),
+                "provider": cfg.get("YUNFAN_PROVIDER", "deepseek"),
+                "gw_sh": cfg.get("YUNFAN_GW_SH", "") or os.environ.get("YUNFAN_GW_SH", ""),
+                "iverilog": cfg.get("YUNFAN_IVERILOG", "") or os.environ.get("YUNFAN_IVERILOG", ""),
+                "programmer_cli": cfg.get("YUNFAN_PROGRAMMER_CLI", "") or os.environ.get("YUNFAN_PROGRAMMER_CLI", ""),
+                "env_file": str(ENV_PATH),
+                "env_file_exists": ENV_PATH.is_file(),
+            })
             return
 
         if path == "/api/stream":
@@ -773,6 +880,27 @@ class Handler(BaseHTTPRequestHandler):
             self._json(400, {"error": "JSON 解析失败"})
             return
 
+        if parsed.path == "/api/config":
+            try:
+                _write_env_file(payload or {})
+                self._json(200, {"ok": True, "env_file": str(ENV_PATH)})
+            except OSError as exc:
+                self._json(500, {"error": f"写入 .env 失败：{exc}"})
+            return
+
+        if parsed.path == "/api/config/test":
+            try:
+                proc = subprocess.run(
+                    [str(PY), "-m", "yunfan", "doctor"], cwd=str(ROOT),
+                    capture_output=True, text=True, encoding="utf-8", errors="replace",
+                    timeout=180, env=_env(), stdin=subprocess.DEVNULL,
+                )
+                text = (proc.stdout or "") + (proc.stderr or "")
+                self._json(200, {"ok": proc.returncode == 0, "text": text[-5000:]})
+            except Exception as exc:  # noqa: BLE001
+                self._json(500, {"error": str(exc)})
+            return
+
         routes = {
             "/api/run": start_design,
             "/api/auto": start_auto,
@@ -804,20 +932,69 @@ class Handler(BaseHTTPRequestHandler):
         self._json(404, {"error": "not found"})
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--port", type=int, default=8765)
-    ap.add_argument("--host", default="127.0.0.1")
-    args = ap.parse_args()
+def make_server(host: str = "127.0.0.1", port: int = 8765) -> ThreadingHTTPServer:
+    """构造（但不启动）控制台服务，供 CLI 与桌面版复用。"""
     RUNS.mkdir(parents=True, exist_ok=True)
-    srv = ThreadingHTTPServer((args.host, args.port), Handler)
+    srv = ThreadingHTTPServer((host, port), Handler)
     srv.daemon_threads = True
-    print(f"YunFan 控制台已启动： http://{args.host}:{args.port}", flush=True)
+    return srv
+
+
+def _port_in_use(host: str, port: int) -> bool:
+    """目标端口上是否已经有服务在应答。"""
+    import socket
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.settimeout(0.4)
+        return sock.connect_ex((host, port)) == 0
+
+
+def serve(host: str = "127.0.0.1", port: int = 8765, *, open_browser: bool = False) -> int:
+    """启动控制台并阻塞，Ctrl+C 退出。"""
+    url = f"http://{host}:{port}"
+    # 先探一下端口：Windows 上 allow_reuse_address 会让第二次 bind 也成功，
+    # 所以不能只靠 bind 失败来判断「已经在运行」。
+    if _port_in_use(host, port):
+        print(f"控制台已在运行：{url}（直接打开已有实例）", flush=True)
+        if open_browser:
+            try:
+                import webbrowser
+
+                webbrowser.open(url)
+            except Exception:
+                pass
+        return 0
+    try:
+        srv = make_server(host, port)
+    except OSError as exc:
+        print(f"端口 {port} 无法监听：{exc}", flush=True)
+        return 1
+    url = f"http://{host}:{srv.server_address[1]}"
+    print(f"云帆 YunFan 控制台已启动： {url}", flush=True)
+    if open_browser:
+        try:
+            import webbrowser
+
+            webbrowser.open(url)
+        except Exception:
+            pass
     try:
         srv.serve_forever()
     except KeyboardInterrupt:
-        pass
+        print("\n已停止。", flush=True)
+    finally:
+        srv.shutdown()
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(prog="yunfan-console", description="云帆可视化控制台")
+    ap.add_argument("--port", type=int, default=8765)
+    ap.add_argument("--host", default="127.0.0.1")
+    ap.add_argument("--open", action="store_true", help="启动后自动打开浏览器")
+    args = ap.parse_args()
+    return serve(args.host, args.port, open_browser=args.open)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

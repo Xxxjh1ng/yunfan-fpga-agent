@@ -1,6 +1,6 @@
 r"""云帆 YunFan 桌面控制台（原生窗口）。
 
-把 gui/server.py 起在本地端口，再用 WebView2 原生窗口承载同一个界面：
+把 yunfan/console/server.py 起在本地端口，再用 WebView2 原生窗口承载同一个界面：
 没有地址栏、没有标签页，关掉窗口即退出，行为就是一个普通桌面软件。
 
 用法
@@ -24,7 +24,7 @@ from pathlib import Path
 
 
 def project_root() -> Path:
-    """定位项目根目录（含 gui/server.py 的那一层）。
+    """定位项目根目录（含 yunfan/console/server.py 的那一层）。
 
     打包成 exe 后从 exe 所在目录向上找，所以 exe 放在项目根目录或 dist-app 里都能跑。
     """
@@ -33,14 +33,14 @@ def project_root() -> Path:
     else:
         start = Path(__file__).resolve().parent
     for cand in [start, *start.parents]:
-        if (cand / "gui" / "server.py").is_file():
+        if (cand / "yunfan" / "console" / "server.py").is_file():
             return cand
     return start
 
 
 ROOT = project_root()
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "gui"))
+sys.path.insert(0, str(ROOT / "yunfan" / "console"))
 
 
 def pick_port(preferred: int) -> int:
@@ -95,11 +95,11 @@ def main() -> int:
     ap.add_argument("--headless", action="store_true", help="只启动服务，不开窗口")
     args = ap.parse_args()
 
-    if not (ROOT / "gui" / "server.py").is_file():
-        print(f"[错误] 找不到 {ROOT / 'gui' / 'server.py'}，请把程序放在项目根目录", file=sys.stderr)
+    if not (ROOT / "yunfan" / "console" / "server.py").is_file():
+        print(f"[错误] 找不到 {ROOT / 'yunfan' / 'console' / 'server.py'}，请把程序放在项目根目录", file=sys.stderr)
         return 2
 
-    from server import Handler, ThreadingHTTPServer  # gui/server.py
+    from server import Handler, ThreadingHTTPServer  # yunfan/console/server.py
 
     port = pick_port(args.port)
     srv = ThreadingHTTPServer(("127.0.0.1", port), Handler)

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "yunfan"
-version = "1.2.0"
+version = "1.3.0"
 description = "云帆 YunFan：面向高云 FPGA 的多智能体全流程自动化设计框架"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -19,4 +19,4 @@ yunfan = "yunfan.cli:main"
 include = ["yunfan*"]
 
 [tool.setuptools.package-data]
-yunfan = ["data/*.json"]
+yunfan = ["data/*.json", "console/*.html", "console/*.ico", "console/*.png"]

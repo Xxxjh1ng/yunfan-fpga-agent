@@ -26,6 +26,11 @@ _SEMANTIC: List[Tuple[str, str]] = [
     (r"^(led|led_o|leds?)(\[(\d+)\])?$", "led"),
     (r"^(key|btn|button|key_n|keys?)(\[(\d+)\])?$", "key"),
     (r"^(sw|switch|switches|dip|dip_sw)(\[(\d+)\])?$", "sw"),
+    # 通用控制/数据输入：板上没有同名引脚时，退到按键与拨码
+    (r"^(en|ena|enable|en_i|ld|load|load_i|we|wr)$", "key"),
+    (r"^(din|d_in|data|data_in|d)(\[(\d+)\])?$", "sw"),
+    # 输出类端口默认给板载 LED
+    (r"^(q|q_o|qout|dout|d_out|out|out_q|count|cnt)(\[(\d+)\])?$", "led"),
     (r"^(vga_r|vga_red|red)(\[(\d+)\])?$", "vga_r"),
     (r"^(vga_g|vga_green|green)(\[(\d+)\])?$", "vga_g"),
     (r"^(vga_b|vga_blue|blue)(\[(\d+)\])?$", "vga_b"),
@@ -143,6 +148,21 @@ def _bits(name: str, width: int) -> List[str]:
     return [f"{name}[{i}]" for i in range(width)]
 
 
+def _match_semantic_free(bit_name: str, board: BoardProfile, used: set) -> Optional[str]:
+    """同族里找一个还没被占用的引脚（例如第二个按键、第二组拨码）。"""
+    base = re.sub(r"\[\d+\]$", "", bit_name)
+    for pattern, key in _SEMANTIC:
+        if key in ("clk", "rst_n", "uart_tx", "uart_rx", "buzzer"):
+            continue
+        if not re.match(pattern, base, re.IGNORECASE):
+            continue
+        for i in range(8):
+            cand = board.pins.get(f"{key}[{i}]")
+            if cand and cand not in used:
+                return cand
+    return None
+
+
 def _match_semantic(bit_name: str, board: BoardProfile) -> Optional[str]:
     base = re.sub(r"\[\d+\]$", "", bit_name)
     idx = None
@@ -202,8 +222,16 @@ def build_constraints(
                 )
                 used.add(pin)
             elif pin and pin in used:
-                res.warnings.append(f"{bit} 语义匹配到已被占用的引脚 {pin}，转入自动分配")
-                res.unmapped.append(bit)
+                alt = _match_semantic_free(bit, board, used) if board else None
+                if alt:
+                    res.assignments.append(
+                        PinAssignment(port=bit, pin=alt, io_type=io_type, source="board",
+                                      note="按端口语义匹配板载资源（顺延到空闲引脚）")
+                    )
+                    used.add(alt)
+                else:
+                    res.warnings.append(f"{bit} 语义匹配到已被占用的引脚 {pin}，转入自动分配")
+                    res.unmapped.append(bit)
             else:
                 res.unmapped.append(bit)
 

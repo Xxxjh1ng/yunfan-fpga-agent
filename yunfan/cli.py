@@ -173,6 +173,13 @@ def cmd_eval(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_console(args: argparse.Namespace) -> int:
+    """启动可视化控制台（阻塞）。"""
+    from .console import serve
+
+    return serve(args.host, args.port, open_browser=not args.no_browser)
+
+
 def cmd_table(args: argparse.Namespace) -> int:
     _fix_console()
     from .orchestration.metrics import RunRecord
@@ -256,6 +263,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--no-resume", action="store_true")
     common(p)
     p.set_defaults(func=cmd_eval)
+
+    p = sub.add_parser("console", help="启动可视化控制台（本地 Web UI）")
+    p.add_argument("--port", type=int, default=8765)
+    p.add_argument("--host", default="127.0.0.1")
+    p.add_argument("--no-browser", action="store_true", help="不自动打开浏览器")
+    p.set_defaults(func=cmd_console)
 
     p = sub.add_parser("table", help="汇总某一目录下的运行记录")
     p.add_argument("--dir", required=True)

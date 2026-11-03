@@ -49,6 +49,9 @@ python -m yunfan eval --designs counter,pwm,crc32,uart_tx,vga_timing --variants 
 
 # 6) 汇总已有记录
 python -m yunfan table --dir runs/eval
+
+# 7) 打开可视化控制台（九节点流水线 / 波形 / 历史回放）
+python -m yunfan console --open
 ```
 
 配置放在项目根目录 `.env`（参考 `.env.example`）：
@@ -64,24 +67,35 @@ YUNFAN_MODEL=deepseek-chat
 
 ### 2.1 可视化控制台
 
-不想记命令就开图形界面：从一句需求到一块比特流，每一步的状态、日志和波形都在一个页面里。
-
-![云帆控制台](docs/figures/app-console.png)
+命令行之外，框架自带一个本地控制台（`yunfan/console/`，零第三方依赖，仅用标准库）：
 
 ```powershell
-.\控制台.cmd                       # Windows 双击即可（需先建好 .venv，见部署说明）
-python app.py                      # 桌面窗口；未装 pywebview 时自动退化为浏览器
-python gui/server.py --port 8765   # 只起服务，手动开 http://127.0.0.1:8765
+python -m yunfan.console --open      # 起在 127.0.0.1:8765 并打开浏览器
+yunfan console --open                # 等价写法
 ```
 
-* **九节点流程可视化** —— 需求解析到烧录，每步状态、耗时、产物一屏可见；
-* **实时日志** —— SSE 推送工具原始输出，边跑边刷，不必等结束；
-* **波形回看** —— 内置极简 VCD 解析（`gui/vcd.py`），仿真结束直接在 canvas 里看时序；
-* **历史回看** —— `runs/` 下每次运行的记录可回放对比；
-* **默认 dry-run** —— 烧录只扫描下载器、不写板卡，确认无误再显式执行。
+Windows 下还有两个零命令行的入口：
 
-`gui/` 只用 Python 标准库，桌面窗口额外需要 `pywebview`。完整部署步骤与排错见
-**[docs/本地部署与使用说明.md](docs/本地部署与使用说明.md)**。
+- **双击 `控制台.cmd`**：起服务并打开浏览器（会留一个命令行窗口，关掉即停止）；
+- **双击 `make_shortcut.cmd`**：在桌面生成「云帆 YunFan 控制台」快捷方式，它直接调用
+  `pythonw.exe -m yunfan.console --open`，**不弹黑窗口**，以后从桌面一键打开。
+
+> 若控制台已经在运行，再次双击只会打开已有实例，不会重复起服务。
+
+界面上可以完成从需求到烧录的全流程，并把每一步可视化：
+
+- **九节点时间线**：需求解析 → 代码生成 → 静态门控 → Testbench → 设计内仿真 →（调试修复）→
+  综合与布局布线 → 波形仿真 → 烧录；每个节点显示动作、结果与耗时，点开可看该步完整日志；
+- **一次授权、无人值守**：确认后自动跑完，失败即停（设计失败不进仿真、仿真失败不烧录）；
+- **波形视图**：解析 VCD 绘制数字波形（一位信号画电平、总线画色块并标十六进制值）；
+- **历史回放**：每次运行留下 `auto.json`，点历史即可复原当时的节点状态与产物。
+
+- **设置面板**：右上角「⚙ 设置」可直接填写 API Key、BASE_URL、MODEL 与工具路径，
+  保存即写入项目根目录 `.env`；旁边有「测试环境」按钮，一键跑 `yunfan doctor` 并回显四项检查结果。
+  未配置 Key 时页面顶部会常驻提醒条。
+
+> 只想看界面而不跑设计，可以 `python -m yunfan.console`（不需要 API Key 与 EDA 工具）；
+> 要真正跑一次设计仍需 `.env` 里的 Key 与云源 / Icarus。
 
 ## 3. 一次运行留下什么
 
@@ -204,6 +218,7 @@ yunfan/
 ├── yunfan/
 │   ├── config.py            配置、器件/板卡/工具链发现
 │   ├── cli.py               命令行入口
+│   ├── console/             可视化控制台（server.py + 单页前端 + VCD 解析 + EDA 桥）
 │   ├── llm/                 大模型接入（OpenAI 兼容 + 离线回放 + 提示词注册表）
 │   ├── rtl/                 抽取/净化/接口解析/静态检查/自验证 TB/参考模型
 │   ├── diagnostics/         15 类错误分类体系 + 多工具日志解析
@@ -212,10 +227,9 @@ yunfan/
 │   ├── orchestration/       规格、闭环管道、指标与 Pass@k
 │   ├── eval/                批量评测与故障注入
 │   └── data/                器件库、开发板库
-├── gui/                     可视化控制台（HTTP + SSE 服务、单页前端、VCD 解析、EDA 桥接）
 ├── app.py                   桌面窗口入口（pywebview + WebView2，缺依赖时退化为浏览器）
 ├── 控制台.cmd                Windows 一键启动（走项目 .venv）
-├── yunfan.cmd               命令行快捷入口
+├── yunfan.cmd               命令行快捷入口；make_shortcut.* 生成桌面快捷方式
 ├── examples/                9 个示例（5 个评测基准 + 4 个上板演示，均含规格与参考实现）
 ├── tests/                   51 个单元测试（无需网络与 EDA）
 ├── docs/                    上板指南、本地部署与使用说明、论文与实验图
